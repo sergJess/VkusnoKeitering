@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  column-gap: 10px;
+  justify-content: space-between;
+  padding: 33px 0 0 0;
+}
+
+.header__block {
+  padding: 25px 0 0 0;
+}

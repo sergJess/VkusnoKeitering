@@ -59,9 +59,13 @@ li {
   font-family: "Railway", sans-serif;
   font-weight: 400;
   font-size: 1.2rem;
+  letter-spacing: 0%;
   color: #000000;
 }
 
 .heading-text {
   font-family: "Ebbe", sans-serif;
+  font-weight: 100;
+  font-size: 1.2rem;
+  color: #000000;
 }
