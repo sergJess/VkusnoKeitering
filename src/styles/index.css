@@ -1,6 +1,7 @@
-@import url("./fonts/_fonts.css");
-@import url("./utils/variables.css");
+@import url("./base/_fonts.css");
 @import url("./base/_base.css");
+@import url("./base/_fonts-styles.css");
 @import url("./layout/header.css");
+@import url("./layout/footer.css");
 @import url("./components/social-links.css");
 @import url("./components/button.css");

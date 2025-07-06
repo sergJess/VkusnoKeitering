@@ -2,7 +2,7 @@
   display: flex;
   column-gap: 10px;
   justify-content: space-between;
-  padding: 33px 0 0 0;
+  padding: 33px 260px 0 260px;
 }
 
 .header__block {

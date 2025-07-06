@@ -1,3 +1,17 @@
 .footer {
   display: flex;
+  column-gap: 5px;
+  justify-content: space-between;
+  padding: 52px 260px;
+  min-height: 197px;
+  background-color: #000;
+}
+
+.footer__social {
+  display: flex;
+  column-gap: 5px;
+}
+
+.footer__social-block {
+  margin: 0 20px 0 139px;
 }
