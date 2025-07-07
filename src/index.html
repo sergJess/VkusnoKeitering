@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <header class="">
+      <header class="header-block">
         <div class="header">
           <div class="logo-inner">
             <a href="#"
@@ -57,17 +57,34 @@
             <p class="text-base">Работаем в Москве и Московской области</p>
           </div>
         </div>
-        <div class="">
-          <nav>
+        <div class="header__block-nav">
+          <nav class="header__navigation">
             <ul class="navigation">
-              <li><a class="text-base" href="#">О нас</a></li>
+              <li class="navigation__list">
+                <p class="text-base">
+                  О нас<span class="navigation__arrow"></span>
+                </p>
+              </li>
               <li><a class="text-base" href="#">Портфолио</a></li>
-              <li><a class="text-base" href="#">Услуги</a></li>
+              <li>
+                <p class="text-base">
+                  Услуги<span class="navigation__arrow"></span>
+                </p>
+              </li>
               <li><a class="text-base" href="#">Интернет магазин</a></li>
               <li><a class="text-base" href="#">Контакты</a></li>
             </ul>
           </nav>
+          <div class="search">
+            <input
+              class="search-input text-base"
+              type="search"
+              placeholder="Поиск по сайту..."
+            />
+            <span class="search__icon"></span>
+          </div>
         </div>
+        <canvas class="header__line" id="canvas-line"></canvas>
       </header>
 
       <footer class="footer">

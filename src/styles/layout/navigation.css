@@ -1,4 +1,23 @@
 .navigation {
   display: flex;
-  column-gap: 5px;
+  column-gap: 50px;
+}
+
+.navigation__list {
+  cursor: pointer;
+}
+
+.header__block-nav {
+  display: flex;
+  column-gap: 50px;
+}
+
+.navigation__arrow {
+  margin-left: 6px;
+  display: inline-block;
+  width: 6px;
+  height: 3px;
+  background-image: url("../../assets/img/icons/arrows/nav-arrow.svg");
+  background-position: center;
+  background-repeat: no-repeat;
 }

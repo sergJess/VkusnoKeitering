@@ -1,1 +1,10 @@
-console.log("Test");
+const canvasLine = document.getElementById("canvas-line");
+const header = document.querySelector(".header");
+const ctx = canvasLine.getContext("2d");
+ctx.setLineDash([2, 2]);
+ctx.beginPath();
+ctx.strokeStyle = "dfdfdf";
+ctx.lineWidth = 2;
+ctx.moveTo(0, 0);
+ctx.lineTo(header.offsetWidth, 0);
+ctx.stroke();

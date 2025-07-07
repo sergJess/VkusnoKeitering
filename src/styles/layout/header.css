@@ -1,8 +1,23 @@
+.header-block {
+  padding: 33px 0 19px 0;
+  /* border-bottom: 2px dotted #dfdfdf; */
+}
+
+.header__line {
+  width: 100%;
+  height: 20px;
+  margin: 0 13.54% 0 13.54%;
+}
+
 .header {
   display: flex;
   column-gap: 10px;
   justify-content: space-between;
-  padding: 33px 13.5% 0 13.5%;
+  margin: 0 13.5% 0 13.5%;
+}
+
+.header__navigation {
+  padding: 0 10px 0 294px;
 }
 
 .header__block {

@@ -2,7 +2,7 @@
   display: flex;
   column-gap: 5px;
   justify-content: space-between;
-  padding: 52px 13.5%;
+  padding: 52px 13.54%;
   min-height: 197px;
   background-color: #000;
 }
@@ -13,5 +13,6 @@
 }
 
 .footer__social-block {
+  padding: 10px 0 0 0;
   margin: 0 20px 0 139px;
 }

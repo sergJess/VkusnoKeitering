@@ -1,0 +1,18 @@
+.search-input {
+  display: inline-block;
+  max-width: 108px;
+}
+
+.search-input::placeholder {
+  color: #939393;
+}
+
+.search__icon {
+  margin-left: 2px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-image: url("../../assets/img/icons/search/search.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
