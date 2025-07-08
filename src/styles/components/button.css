@@ -2,9 +2,20 @@
   padding: 13px 44px;
   border-radius: 30px;
   background-color: #000;
-  font-family: "Railway", sans-serif;
-  font-weight: 800;
-  font-size: 1.2rem;
-  color: #fff;
+  cursor: pointer;
+}
+
+.button-order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 12px;
+  width: 155px;
+  height: 155px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background-image: url("../../assets/img/buttons/button-order.svg");
+  background-position: center;
+  background-repeat: no-repeat;
   cursor: pointer;
 }

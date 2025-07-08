@@ -1,11 +1,10 @@
 .header-block {
   padding: 33px 0 19px 0;
-  /* border-bottom: 2px dotted #dfdfdf; */
 }
 
 .header__line {
   width: 100%;
-  height: 20px;
+  height: 2px;
   margin: 0 13.54% 0 13.54%;
 }
 
@@ -17,7 +16,7 @@
 }
 
 .header__navigation {
-  padding: 0 10px 0 294px;
+  padding: 54.8px 10px 0 294px;
 }
 
 .header__block {

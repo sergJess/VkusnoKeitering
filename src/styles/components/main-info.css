@@ -1,0 +1,23 @@
+.main-info {
+  display: flex;
+  column-gap: 5px;
+  padding: 0px 0 15px 0;
+  margin: 0 13.45% 0 13.45%;
+  background-image: url("../../assets/img/slider/main-slider-1.jpg");
+  background-position: top right;
+  background-repeat: no-repeat;
+  min-height: 650px;
+}
+
+.main-info__text {
+  padding-left: 264px;
+  letter-spacing: 5px;
+}
+
+.main__title_special {
+  display: block;
+}
+
+.main-info__button {
+  align-self: flex-end;
+}
