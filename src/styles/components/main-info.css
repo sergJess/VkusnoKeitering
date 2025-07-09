@@ -19,5 +19,19 @@
 }
 
 .main-info__button {
-  align-self: flex-end;
+  margin-top: auto;
+}
+
+.main-info-slider {
+  margin-top: auto;
+  margin-left: auto;
+}
+
+.main-info-slider__arrows {
+  display: flex;
+  column-gap: 10px;
+}
+
+.main-info-slider__arrow {
+  cursor: pointer;
 }
