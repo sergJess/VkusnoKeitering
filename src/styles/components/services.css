@@ -1,0 +1,28 @@
+.services {
+  margin: 0 13%;
+}
+.services-title {
+  display: flex;
+  justify-content: center;
+}
+
+.services-block {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px 10px;
+  padding: 69px 0 54px 0;
+}
+
+.services__item {
+  display: inline-block;
+}
+
+.services__element {
+  display: flex;
+  justify-content: center;
+}
+
+.services__icon {
+  margin: 18.5px 0 8px 0;
+}
