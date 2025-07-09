@@ -26,3 +26,7 @@
 .services__icon {
   margin: 18.5px 0 8px 0;
 }
+
+.service-order {
+  border: 1px solid #eddbae;
+}

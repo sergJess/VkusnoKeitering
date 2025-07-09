@@ -5,6 +5,10 @@
   cursor: pointer;
 }
 
+.button_colored-1 {
+  background-color: #ff8e8e;
+}
+
 .button-order {
   display: flex;
   justify-content: center;

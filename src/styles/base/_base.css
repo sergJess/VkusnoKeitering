@@ -26,6 +26,10 @@ li {
   text-decoration: none;
 }
 
+button {
+  border: none;
+}
+
 input {
   border: none;
   outline: none;
@@ -40,6 +44,7 @@ h5,
 h6,
 p,
 ul,
+button,
 li {
   margin: 0;
   padding: 0;
