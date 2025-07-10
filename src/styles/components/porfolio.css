@@ -1,0 +1,30 @@
+.portfolio {
+  padding: 100px 0 10px 0;
+}
+
+.porfolio__title {
+  display: flex;
+  justify-content: center;
+  padding: 0 13%;
+}
+
+.porfolio__tabs {
+  padding: 32px 0 38px 0;
+  display: flex;
+  justify-content: center;
+  column-gap: 32px;
+  padding: 0 13%;
+}
+
+.porfolio__examples {
+  display: flex;
+  gap: 1px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.porfolio__examples-item {
+}
+.porfolio__examples-subitem {
+  display: flex;
+}
