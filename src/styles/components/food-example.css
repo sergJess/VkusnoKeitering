@@ -1,0 +1,14 @@
+.food-example {
+  padding: 46px 13% 104px 13%;
+}
+.food-example__title {
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.food-example-tabs {
+  display: flex;
+  justify-content: center;
+  column-gap: 50px;
+}
