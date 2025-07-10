@@ -28,5 +28,10 @@
 }
 
 .service-order {
+  display: flex;
+  justify-content: center;
+  column-gap: 68px;
+  padding: 35px 10% 36px 10%;
+  margin: 0 13%;
   border: 1px solid #eddbae;
 }
