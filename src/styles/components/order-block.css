@@ -21,4 +21,11 @@
 .form__disclaimer {
   display: flex;
   justify-content: center;
+  text-align: center;
+}
+
+.order__subtext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
