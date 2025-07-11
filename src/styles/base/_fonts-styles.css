@@ -39,6 +39,13 @@
   color: #000000;
 }
 
+.text-extra-title {
+  font-family: "Ebbe", sans-serif;
+  font-weight: 100;
+  font-size: 12.9rem;
+  color: #000000;
+}
+
 .text-block-title {
   font-family: "Ebbe", sans-serif;
   font-weight: 100;
@@ -124,4 +131,8 @@
 
 .text_colored4 {
   color: #b09f74;
+}
+
+.text_colored5 {
+  color: #939393;
 }

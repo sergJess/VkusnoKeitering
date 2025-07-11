@@ -1,0 +1,24 @@
+.order-block {
+}
+
+.order-block__title {
+  display: flex;
+  justify-content: center;
+}
+
+.form__fields {
+  display: flex;
+  justify-content: center;
+  column-gap: 34px;
+}
+
+.form__input {
+  border: 1px solid #eddbae;
+  border-radius: 30px;
+  padding: 8px 20px;
+}
+
+.form__disclaimer {
+  display: flex;
+  justify-content: center;
+}
