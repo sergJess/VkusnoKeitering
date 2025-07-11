@@ -1,0 +1,14 @@
+.about-company__title {
+  display: flex;
+  justify-content: center;
+}
+
+.about-company__text {
+  display: flex;
+  justify-content: center;
+}
+
+.about-company__button {
+  display: flex;
+  justify-content: center;
+}

@@ -12,3 +12,14 @@
   justify-content: center;
   column-gap: 50px;
 }
+
+.food-example-goods {
+  display: flex;
+  justify-content: center;
+  column-gap: 45px;
+}
+
+.food-example__button {
+  display: flex;
+  justify-content: center;
+}
