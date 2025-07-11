@@ -15,10 +15,12 @@
   margin: 0 13.5% 0 13.5%;
 }
 
-.header__navigation {
-  padding: 54.8px 10px 0 294px;
-}
-
 .header__block {
   padding: 21px 0 0 0;
+}
+
+.header__block-nav {
+  display: flex;
+  column-gap: 50px;
+  padding: 54.8px 10px 0 294px;
 }
