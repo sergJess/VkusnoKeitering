@@ -19,6 +19,21 @@
 
 .navigation__submenu {
   display: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateX(-13%) translateY(100%);
+  background-color: #fff;
+  padding: 3px 26px;
+}
+
+.navigation__submenu-link {
+  text-wrap: nowrap;
+  display: block;
+}
+
+.navigation-show__submenu {
+  position: relative;
 }
 
 .navigation-show__submenu:hover .navigation__submenu {
