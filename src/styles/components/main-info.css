@@ -1,8 +1,11 @@
+.main-info__text-block {
+  width: 48%;
+}
 .main-info {
   display: flex;
-  column-gap: 5px;
-  padding: 0px 0 15px 0;
-  margin: 0 13.45% 0 13.45%;
+  column-gap: 15px;
+  padding: 90px 0 34px 0;
+  margin: 20px 13.45% 0 13.45%;
   background-image: url("../../assets/img/slider/main-slider-1.jpg");
   background-position: top right;
   background-repeat: no-repeat;
@@ -10,7 +13,7 @@
 }
 
 .main-info__text {
-  padding-left: 264px;
+  margin-left: auto;
   letter-spacing: 5px;
 }
 

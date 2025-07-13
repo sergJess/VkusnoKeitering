@@ -1,6 +1,6 @@
 .navigation {
   display: flex;
-  column-gap: 50px;
+  column-gap: 49px;
 }
 
 .navigation__list {
@@ -8,7 +8,7 @@
 }
 
 .navigation__arrow {
-  margin-left: 6px;
+  margin-left: 2px;
   display: inline-block;
   width: 6px;
   height: 3px;
