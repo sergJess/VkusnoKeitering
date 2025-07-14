@@ -11,8 +11,16 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px 10px;
-  padding: 69px 0 54px 0;
+  gap: 60px 10px;
+  padding: 66px 20px 54px 15px;
+}
+
+.services-text_spacing {
+  letter-spacing: 1.3px;
+}
+
+.services-text_spacing2 {
+  letter-spacing: 3px;
 }
 
 .services__item {
@@ -30,9 +38,16 @@
 
 .service-order {
   display: flex;
-  justify-content: center;
-  column-gap: 68px;
-  padding: 35px 10% 36px 10%;
-  margin: 0 13%;
+  column-gap: 10px;
+  padding: 22px 10% 30px 10.8%;
+  margin: 0 14px 0 8px;
   border: 1px solid #eddbae;
+}
+
+.services__text-block {
+  margin: 0 4.6% 0 11.5%;
+}
+
+.service-button__inner {
+  margin: auto 0;
 }
