@@ -10,7 +10,8 @@
 .food-example-tabs {
   display: flex;
   justify-content: center;
-  column-gap: 50px;
+  column-gap: 53px;
+  padding: 25px 0 30px 0;
 }
 
 .food-example-goods {
