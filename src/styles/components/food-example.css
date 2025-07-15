@@ -24,3 +24,11 @@
   display: flex;
   justify-content: center;
 }
+
+.food-example__item-title {
+  padding: 22px 0 8px 0;
+}
+
+.food-example__item-price {
+  padding: 15px 0 8px 0;
+}
