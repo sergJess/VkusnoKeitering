@@ -1,5 +1,8 @@
 .header-block {
   padding: 33px 0 19px 0;
+  background-image: url("../../assets/img/header/header-bg.svg");
+  background-repeat: no-repeat;
+  background-position: bottom center;
 }
 
 .header__line {
