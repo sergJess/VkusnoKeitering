@@ -1,18 +1,31 @@
 .services {
-  margin: 0 13%;
   padding: 56px 0 0 0;
 }
+
 .services-title {
   display: flex;
   justify-content: center;
+  padding-bottom: 66px;
+  margin: 0 13%;
 }
 
-.services-block {
+.services-block{
+ background-image: url("../../assets/img/services/services-bg.svg");
+ background-repeat: no-repeat;
+ background-position: top left;
+ padding: 0 40px 58px 22px;
+}
+
+.services-block__inner {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 60px 10px;
-  padding: 62px 20px 44px 15px;
+  gap: 50px 10px;
+  margin: 0 13%;
+}
+
+.services-image__inner{
+  border-radius: 33px;
 }
 
 .services-text_spacing {
@@ -38,14 +51,14 @@
 
 .service-order {
   display: flex;
-  column-gap: 10px;
+  column-gap: 22px;
   padding: 22px 10% 30px 10.8%;
-  margin: 0 14px 0 8px;
   border: 1px solid #eddbae;
+  margin: 0 13.8% 0 13.25%;
 }
 
 .services__text-block {
-  margin: 0 4.6% 0 11.5%;
+  margin: 0 4.6% 0 7%;
 }
 
 .service-button__inner {
