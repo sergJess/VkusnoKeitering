@@ -4,7 +4,7 @@
 .main-info {
   display: flex;
   column-gap: 15px;
-  padding: 90px 0 34px 0;
+  padding: 84px 0 34px 0;
   margin: 20px 13.45% 0 13.45%;
   background-image: url("../../assets/img/slider/main-slider-1.jpg");
   background-position: top right;
@@ -21,18 +21,23 @@
   display: block;
 }
 
-.main-info__button {
+.main-info__button-inner {
   margin-top: auto;
+}
+
+.main-info__button{
+  margin-bottom: 6px;
 }
 
 .main-info-slider {
   margin-top: auto;
   margin-left: auto;
+  margin-bottom: 13px;
 }
 
 .main-info-slider__arrows {
   display: flex;
-  column-gap: 10px;
+  column-gap: 17px;
 }
 
 .main-info-slider__arrow {
