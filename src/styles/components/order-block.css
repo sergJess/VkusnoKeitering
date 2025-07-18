@@ -1,9 +1,14 @@
 .order-block {
+  padding: 124px 0 70px 0;
 }
 
 .order-block__title {
   display: flex;
   justify-content: center;
+}
+
+.order-block__form{
+  padding: 54px 0 0 0;
 }
 
 .form__fields {
@@ -13,20 +18,27 @@
 }
 
 .form__input {
+  display:  inline-block;
+  min-width: 200px;
   border: 1px solid #eddbae;
   border-radius: 30px;
-  padding: 8px 20px;
+  padding: 10px 20px;
+}
+
+.form__input_long{
+  min-width: 400px;
 }
 
 .form__disclaimer {
   display: flex;
   justify-content: center;
   text-align: center;
+  padding: 42px 0 62px 0;
 }
 
 .order__subtext {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 0;
+  padding: 10px 50px 10px 0;
 }

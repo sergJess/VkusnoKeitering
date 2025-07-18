@@ -3,6 +3,13 @@
   justify-content: center;
 }
 
+.about-company__text-block{
+  display: flex;
+  flex-direction: column;
+  gap: 12px 0;
+  padding: 63px 0 45px 0;
+}
+
 .about-company__text {
   display: flex;
   justify-content: center;

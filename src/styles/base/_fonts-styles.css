@@ -113,6 +113,10 @@
   color: #000000;
 }
 
+.text-item-writing_size{
+   font-size: 1.8rem;
+}
+
 .font_bold {
   font-weight: 700;
 }
@@ -133,6 +137,14 @@
   color: #b09f74;
 }
 
-.text_colored5 {
-  color: #939393;
+.text_spacing{
+  letter-spacing: 2.4px;
+}
+
+.text_spacing2{
+  letter-spacing: 6px;
+}
+
+.text_spacing3{
+  letter-spacing: 1.3px;
 }

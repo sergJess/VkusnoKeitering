@@ -1,4 +1,5 @@
 .button {
+  min-width: 203px;
   padding: 13px 44px;
   border-radius: 30px;
   background-color: #000;
