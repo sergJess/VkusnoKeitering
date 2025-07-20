@@ -2,19 +2,18 @@
   padding: 33px 0 19px 0;
   background-image: url("../../assets/img/header/header-bg.svg");
   background-repeat: no-repeat;
-  background-position: bottom center;
+  background-position: bottom left;
+  margin: 0 13.5% 0 13.5%;
 }
 
 .header__line {
   width: 100%;
   height: 2px;
-  margin: 0 13.54% 0 13.54%;
 }
 
 .header {
   display: flex;
   column-gap: 10px;
-  margin: 0 13.5% 0 13.5%;
 }
 
 .header__block {
@@ -24,7 +23,7 @@
 .header__block-nav {
   display: flex;
   column-gap: 50px;
-  padding: 54.8px 10px 0 15.3%;
+  padding: 54.8px 10px 0 2.3%;
 }
 
 .header__space {
@@ -47,4 +46,15 @@
 
 .header-spacing2 {
   letter-spacing: -0.1px;
+}
+
+@media screen and (max-width: 1660px) {
+.header-block {
+  margin: 0 3.5% 0 3.5%;
+}
+
+.header__block-nav {
+  padding: 54.8px 10px 0 4%;
+}
+
 }

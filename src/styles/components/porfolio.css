@@ -23,8 +23,15 @@
   overflow: hidden;
 }
 
-.porfolio__examples-item {
-}
 .porfolio__examples-subitem {
   display: flex;
+}
+
+@media screen and (max-width: 1660px) {
+  .porfolio__title {
+    padding: 0 3%;
+}
+  .porfolio__tabs {
+    padding: 36px 3% 36px 3%;
+}
 }

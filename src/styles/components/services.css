@@ -64,3 +64,19 @@
 .service-button__inner {
   margin: auto 0;
 }
+
+@media screen and (max-width: 1660px) {
+  .services-title {
+  margin: 0 3%;
+}
+
+  .services-block__inner {
+   margin: 0 3%;
+}
+
+.service-order {
+  padding: 22px 6% 30px 6.8%;
+  margin: 0 9.8% 0 9.25%;
+}
+
+}

@@ -1,3 +1,7 @@
+.about-company{
+  padding: 0 10px;
+}
+
 .about-company__title {
   display: flex;
   justify-content: center;

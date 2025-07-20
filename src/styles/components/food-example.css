@@ -33,3 +33,9 @@
 .food-example__item-price {
   padding: 10px 0 8px 0;
 }
+
+@media screen and (max-width: 1660px) {
+  .food-example {
+    padding: 46px 3% 106px 3%;
+}
+}
