@@ -8,7 +8,6 @@
 
 body {
   background-color: #fff;
-  overflow-x: hidden;
 }
 
 a {
@@ -54,4 +53,5 @@ li {
 .wrapper {
   max-width: 1920px;
   margin: 0 auto;
+  overflow-x: hidden;
 }

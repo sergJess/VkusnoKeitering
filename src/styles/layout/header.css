@@ -58,3 +58,16 @@
 }
 
 }
+
+@media screen and (max-width: 1400px) {
+.header-block {
+  margin: 0 12px 0 12px;
+}
+.header__block-nav {
+  padding: 54.8px 10px 0 18px;
+}
+
+.header__space {
+  padding: 21px 1.32% 0 2.2%;
+}
+}

@@ -1,5 +1,5 @@
 .order-block {
-  padding: 124px 10px 70px 10px;
+  padding: 59px 10px 70px 10px;
 }
 
 .order-block__title {
@@ -41,4 +41,10 @@
   justify-content: center;
   align-items: center;
   padding: 10px 50px 10px 0;
+}
+
+@media screen and (max-width: 1400px) {
+  .order-block {
+  padding: 60px 10px 30px 10px;
+}
 }

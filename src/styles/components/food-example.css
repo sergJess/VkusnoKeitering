@@ -1,5 +1,5 @@
 .food-example {
-  padding: 46px 13% 106px 13%;
+  padding: 46px 13% 57px 13%;
 }
 .food-example__title {
   display: flex;
@@ -11,7 +11,17 @@
   display: flex;
   justify-content: center;
   column-gap: 53px;
-  padding: 25px 0 40px 0;
+  padding: 25px 0 30px 0;
+}
+
+.food-example__tab{
+  cursor: pointer;
+  padding-bottom: 9px;
+  border-bottom: 1px solid transparent;
+}
+
+.food-example__tab:hover{
+  border-bottom: 1px solid #698155;
 }
 
 .food-example-goods {
@@ -39,3 +49,15 @@
     padding: 46px 3% 106px 3%;
 }
 }
+
+@media screen and (max-width: 1400px) {
+  .food-example {
+    padding: 46px 1% 106px 1%;
+}
+
+.food-example-goods {
+  column-gap: 10px;
+}
+
+}
+
