@@ -53,6 +53,10 @@
   display: none;
 }
 
+.header__contacts-text{
+  text-align: right;
+}
+
 @media screen and (max-width: 1660px) {
 .header-block {
   margin: 0 3.5% 0 3.5%;
@@ -99,8 +103,24 @@
 @media screen and (max-width: 780px) {
   .header-block {
     background-image: none;
+    padding: 19px 0 40px 0;
   }
+
+.header__contacts-text{
+  text-align: center;
+}
+
+  .header {
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
   .header__social-links {
+  display: none;
+}
+
+.header__text-info {
   display: none;
 }
 

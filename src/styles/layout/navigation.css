@@ -53,6 +53,14 @@
   display: none;
 }
 
+.navigation__cross{
+  display: none;
+}
+
+.navigation__logo{
+  display: none;
+}
+
 @media screen and (max-width: 780px) {
   .navigation_mobile{
   display: block;
