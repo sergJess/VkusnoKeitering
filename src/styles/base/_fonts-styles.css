@@ -166,3 +166,9 @@
 }
 
 }
+
+@media screen and (max-width: 780px) {
+    .text-main-title {
+     font-size: 5rem;
+}
+}

@@ -103,7 +103,7 @@
 @media screen and (max-width: 780px) {
   .header-block {
     background-image: none;
-    padding: 19px 0 40px 0;
+    padding: 19px 0 10px 0;
   }
 
 .header__contacts-text{

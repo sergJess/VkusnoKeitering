@@ -3,8 +3,8 @@
   width: 48%;
 }
 .main-info {
-  padding: 17px 0 8px 0;
-  margin: 20px 13.45% 0 13.45%;
+  padding: 37px 0 8px 0;
+  margin: 0 13.45% 0 13.45%;
   min-height: 650px;
 }
 
@@ -56,17 +56,76 @@
 @media screen and (max-width: 1660px) {
   .main-info {
     padding: 84px 0 34px 0;
-    margin: 20px 3.45% 0 3.45%;
+    margin: 0 3.45% 0 3.45%;
 }
 }
 
 @media screen and (max-width: 1400px) {
   .main-info {
-    padding: 64px 0 34px 0;
-    margin: 20px 1.45% 0 1.45%;
+    padding: 44px 0 34px 0;
+    margin: 0 1.45% 0 1.45%;
 }
   .main-info__text {
     padding-right: 20%;
 }
 
+.main-info__text-block {
+  padding: 40px 0 0 0;
 }
+
+}
+
+@media screen and (max-width: 1200px) {
+
+.main-info__block-control{
+  column-gap: 19%;
+}
+
+.main-info__text-block {
+  padding: 30px 0 0 0;
+}
+}
+
+@media screen and (max-width: 780px) {
+.main-info__block-control{
+  justify-content: center;
+  top: -30px;
+}
+
+.main-info__block-content{
+  flex-direction: column;
+  padding: 0;
+}
+
+ .main-info__text {
+    padding-right: 0;
+}
+
+  .main-info {
+    padding: 40px 0 34px 0;
+    margin: 0 1.45% 0 1.45%;
+}
+
+.main-info__text-block {
+  padding: 0;
+  width: 100%;
+}
+
+.main-info__text-block h1{
+  text-align: center
+  ;
+}
+
+.main-info-slider{
+  display: none;
+}
+}
+
+@media screen and (max-width: 380px) {
+   .main-info__text {
+    letter-spacing: 2px;
+}
+
+
+}
+
