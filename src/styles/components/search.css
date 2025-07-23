@@ -21,12 +21,21 @@
 @media screen and (max-width: 780px) {
   .search-input {
   max-width: 328px;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.search-input::placeholder{
+  font-size: 1.5rem;
+  color: #000;
 }
 
 .search{
+  display: flex;
   max-width: 390px;
+  width: 100%;
   border-radius: 30px;
-  padding: 11px 10px 11px 23px;
+  padding: 11px 10px 9px 23px;
   background-color: #fff;
 }
 

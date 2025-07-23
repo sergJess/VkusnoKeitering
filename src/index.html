@@ -9,6 +9,10 @@
   <body>
     <div class="wrapper">
       <header class="header-block">
+        <div class="navigation-burger"><div class="navigation-burger__line"></div>
+        <div class="navigation-burger__line navigation-burger__line_padding"></div>
+        <div class="navigation-burger__line"></div>
+      </div>
         <div class="header">
           <div class="logo-inner">
             <a href="#"
@@ -58,11 +62,18 @@
           </div>
         </div>
         <div class="header__block-nav">
-          <div class="navigation_mobile">
+          <div class="navigation__cross">
+            <div class="navigation__cross-line navigation__cross-line_left"></div>
+            <div class="navigation__cross-line navigation__cross-line_right"></div>
+            <div class="navigation-cross__click"></div>
+          </div> 
+          <div class="navigation__logo">
+            <div class="navigation_mobile">
             <img src="./assets/img/mobile/navigation/logo.svg" alt="">
-          </div>
+          </div></div>
+         
           <div class="navigation_mobile navigation-mobile__text-block">
-            <p class="text-info text_colored">Кейтеринг под ключ<br>
+            <p class="text-info text_colored text-align_center">Кейтеринг под ключ<br>
 с обслуживанием в Москве и МО</p>
           </div>
           <nav class="header__navigation">
@@ -100,15 +111,16 @@
             <div class=""><img src="./assets/img/mobile/social-icons/wahtsUp.svg" alt=""></div>
             <div class=""><img src="./assets/img/mobile/social-icons/telegram.svg" alt=""></div>
           </div>
-          <div class="search">
+          <div class="navigation__search">  
+             <div class="search">
             <input
               class="search-input text-base"
               type="search"
               placeholder="Поиск по сайту..."
             />
             <span class="search__icon"></span>
-          </div>
-          <div class="navigation__mobile-button"><button class="button-order text-button button-order_colored-mobile">Оставить<br/> заявку</button></div>
+          </div></div>
+          <div class="navigation__mobile-button navigation_mobile"><button class="button-order text-button button-order_colored-mobile">Оставить<br/> заявку</button></div>
         </div>
       </header>
       <div class="main-info">
