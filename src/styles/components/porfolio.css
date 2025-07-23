@@ -25,6 +25,11 @@
 
 .porfolio__examples-subitem {
   display: flex;
+  gap: 1px;
+}
+
+.porfolio__examples-item_up{
+  margin-top: 1px;
 }
 
 @media screen and (max-width: 1660px) {
