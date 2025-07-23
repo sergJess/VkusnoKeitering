@@ -1,6 +1,7 @@
 .search-input {
   display: inline-block;
   max-width: 108px;
+  width: 100%;
 }
 
 .search-input::placeholder {
@@ -15,4 +16,23 @@
   background-image: url("../../assets/img/icons/search/search.svg");
   background-position: center;
   background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 780px) {
+  .search-input {
+  max-width: 328px;
+}
+
+.search{
+  max-width: 390px;
+  border-radius: 30px;
+  padding: 11px 10px 11px 23px;
+  background-color: #fff;
+}
+
+.search__icon {
+  width: 23px;
+  height: 23px;
+  background-image: url("../../assets/img/mobile/search/loop.svg");
+}
 }

@@ -36,3 +36,7 @@
 .button-order_colored {
   background-image: url("../../assets/img/buttons/button-order_colored.svg");
 }
+
+.button-order_colored-mobile {
+  background-image: url("../../assets/img/mobile/buttons/order-button_colored-mobile.svg");
+}
