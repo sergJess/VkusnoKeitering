@@ -137,6 +137,10 @@ padding: 40px 0 24px 0;
    .main-info__text {
     letter-spacing: 2px;
 }
+.main-info__img{
+  width: 96%;
+  margin: 0 auto;
+}
 
 }
 
