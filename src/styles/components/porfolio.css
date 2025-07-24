@@ -40,3 +40,16 @@
     padding: 36px 3% 36px 3%;
 }
 }
+
+@media screen and (max-width: 500px) {
+    .porfolio__tabs {
+      padding: 36px 6px 36px 6px;
+      column-gap: 26px;
+}
+}
+
+@media screen and (max-width: 400px) {
+    .porfolio__tabs {
+      column-gap: 10px;
+}
+}
