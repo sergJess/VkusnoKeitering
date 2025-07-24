@@ -87,9 +87,16 @@
 }
 
 @media screen and (max-width: 780px) {
+.main-info {
+position: relative;
+padding: 40px 0 24px 0;
+}
+
 .main-info__block-control{
-  justify-content: center;
-  top: -30px;
+ position: absolute;
+ left: 50%;
+ bottom: 0;
+ transform: translate(-52%, -7%);
 }
 
 .main-info__block-content{
@@ -119,13 +126,17 @@
 .main-info-slider{
   display: none;
 }
+
+.main-info__img-inner{
+  display: flex;
+  justify-content: center;
+}
 }
 
 @media screen and (max-width: 380px) {
    .main-info__text {
     letter-spacing: 2px;
 }
-
 
 }
 
