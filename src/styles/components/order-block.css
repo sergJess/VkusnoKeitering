@@ -27,9 +27,13 @@
 }
 
 .form__textarea{
+  display: inline-block;
   min-width: 400px;
   resize: none;
   max-height: 40px;
+  border: 1px solid #eddbae;
+  border-radius: 30px;
+  padding: 10px 20px;
 }
 
 .form__textarea:focus{
@@ -70,4 +74,43 @@
   min-height: 114px;
 }
 
+.form__input {
+  width: 390px;
+}
+
+.order__subtext {
+  display: block;
+  padding: 10px 10px 10px 10px;
+  text-align: right;
+}
+
+.order__subtext-title{
+  display: block;
+  text-align: center;
+}
+
+.order__subtext-title2{
+  display: block;
+}
+
+}
+
+@media screen and (max-width: 420px) {
+  .form__input {
+  width: 220px;
+}
+
+.form__textarea{
+  min-width: 300px;
+}
+}
+
+@media screen and (max-width: 320px) {
+  .form__input {
+  width: 100%;
+}
+
+.form__textarea{
+  min-width: 100%;
+}
 }
