@@ -89,7 +89,7 @@
 
 .service-order {
   padding: 22px 1% 32px 1%;
-  margin: 0 1% 0 1%;
+  margin: 0 12px 0 12px;
 }
 
 .services__text-block{
@@ -123,7 +123,7 @@
 }
 
 .services-block{
- padding: 0 12px 58px 12px;
+ padding: 0 12px 44px 12px;
 }
 
 .services {

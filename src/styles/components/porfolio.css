@@ -40,18 +40,24 @@
   .porfolio__tabs {
     padding: 36px 3% 36px 3%;
 }
+
+
 }
 
 @media screen and (max-width: 860px) {
     .porfolio__examples_hidden{
     display: none;
 }
+
+.portfolio {
+  padding: 50px 0 10px 0;
+}
 }
 
 
 @media screen and (max-width: 500px) {
     .porfolio__tabs {
-      padding: 36px 6px 36px 6px;
+      padding: 20px 6px 19px 6px;
       column-gap: 26px;
 }
 

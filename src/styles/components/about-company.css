@@ -25,6 +25,19 @@
   justify-content: center;
 }
 
+@media screen and (max-width: 1220px) {
+.about-company{
+  padding: 30px 10px 39px 10px;
+}
+
+.about-company__text-block{
+  padding: 20px 25px 45px 25px;
+  line-height: 2.6rem;
+  text-align: center;
+}
+
+}
+
 @media screen and (max-width: 780px) {
   .about-company__text-block{
    text-align: center;
