@@ -102,13 +102,15 @@
 
 @media screen and (max-width: 780px) {
   .header-block {
+    position: relative;
     background-image: none;
-    padding: 19px 0 10px 0;
+    padding: 19px 12px 10px 12px;
+    margin: 0;
   }
 
-.header__contacts-text{
+  .header__contacts-text{
   text-align: center;
-}
+  }
 
   .header {
     align-items: center;
@@ -144,5 +146,12 @@
 .header__block-nav_open{
   left: 0;
 }
+
+.header__contacts {
+  top: 0;
+  padding: 21px 0 0 0;
+}
+
+
 
 }

@@ -10,8 +10,9 @@
 .food-example-tabs {
   display: flex;
   justify-content: center;
-  column-gap: 53px;
+  gap: 53px;
   padding: 25px 0 30px 0;
+  flex-wrap: wrap;
 }
 
 .food-example__tab{
@@ -27,7 +28,7 @@
 .food-example-goods {
   display: flex;
   justify-content: center;
-  column-gap: 45px;
+  gap: 45px;
   flex-wrap: wrap;
 }
 
@@ -57,14 +58,27 @@
 }
 
 .food-example-goods {
-  column-gap: 10px;
+  gap: 10px;
 }
 
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1220px) {
 .food-example__item_hiiden{
   display: none;
+}
+
+.food-example-tabs {
+  justify-content: flex-start;
+}
+
+.food-example__tab{
+  padding: 7px 10px 9px 10px;
+  border-radius: 5px;
+}
+
+.food-example__tab_active{
+  background-color: #DFDFDF;
 }
 
 }

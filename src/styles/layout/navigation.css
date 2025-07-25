@@ -160,7 +160,9 @@
 .navigation-burger{
   display: block;
   cursor: pointer;
-  
+  position: absolute;
+  top: 19px;
+  left: 18px;
 }
 
 .navigation-burger__line{
