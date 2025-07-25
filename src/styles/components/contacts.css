@@ -1,0 +1,28 @@
+.contacts{
+    padding: 0 13.5% 0 13.5%;
+}
+
+.contacts h2{
+    text-align: center;
+}
+
+.contacts__info{
+    margin: 32px 0 0 0;
+    padding: 35px 0 0 57px;
+    min-height: 508px;
+    background-image: url("../../assets/img/contacts/map.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.contacts__info-list{
+    max-width: 349px;
+    min-height: 404px;
+    padding: 40px 33px 10px 33px;
+    background-color: #fff;
+    border-radius: 16px;
+}
+
+.contacts__info-list div{
+    margin-bottom: 20px;
+}

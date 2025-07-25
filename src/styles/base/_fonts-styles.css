@@ -153,6 +153,10 @@
   letter-spacing: 1.3px;
 }
 
+.text_line-height{
+  line-height: 2.5rem;
+}
+
 @media screen and (max-width: 1400px) {
   .text-main-title {
    font-size: 8rem;
