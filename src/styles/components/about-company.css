@@ -24,3 +24,9 @@
   display: flex;
   justify-content: center;
 }
+
+@media screen and (max-width: 780px) {
+  .about-company__text-block{
+   text-align: center;
+}
+}

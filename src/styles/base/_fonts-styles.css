@@ -162,7 +162,7 @@
 }
 
 .text-extra-title {
-  font-size: 9.2rem;
+  font-size: 9rem;
 }
 
 }
@@ -172,11 +172,15 @@
      font-size: 5rem;
 }
 
-.text-section-big-title {
-  font-size: 3.5rem;
+    .text-section-big-title {
+     font-size: 3.5rem;
 }
 
-.text-block-title {
-  font-size: 3.5rem;
+    .text-block-title {
+     font-size: 3.5rem;
+}
+
+    .text-extra-title {
+     font-size: 3.5rem;
 }
 }

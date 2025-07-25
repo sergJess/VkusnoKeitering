@@ -248,21 +248,46 @@
         <p class="text-base">Сервировка</p></div>
         <div class="porfolio__examples">
           <div class="porfolio__examples-item">
-            <div class=""><img src="./assets/img/porfolio/example-1.jpg" alt=""></div>
-            <div class="porfolio__examples-item_up"><img src="./assets/img/porfolio/example-2.jpg" alt=""></div>
+            <div class="">
+                 <picture><source type="image/jpeg"
+    media="(max-width: 860px)"
+    srcset="./assets/img/mobile/portfolio/example-1.jpg"/>
+     <img src="./assets/img/porfolio/example-1.jpg" alt="">
+  </picture>
+              </div>
+            <div class="porfolio__examples-item_up">
+              <picture><source type="image/jpeg"
+    media="(max-width: 860px)"
+    srcset="./assets/img/mobile/portfolio/example-2.jpg"/>
+     <img src="./assets/img/porfolio/example-2.jpg" alt="">
+  </picture>
+              </div>
           </div>
           <div class="porfolio__examples-item">
             <div class="porfolio__examples-subitem">
-              <div class=""><img src="./assets/img/porfolio/example-3.jpg" alt=""></div>
-            <div class=""><img src="./assets/img/porfolio/example-4.jpg" alt=""></div>
+              <div class="">
+                <picture><source type="image/jpeg"
+    media="(max-width: 860px)"
+    srcset="./assets/img/mobile/portfolio/example-3.jpg"/>
+     <img src="./assets/img/porfolio/example-3.jpg" alt="">
+  </picture>
             </div>
-            <div class="porfolio__examples-item_up"><img src="./assets/img/porfolio/example-5.jpg" alt=""></div>
+            <div class="porfolio__examples_hidden">
+              <img src="./assets/img/porfolio/example-4.jpg" alt=""></div>
+            </div>
+            <div class="porfolio__examples-item_up">
+                  <picture><source type="image/jpeg"
+    media="(max-width: 860px)"
+    srcset="./assets/img/mobile/portfolio/example-4.jpg"/>
+     <img src="./assets/img/porfolio/example-5.jpg" alt="">
+  </picture>
           </div>
-          <div class="porfolio__examples-item"> <div class=""><img src="./assets/img/porfolio/example-6.jpg" alt=""></div></div>
+          </div>
+          <div class="porfolio__examples-item"> <div class="porfolio__examples_hidden"><img src="./assets/img/porfolio/example-6.jpg" alt=""></div></div>
           <div class="porfolio__examples-item">
              <div class="porfolio__examples-subitem">
-              <div class=""><img src="./assets/img/porfolio/example-7.jpg" alt=""></div>
-            <div class=""><img src="./assets/img/porfolio/example-8.jpg" alt=""></div>
+              <div class="porfolio__examples_hidden"><img src="./assets/img/porfolio/example-7.jpg" alt=""></div>
+            <div class="porfolio__examples_hidden"><img src="./assets/img/porfolio/example-8.jpg" alt=""></div>
             </div>
             <div class="porfolio__examples-item_up"><img src="./assets/img/porfolio/example-9.jpg" alt=""></div>
           
@@ -314,7 +339,7 @@
 <p class="text-base text_colored4">от 10 шт.</p>
 <p class="text-item-writing food-example__item-price text-item-writing_size">191 руб./шт.</p>
           </div>
-          <div class="food-example-goods__item">
+          <div class="food-example-goods__item food-example__item_hiiden">
 <div class=""><picture><source type="image/jpeg"
     media="(max-width: 1275px)"
     srcset="./assets/img/mobile/food-example/food-example-m-4.jpg"/>
@@ -353,7 +378,9 @@
           <div class="form__fields">
             <div class=""><input placeholder="Имя" class="form__input text-item-subtitle" type="text"></div>
            <div class=""><input placeholder="+7 (ххх) ххх-хх-хх" class="form__input text-item-subtitle" type="text"></div>
-            <div class=""><input placeholder="Комментарий к заказу" class="form__input form__input_long text-item-subtitle" type="text"></div>
+            <div class="">
+            <textarea class="form__input form__textarea text-item-subtitle" placeholder="Комментарий к заказу"></textarea>
+            </div>
             <button type="submit" class="button text-button button_colored-2 ">Отправить</button>
           </div>
           <p class="text-base form__disclaimer text_colored3 text_spacing">Отправляя данную форму вы даете согласие на обработку</br>

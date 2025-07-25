@@ -32,6 +32,7 @@
   margin-top: 1px;
 }
 
+
 @media screen and (max-width: 1660px) {
   .porfolio__title {
     padding: 0 3%;
@@ -41,11 +42,20 @@
 }
 }
 
+@media screen and (max-width: 860px) {
+    .porfolio__examples_hidden{
+    display: none;
+}
+}
+
+
 @media screen and (max-width: 500px) {
     .porfolio__tabs {
       padding: 36px 6px 36px 6px;
       column-gap: 26px;
 }
+
+
 }
 
 @media screen and (max-width: 400px) {

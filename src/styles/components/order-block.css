@@ -14,7 +14,8 @@
 .form__fields {
   display: flex;
   justify-content: center;
-  column-gap: 34px;
+  gap: 15px 34px;
+  flex-wrap: wrap;
 }
 
 .form__input {
@@ -25,8 +26,15 @@
   padding: 10px 20px;
 }
 
-.form__input_long{
+.form__textarea{
   min-width: 400px;
+  resize: none;
+  max-height: 40px;
+}
+
+.form__textarea:focus{
+   outline: none;
+   border: 1px solid #eddbae;
 }
 
 .form__disclaimer {
@@ -47,4 +55,19 @@
   .order-block {
   padding: 60px 10px 30px 10px;
 }
+}
+
+@media screen and (max-width: 920px) {
+  .form__fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__textarea{
+  min-width: 400px;
+  resize: none;
+  min-height: 114px;
+}
+
 }
