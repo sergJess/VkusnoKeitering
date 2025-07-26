@@ -1,0 +1,90 @@
+.form-resume{
+max-width: 515px;
+}
+
+.form-resume__cross{
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin: 0 0 0 auto;
+    background-image: url("../../assets/img/resume-form/cross.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.resume__form div{
+    margin-bottom: 29px;
+}
+
+.resume__form{
+     max-width: 418px;
+}
+
+.resume-form__input {
+  display:  block;
+  min-width: 200px;
+  border: 1px solid #eddbae;
+  border-radius: 30px;
+  padding: 10px 18px;
+}
+
+.resume-form__input ::placeholder{
+    color: #000;
+    font-size: 1.5rem;
+}
+
+.resume-form__input_file{
+  max-width: 414px;
+  width: 100%;
+}
+
+.resume-form__textarea{
+  display: inline-block;
+  min-width: 414px;
+  resize: none;
+  min-height: 138px;
+  border: 1px solid #eddbae;
+  border-radius: 30px;
+  padding: 10px 20px;
+}
+
+.resume-form__textarea:focus{
+   outline: none;
+   border: 1px solid #eddbae;
+}
+
+.resume__form-input-block{
+    display: grid;
+    grid-template: "a b"
+                    "c d"
+                    "e e";
+    gap: 29px 14px;
+
+}
+
+.resume__form-input-block1{
+    grid-area: a;
+}
+
+.resume__form-input-block2{
+    grid-area: b;
+}
+
+.resume__form-input-block3{
+    grid-area: c;
+}
+
+.resume__form-input-block4{
+    grid-area: d;
+}
+
+.resume__form-input-block5{
+    grid-area: e;
+}
+
+.form-resume__button{
+    display: block;
+    margin: 0 auto;
+}
+
