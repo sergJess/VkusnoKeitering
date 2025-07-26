@@ -2,6 +2,10 @@
   padding: 59px 10px 70px 10px;
 }
 
+.order-block_padding {
+  padding: 59px 10px 10px 10px;
+}
+
 .order-block__title {
   display: flex;
   justify-content: center;
