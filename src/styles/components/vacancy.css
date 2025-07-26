@@ -46,3 +46,53 @@
     display: block;
     margin: 79px 0 0 auto;
 }
+
+
+@media screen and (max-width: 1660px) {
+.vacancy{
+    padding: 0 3.5% 0 3.5%;
+}
+
+}
+
+@media screen and (max-width: 780px) {
+.vacancy{
+    padding: 0 12px 0 12px;
+}
+
+.vacancy h2{
+    margin: 36px 0 36px 0;
+}
+
+}
+
+@media screen and (max-width: 660px) {
+.vacancy__list-requirement{
+    display: block;
+    margin-bottom: 24px;
+}
+
+.vacancy__list-requirement-block{
+    margin-bottom: 24px;
+}
+
+.vacancy__list-item{
+    padding: 25px 16px 13px 16px;
+}
+
+.vacancy__list-item-title{
+    font-size: 3.2rem;
+    padding: 0 0 14px 0;
+}
+
+.vacancy__button{
+    margin: 43px auto 10px auto;
+}
+
+}
+
+@media screen and (max-width: 370px) {
+    .vacancy__list-item-title{
+    font-size: 2.8rem;
+}
+}
