@@ -26,3 +26,71 @@
 .contacts__info-list div{
     margin-bottom: 20px;
 }
+
+.contacts__info-mobile-block{
+    display: none;
+}
+
+@media screen and (max-width: 1660px) {
+.contacts{
+    padding: 0 3.5% 0 3.5%;
+}
+
+}
+
+@media screen and (max-width: 980px) {
+.contacts{
+   padding: 0 12px 0 12px;
+}
+
+.contacts__info{
+    padding: 35px 0 0 10px;
+    min-height: 508px;
+}
+
+}
+
+@media screen and (max-width: 800px) {
+.contacts{
+   padding: 0 12px 0 12px;
+}
+
+.contacts__info-list{
+    max-width: 260px;
+}
+}
+
+@media screen and (max-width: 800px) {
+.contacts{
+   padding: 0 12px 0 12px;
+}
+
+.contacts__info-list{
+    max-width: 349px;
+    margin: 0 auto;
+}
+
+.contacts__info{
+    margin: 46px 0 0 0;
+    padding: 55px 12px 0 12px;
+    min-height: 743px;
+    background-image: url("../../assets/img/mobile/contacts/map.png");
+}
+.contacts{
+   padding: 36px 0 0 0;
+}
+
+.contacts__info-mobile-block{
+    display: block;
+}
+
+.contacts__info-desktop-block{
+    display: none;
+}
+
+.contacts__info-list div{
+    margin-bottom: 23px;
+}
+
+
+}
