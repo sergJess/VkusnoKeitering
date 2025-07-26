@@ -121,6 +121,10 @@
    font-size: 1.8rem;
 }
 
+.font_semi-bold {
+  font-weight: 600;
+}
+
 .font_bold {
   font-weight: 700;
 }

@@ -1,0 +1,47 @@
+.vacancy{
+    padding: 0 13.5% 0 13.5%;
+}
+
+.vacancy h2{
+    text-align: center;
+}
+
+.vacancy__list-item{
+    background-color: #FBFBF9;
+    padding: 25px 22px 20px 22px;
+    margin-bottom: 41px;
+}
+
+.vacancy__list-item-title{
+    padding: 0 0 44px 0;
+}
+
+.vacancy__list{
+    position: relative;
+    padding-left: 16px;
+}
+
+.vacancy__list::before{
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #000;
+    left: 8px;
+    top: 8px;
+}
+
+.vacancy__list-requirement{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px 20px ;
+}
+
+.vacancy__list-requirement-title{
+    padding: 0 0 20px 0;
+}
+.vacancy__button{
+    display: block;
+    margin: 79px 0 0 auto;
+}
