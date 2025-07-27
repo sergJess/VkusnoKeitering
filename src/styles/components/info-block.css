@@ -1,5 +1,5 @@
 .info-block{
-    padding: 10px 13.5% 0 13.5%;
+    padding: 10px 13.5% 10px 13.5%;
 
 }
 
@@ -19,10 +19,22 @@
 }
 
 .info-block__text{
-    padding: 55px 0 0 0;
+    padding: 55px 0 220px 0;
     max-width: 47.5%;
 }
 
 .info-block__text-info{
     margin: 37px 0 20px 0;
+}
+
+.text-nfo__img-inner{
+    position: relative;
+    padding: 0 0 155px 0;
+}
+
+.info-block__button-inner{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(-82%, -32%);
 }
