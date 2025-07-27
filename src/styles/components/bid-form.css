@@ -73,8 +73,39 @@
     margin-bottom: 15px;
 }
 
+.bid-form__textarea{
+  display: inline-block;
+  min-width: 400px;
+  resize: none;
+  max-height: 40px;
+  border: 1px solid #eddbae;
+  border-radius: 30px;
+  padding: 10px 20px;
+}
+
+.bid-form__textarea::placeholder{
+    color: #000;
+}
+
+.bid-form__textarea:focus{
+   outline: none;
+   border: 1px solid #eddbae;
+}
+
 .bid-form__form{
     display: flex;
     gap: 10px 10px;
     justify-content: space-between;
+}
+
+.bid-form__disclaimer{
+    margin: 20px 0 35px 0;
+}
+
+.bid-form__block{
+    padding: 40px 0 0 0;
+}
+
+.bid-form__connect{
+    margin: 14px 0 22px 0;
 }
