@@ -30,6 +30,10 @@
   padding: 10px 20px;
 }
 
+.form__input::placeholder{
+  color: #000;
+}
+
 .form__textarea{
   display: inline-block;
   min-width: 400px;
@@ -38,6 +42,10 @@
   border: 1px solid #eddbae;
   border-radius: 30px;
   padding: 10px 20px;
+}
+
+.form__textarea::placeholder{
+  color: #000;
 }
 
 .form__textarea:focus{
