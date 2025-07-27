@@ -117,6 +117,13 @@
   color: #000000;
 }
 
+.text-info-block-title{
+  font-family: "Ebbe", sans-serif;
+  font-weight: 100;
+  font-size: 8rem;
+  color: #000000;
+}
+
 .text-item-writing_size{
    font-size: 1.8rem;
 }
@@ -127,6 +134,10 @@
 
 .font_bold {
   font-weight: 700;
+}
+
+.font_light{
+  font-weight: 300;
 }
 
 .text_colored {

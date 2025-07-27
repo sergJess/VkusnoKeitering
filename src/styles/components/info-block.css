@@ -1,0 +1,28 @@
+.info-block{
+    padding: 10px 13.5% 0 13.5%;
+
+}
+
+.info-block__text-title_word{
+    display: block;
+}
+
+.text-nfo__img-inner{
+    border-radius: 33px;
+}
+
+.info-block__content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 10px;
+    justify-content: space-between;
+}
+
+.info-block__text{
+    padding: 55px 0 0 0;
+    max-width: 47.5%;
+}
+
+.info-block__text-info{
+    margin: 37px 0 20px 0;
+}
