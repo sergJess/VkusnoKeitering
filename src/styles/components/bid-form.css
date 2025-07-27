@@ -1,0 +1,20 @@
+.bid-form{
+    padding: 10px 13.5% 10px 13.5%;
+    background-color: #FBFBF9;
+}
+
+.bid-form h2{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.bid-form__text{
+    max-width: 996px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.bid-form__text_word{
+    display: block;
+}
