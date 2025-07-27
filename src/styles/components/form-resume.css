@@ -1,5 +1,30 @@
+.form-resume-inner{
+    background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: -200%;
+    left: 50%;
+    transform: translate(-50%);
+    transition: all 0.8s ease-in-out;
+    display: flex;
+    justify-content: center;
+}
+
 .form-resume{
 max-width: 515px;
+padding: 22px 10px;
+background-color: #fff;
+overflow-y: auto;
+}
+
+.form-resume__opened{
+top: 0;
+}
+
+
+.form-resume h2{
+margin: 8px 0 29px 0;
 }
 
 .form-resume__cross{
@@ -34,7 +59,23 @@ max-width: 515px;
     font-size: 1.5rem;
 }
 
+.resume__form-upload-text{
+    display: inline-block;
+    margin-left: 35%;
+}
+
 .resume-form__input_file{
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  max-width: 414px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.resume__form-upload-label{
   max-width: 414px;
   width: 100%;
 }
@@ -80,6 +121,7 @@ max-width: 515px;
 }
 
 .resume__form-input-block5{
+    position: relative;
     grid-area: e;
 }
 
@@ -87,4 +129,42 @@ max-width: 515px;
     display: block;
     margin: 0 auto;
 }
+
+@media screen and (max-width: 780px) {
+    .form-resume{
+        overflow-y: scroll;
+        max-height: 99vh;
+    }
+}
+
+@media screen and (max-width: 438px) {
+.resume__form-input-block{
+    display: block;
+}
+
+.resume-form__input_file,
+.resume-form__input,
+.resume__form-upload-label
+{
+  margin: 0 auto;
+  max-width: 82%;
+}
+
+.resume__form-upload-text{
+    display: block;
+    margin: 0;
+}
+
+.resume__form-upload-label{
+    text-align: center;
+}
+
+.resume-form__textarea{
+    display: block;
+    min-width: 86%;
+    margin: 0 auto;
+}
+
+}
+
 

@@ -264,7 +264,8 @@
           </div>
         </div>
       </footer>
-      <div class="form-resume">
+      <div class="form-resume-inner">
+<div class="form-resume">
         <div class=""><span class="form-resume__cross"></span></div>
         <h2 class="text-block-title uppercase">Отправить резюме</h2>
         <form class="resume__form" action="">
@@ -273,8 +274,12 @@
 <div class="resume__form-input-block2"><input class="resume-form__input text-item-subtitle" placeholder="Имя" type="text"></div>
 <div class="resume__form-input-block3"><input class="resume-form__input text-item-subtitle" placeholder="+7 (xxx) xxx-xx-xx" type="text"></div>
 <div class="resume__form-input-block4"><input class="resume-form__input text-item-subtitle" placeholder="E-mail" type="text"></div>
-<div class="resume__form-input-block5"><input class="resume-form__input resume-form__input_file" type="file"></div>
-
+<div class="resume__form-input-block5">
+  <label class="resume-form__input resume__form-upload-label text-item-subtitle" for="resume__form-upload-input">
+    Выбрать файлы
+    <span class="resume__form-upload-text text-item-subtitle text_colored3 ">Файл не выбран</span>
+  </label>
+  <input class="resume-form__input resume-form__input_file" type="file"></div>
           </div>
           <div class="">
             <textarea class="resume-form__textarea text-item-subtitle" placeholder="Комментарий" name="" id=""></textarea>
@@ -282,7 +287,10 @@
           <div class=""> <button type="submit" class="button text-button button_colored-2 form-resume__button">Отправить</button></div>
         </form>
       </div>
+
+      </div>
+      
     </div>
 </body>
-<script src="../js/index.js"></script>
+<script src="../js/vacancy/vacancy.js"></script>
 </html>
