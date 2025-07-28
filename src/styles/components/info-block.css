@@ -62,5 +62,32 @@
     max-width: 40.5%;
 }
 
+}
 
+@media screen and (max-width: 1200px) {
+.info-block__content{
+    display: block;
+}
+
+ .info-block__text{
+    padding: 40px 0 20px 0;
+    max-width: 100%;
+    text-align: center;
+}
+
+.info-block__text-title_word{
+    display: inline-block;
+}
+
+.text-nfo__img-inner{
+    display: flex;
+    justify-content: center;
+}
+
+.info-block__button-inner{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -35%);
+}
 }

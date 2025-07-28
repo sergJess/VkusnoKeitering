@@ -80,6 +80,7 @@
   resize: none;
   max-height: 40px;
   border: 1px solid #eddbae;
+  background-color: #fff;
   border-radius: 30px;
   padding: 10px 20px;
 }
@@ -115,6 +116,51 @@
 @media screen and (max-width: 1660px) {
     .bid-form{
     padding: 10px 3.5% 98px 3.5%;
+}
+
+}
+
+@media screen and (max-width: 1200px) {
+    .bid-form{
+    padding: 10px 12px 98px 12px;
+}
+
+.bid-form__form{
+    gap: 10px 9px;
+}
+
+}
+
+@media screen and (max-width: 1060px) {
+.bid-form__form{
+    flex-direction: column;
+    gap: 30px 9px;
+    align-items: center;
+}
+
+.bid-form__block{
+    padding: 0 0 0 0;
+}
+
+.bid-form__button{
+    display: block;
+    margin: 0 auto;
+}
+
+.bid-form__input {
+  display:  block;
+  min-width: 200px;
+  margin: 0 auto 20px auto;
+ 
+}
+
+.bid-form__textarea{
+  display: block;
+  max-width: 390px;
+  min-height: 114px;
+  max-height: auto;
+  margin: 0 auto;
+  padding: 10px 20px;
 }
 
 }
