@@ -168,6 +168,10 @@
   letter-spacing: 1.3px;
 }
 
+.text_spacing4{
+  letter-spacing: 1.6px;
+}
+
 .text_line-height{
   line-height: 2.5rem;
 }
@@ -182,6 +186,10 @@
 
 .text-extra-title {
   font-size: 9rem;
+}
+
+.text-info-block-title{
+  font-size: 7rem;
 }
 
 }

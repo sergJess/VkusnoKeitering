@@ -9,3 +9,9 @@
 .why-to-choose__text{
     margin-bottom: 19px;
 }
+
+@media screen and (max-width: 1660px) {
+.why-to-choose{
+    padding: 0 3.5% 79px 3.5%;
+}
+}

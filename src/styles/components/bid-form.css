@@ -1,11 +1,11 @@
 .bid-form{
-    padding: 10px 13.5% 10px 13.5%;
+    padding: 10px 13.5% 98px 13.5%;
     background-color: #FBFBF9;
 }
 
 .bid-form h2{
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 32px;
 }
 
 .bid-form__text{
@@ -95,8 +95,9 @@
 
 .bid-form__form{
     display: flex;
-    gap: 10px 10px;
-    justify-content: space-between;
+    gap: 10px 62px;
+    justify-content: center;
+    margin: 58px 0 0 0;
 }
 
 .bid-form__disclaimer{
@@ -104,9 +105,16 @@
 }
 
 .bid-form__block{
-    padding: 40px 0 0 0;
+    padding: 70px 0 0 0;
 }
 
 .bid-form__connect{
     margin: 14px 0 22px 0;
+}
+
+@media screen and (max-width: 1660px) {
+    .bid-form{
+    padding: 10px 3.5% 98px 3.5%;
+}
+
 }
