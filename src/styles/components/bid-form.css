@@ -167,7 +167,7 @@
 
 @media screen and (max-width: 600px) {
     .bid-form {
-        padding: 41px 12px 98px 12px;
+        padding: 41px 12px 64px 12px;
     }
 
      .bid-form__form-block{
@@ -193,6 +193,13 @@
         max-width: 390px;
         width: 100%;
         margin: 0 auto 31px auto;
+    }
+
+    .bid-form__disclaimer{
+        margin: 28px 0 44px 0;
+    }
+    .bid-form__disclaimer_space{
+        display: none;
     }
 }
         
