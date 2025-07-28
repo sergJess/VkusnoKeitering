@@ -164,3 +164,26 @@
 }
 
 }
+
+@media screen and (max-width: 600px) {
+    .bid-form {
+        padding: 41px 12px 98px 12px;
+    }
+
+    .bid-form__text{
+        display: none;
+    }
+
+    .bid-form h2{
+        margin-bottom: 28px;
+    }
+
+    .bid-form__form{
+        margin: 22px 0 0 0;
+    }
+
+    .bid-form__input{
+        margin: 0 auto 31px auto;
+    }
+}
+        
