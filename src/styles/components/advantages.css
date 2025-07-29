@@ -1,0 +1,19 @@
+.advantages{
+    padding: 69px 13.5% 0 13.5%;
+}
+
+.advantages h2{
+    text-align: center;
+}
+
+.advantages-inner{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px 50px;
+    padding: 25px 0 0 0;
+}
+
+.advantages-inner__item h3{
+    margin: 15px 0 20px 0;
+}
