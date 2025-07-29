@@ -157,6 +157,7 @@
 .bid-form__textarea{
   display: block;
   max-width: 390px;
+  min-width: 10px;
   min-height: 114px;
   max-height: auto;
   margin: 0 auto;
@@ -200,6 +201,18 @@
     }
     .bid-form__disclaimer_space{
         display: none;
+    }
+
+    .bid-form__textarea{
+  display: block;
+  width: 100%;
+}
+}
+
+@media screen and (max-width: 400px) {
+
+ .bid-form__disclaimer{
+        text-align: center;
     }
 }
         
