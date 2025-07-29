@@ -1,0 +1,26 @@
+.company-portfolio{
+    padding: 10px 13.5% 0 13.5%;
+}
+
+.company-portfolio h2{
+    text-align: center;
+}
+
+.company-portfolio__tabs{
+    display: flex;
+    justify-content: center;
+    gap: 10px 25px;
+    flex-wrap: wrap;
+}
+
+.company-portfolio__tabs button{
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.company-portfolio__tab-area{
+    display: grid;
+    gap: 1px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
