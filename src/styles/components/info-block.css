@@ -22,6 +22,14 @@
     max-width: 47.5%;
 }
 
+.info-block__text_padding{
+    padding: 146px 0 220px 0;
+}
+
+.info-block__text-subtitle{
+padding: 6px 0 20px 0;
+}
+
 .info-block__text-info{
     margin: 37px 0 20px 0;
 }

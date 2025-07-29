@@ -1,5 +1,5 @@
 .advantages{
-    padding: 69px 13.5% 0 13.5%;
+    padding: 76px 13.5% 0 13.5%;
 }
 
 .advantages h2{
@@ -16,4 +16,10 @@
 
 .advantages-inner__item h3{
     margin: 15px 0 20px 0;
+}
+
+.advantages-inner__item-icon-inner{
+    min-height: 28px;
+    display: flex;
+    align-items: end;
 }

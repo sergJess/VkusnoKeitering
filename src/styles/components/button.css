@@ -10,6 +10,10 @@
   letter-spacing: 1px;
 }
 
+.button__letter-space2 {
+  letter-spacing: 1.3px;
+}
+
 .button_colored-1 {
   background-color: #ff8e8e;
 }
