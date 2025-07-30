@@ -13,3 +13,7 @@
 @import url("../../layout/header.css");
 @import url("../../layout/navigation.css");
 @import url("../../layout/footer.css");
+
+.about-company-page__services{
+    margin: 56px 0 79px 0;
+}

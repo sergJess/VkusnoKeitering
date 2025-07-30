@@ -183,6 +183,10 @@
   line-height: 2.5rem;
 }
 
+.text_line-height2{
+  line-height: 3rem;
+}
+
 @media screen and (max-width: 1400px) {
   .text-main-title {
    font-size: 8rem;

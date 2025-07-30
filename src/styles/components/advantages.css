@@ -10,12 +10,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 30px 50px;
+    gap: 17px 50px;
     padding: 25px 0 0 0;
 }
 
 .advantages-inner__item h3{
-    margin: 15px 0 20px 0;
+    margin: 14px 0 12px 0;
 }
 
 .advantages-inner__item-icon-inner{

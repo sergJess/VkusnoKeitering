@@ -1,5 +1,5 @@
 .company-portfolio{
-    padding: 10px 13.5% 0 13.5%;
+    padding: 4px 13.5% 0 13.5%;
 }
 
 .company-portfolio h2{
@@ -11,6 +11,7 @@
     justify-content: center;
     gap: 10px 25px;
     flex-wrap: wrap;
+    margin: 35px 0 35px 0;
 }
 
 .company-portfolio__tabs button{
