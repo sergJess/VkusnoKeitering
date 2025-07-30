@@ -23,3 +23,41 @@
     display: flex;
     align-items: end;
 }
+
+@media screen and (max-width: 1660px) {
+    .advantages{
+    padding: 76px 3.5% 0 3.5%;
+}
+
+}
+
+@media screen and (max-width: 1240px) {
+    .advantages{
+    padding: 76px 12px 0 12px;
+}
+
+.advantages-inner{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 17px 22px;
+}
+
+}
+
+@media screen and (max-width: 780px) {
+    .advantages-inner{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 17px 22px;
+}
+
+.advantages-inner__item h3{
+    text-align: center;
+}
+
+.advantages-inner__item-icon-inner{
+  justify-content: center;
+}
+
+}

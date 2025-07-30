@@ -1,5 +1,5 @@
 .company-portfolio{
-    padding: 4px 13.5% 0 13.5%;
+    padding: 4px 12px 0 12px;
 }
 
 .company-portfolio h2{
@@ -22,6 +22,11 @@
 .company-portfolio__tab-area{
     display: grid;
     gap: 1px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto;
     grid-template-rows: 1fr 1fr;
+    justify-content: center;
+}
+
+.company-portfolio__tab-area img{
+    width: 100%;
 }
