@@ -22,6 +22,10 @@
     max-width: 47.5%;
 }
 
+.info-block__text_width{
+    max-width: 48%;
+}
+
 
 .info-block__text_padding{
     padding: 146px 0 220px 0;
@@ -45,6 +49,10 @@ padding: 6px 0 20px 0;
     bottom: 0;
     left: 0;
     transform: translate(-86.5%, -35%);
+}
+
+.info-block__button-inner_transform{
+    transform: translate(-65.5%, -35%);
 }
 
 @media screen and (max-width: 1700px) {

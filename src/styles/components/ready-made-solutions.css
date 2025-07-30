@@ -1,0 +1,33 @@
+.ready-made-solutions h2{
+    text-align: center;
+    padding: 0 12px;
+}
+
+.ready-made-solutions__tabs-inner{
+    display: flex;
+    justify-content: center;
+    gap: 10px 30px;
+    padding: 0 12px;
+    margin: 12px 0 20px 0;
+}
+
+.ready-made-solutions__tabs-button{
+    background-color: transparent;
+    padding: 0 0 8px 0;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+}
+
+.ready-made-solutions__tabs-button_active{
+    border-bottom: 1px solid #423329;
+}
+
+.ready-made-solutions__content{
+    padding: 40px 0 0 0;
+    background: #423329;
+    background: linear-gradient(180deg, #423329 62%, #fff 62%);
+}
+
+.ready-made-solutions__img-inner img{
+    border-radius: 33px;
+}
