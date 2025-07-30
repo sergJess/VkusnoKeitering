@@ -6,6 +6,10 @@
     text-align: center;
 }
 
+.advantages__space{
+    display: none;
+}
+
 .advantages-inner{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -33,14 +37,14 @@
 
 @media screen and (max-width: 1240px) {
     .advantages{
-    padding: 76px 12px 0 12px;
+    padding: 68px 12px 30px 12px;
 }
 
 .advantages-inner{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 17px 22px;
+    gap: 15px 22px;
 }
 
 }
@@ -50,14 +54,23 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     gap: 17px 22px;
+    padding: 33px 0 0 10px;
 }
 
 .advantages-inner__item h3{
     text-align: center;
 }
 
+.advantages-inner__item p{
+    text-align: center;
+}
+
 .advantages-inner__item-icon-inner{
   justify-content: center;
+}
+
+.advantages__space{
+    display: block;
 }
 
 }

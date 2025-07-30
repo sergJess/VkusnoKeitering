@@ -60,14 +60,23 @@
 @media screen and (max-width: 780px) {
 
 .trust-us__text-block{
-    padding: 15px 0 0 0;
+    padding: 33px 0 0 0;
 }
 
 .trust-us__content{
     display: block;
+      padding: 13px 12px 47px 12px;
 }
 
+.trust-us h2{
+   padding: 20px 12px 20px 12px;
+   margin-bottom: 0;
+   background-color: #FBFBF9;
+}
 
+.trust-us-button-inner{
+    margin: 31px 0 0 0;
+}
 }
 
 @media screen and (max-width: 450px) {

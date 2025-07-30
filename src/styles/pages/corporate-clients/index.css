@@ -11,3 +11,10 @@
 @import url("../../layout/header.css");
 @import url("../../layout/navigation.css");
 @import url("../../layout/footer.css");
+
+@media screen and (max-width: 600px) {
+    .corporate-clients-page__info-block{
+    margin-bottom: 33px;
+}
+}
+
