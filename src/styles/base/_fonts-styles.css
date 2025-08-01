@@ -85,6 +85,13 @@
   color: #000;
 }
 
+.text-info-solutions{
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 3rem;
+  color: #000;
+}
+
 .text-location {
   font-family: "Raleway", sans-serif;
   font-weight: 800;
@@ -161,6 +168,10 @@
 
 .text_colored4 {
   color: #b09f74;
+}
+
+.text_colored5{
+  color: #7A7069;
 }
 
 .text_spacing{

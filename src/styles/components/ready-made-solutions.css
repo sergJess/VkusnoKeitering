@@ -23,11 +23,49 @@
 }
 
 .ready-made-solutions__content{
-    padding: 40px 0 0 0;
+    display: flex;
+    gap: 10px 45px;
+    padding: 40px 13.5% 0 13.5%;
     background: #423329;
     background: linear-gradient(180deg, #423329 62%, #fff 62%);
 }
 
 .ready-made-solutions__img-inner img{
     border-radius: 33px;
+}
+
+.ready-made-solutions__text-title-block{
+    display: flex;
+    gap: 10px 85px;
+}
+
+.ready-made-solutions__buttons-inner button{
+    margin-bottom: 22px;
+}
+
+.ready-made-solutions__text-title-content{
+    max-width: 369px;
+}
+
+.ready-made-solutions__text-inner{
+    padding: 15px 0 0 0;
+}
+
+.ready-made-solutions__services-title-block{
+    display: flex;
+    gap: 10px 10px;
+}
+
+.ready-made-solutions__services-personal{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.ready-made-solutions__services-title{
+    padding: 8px 0 0 0;
+}
+
+.ready-made-solutions__text-subtitle{
+    margin: 50px 0 20px 0;
 }
