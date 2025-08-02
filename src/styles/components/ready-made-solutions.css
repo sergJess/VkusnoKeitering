@@ -27,7 +27,7 @@
     gap: 10px 45px;
     padding: 40px 13.5% 0 13.5%;
     background: #423329;
-    background: linear-gradient(180deg, #423329 62%, #fff 62%);
+    background: linear-gradient(180deg, #423329 52%, #fff 52%);
 }
 
 .ready-made-solutions__img-inner img{
@@ -64,8 +64,25 @@
 
 .ready-made-solutions__services-title{
     padding: 8px 0 0 0;
+    /* max-width: 190px;
+    width: 100%; */
+}
+
+.ready-made-solutions__services-title h4{
+    padding: 0 0 20px 0;
 }
 
 .ready-made-solutions__text-subtitle{
     margin: 50px 0 20px 0;
+}
+
+.ready-made-solutions__text{
+    min-height: 110px;
+    padding: 0 0 10px 0;
+}
+
+.ready-made-solutions__services{
+    display: flex;
+    gap: 10px 82px;
+    padding: 20px 0 0 0;
 }
