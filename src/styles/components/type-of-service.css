@@ -1,0 +1,22 @@
+.type-of-service{
+    padding: 0 13.5% 0 13.5%;
+}
+
+.type-of-service h2{
+    text-align: center;
+}
+
+.type-of-service__img-inner img{
+    border-radius: 33px;
+}
+
+.type-of-service__content{
+    position: relative;
+    padding: 0 0 100px 0;
+}
+.type-of-service__button-inner{
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-25%, -25%);
+}
