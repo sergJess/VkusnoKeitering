@@ -15,3 +15,23 @@
 .cooperation__list li::marker{
     color: #B09F74;
 }
+
+
+@media screen and (max-width: 1660px) {
+.cooperation{
+    padding: 0 3.5% 50px 3.5%;
+}
+}
+
+@media screen and (max-width: 1400px) {
+.cooperation{
+    padding: 0 12px 30px 12px;
+}
+}
+
+@media screen and (max-width: 1200px) {
+.cooperation__list{
+    column-count: 1;
+}
+
+}

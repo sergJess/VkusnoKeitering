@@ -19,3 +19,18 @@ padding: 0 13.5%;
 .keitering-history__text-special{
     margin: 30px 0 60px 0;
 }
+
+@media screen and (max-width: 1660px) {
+ .keitering-history{
+    padding: 0 3.5% 5px 3.5%;
+}
+
+}
+
+@media screen and (max-width: 1400px) {
+ .keitering-history{
+    padding: 0 12px 5px 12px;
+}
+
+}
+

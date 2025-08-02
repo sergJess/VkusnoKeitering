@@ -61,3 +61,48 @@ grid-area: excellence__block5;
     max-width: 440px;
     grid-area: excellence__block6;
 }
+
+@media screen and (max-width: 1820px) {
+ .excellence{
+    padding: 0 5.5%;
+}
+
+}
+
+@media screen and (max-width: 1500px) {
+ .excellence{
+    padding: 0 12px;
+}
+
+}
+
+@media screen and (max-width: 1360px) {
+ .excellence{
+    padding: 0 12px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows:  1fr;
+    justify-content: center;
+    grid-template-areas: 
+    "excellence__title" 
+    "excellence__block1" 
+    "excellence__block2" 
+    "excellence__block3" 
+    "excellence__block4"
+    "excellence__block5" 
+    "excellence__block6";
+}
+.excellence__title {
+    align-self: auto;
+}
+.excellence__block1, .excellence__block2, .excellence__block3, .excellence__block4, .excellence__block5, .excellence__block6, .excellence__title{
+    max-width: 100%;
+    text-align: center;
+}
+
+.excellence__block-img-inner{
+    display: flex;
+    justify-content: center;
+}
+
+}
