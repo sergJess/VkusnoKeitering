@@ -12,7 +12,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 20px 10px;
+    gap: 47px 10px;
 }
 
 .excellence__title{
@@ -20,6 +20,10 @@
     max-width: 421px;
     grid-area: excellence__title;
     align-self: center;
+}
+
+.excellence__subtitle{
+    margin: 5px 0 3px 0;
 }
 
 .excellence__block1{

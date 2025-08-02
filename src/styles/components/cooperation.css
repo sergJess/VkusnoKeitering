@@ -1,13 +1,10 @@
 .cooperation{
-    padding: 0 13.5%;
+    padding: 0 13.5% 84px 13.5%;
 }
 
 .cooperation h2{
     text-align: center;
-}
-
-.cooperation__list-inner{
-
+    margin-bottom: 36px;
 }
 
 .cooperation__list{

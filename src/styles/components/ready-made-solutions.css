@@ -6,9 +6,9 @@
 .ready-made-solutions__tabs-inner{
     display: flex;
     justify-content: center;
-    gap: 10px 30px;
-    padding: 0 12px;
-    margin: 12px 0 20px 0;
+    gap: 10px 35px;
+    padding: 0 5px 0 35px;
+    margin: 6px 0 20px 0;
 }
 
 .ready-made-solutions__tabs-button{
@@ -25,9 +25,9 @@
 .ready-made-solutions__content{
     display: flex;
     gap: 10px 45px;
-    padding: 40px 13.5% 0 13.5%;
+    padding: 45px 13.5% 0 13.5%;
     background: #423329;
-    background: linear-gradient(180deg, #423329 52%, #fff 52%);
+    background: linear-gradient(180deg, #423329 61%, #fff 61%);
 }
 
 .ready-made-solutions__img-inner img{
@@ -45,6 +45,7 @@
 
 .ready-made-solutions__text-title-content{
     max-width: 369px;
+    margin: 0 0 0 44px;
 }
 
 .ready-made-solutions__text-inner{
@@ -60,12 +61,13 @@
     display: flex;
     gap: 10px;
     justify-content: space-between;
+    margin-bottom: 8px;
 }
 
 .ready-made-solutions__services{
     display: flex;
-    gap: 10px 82px;
-    padding: 20px 0 0 0;
+    gap: 10px 76px;
+    padding: 35px 0 10px 0;
 }
 
 .ready-made-solutions__services-title-block_1{
@@ -73,9 +75,9 @@
     width: 100%;
 }
 
-.ready-made-solutions__services-title-block_2{
-    flex-grow: 1;
-}
+.ready-made-solutions__services-title-block_2-blocks{
+   margin-bottom: 28px;
+} 
 
 .ready-made-solutions__services-title{
     padding: 8px 0 0 0;
@@ -83,7 +85,7 @@
 }
 
 .ready-made-solutions__services-title h4{
-    padding: 0 0 20px 0;
+    padding: 0 0 24px 0;
 }
 
 .ready-made-solutions__text-subtitle{

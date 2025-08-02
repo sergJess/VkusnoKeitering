@@ -15,4 +15,10 @@
 @import url("../../layout/navigation.css");
 @import url("../../layout/footer.css");
 
+.service-keitering__page-menu-galery{
+    margin: 44px 0 60px 0;
+}
 
+.service-keitering__page-excellence{
+    margin: 44px 0 66px 0;
+}

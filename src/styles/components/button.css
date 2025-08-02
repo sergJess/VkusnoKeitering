@@ -6,6 +6,12 @@
   cursor: pointer;
 }
 
+.button__dowload-icon{
+background-image: url("../../assets/img/icons/dowload/download.svg");
+background-position: right 25px center;
+background-repeat: no-repeat;
+}
+
 .button__letter-space {
   letter-spacing: 1px;
 }
@@ -20,6 +26,11 @@
 
 .button_colored-2 {
   background-color: #b09f74;
+}
+
+.button_colored-3 {
+  background-color: #423329;
+  border: 2px solid #EDDBAE;
 }
 
 .button-order {
