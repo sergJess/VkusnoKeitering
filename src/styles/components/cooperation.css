@@ -1,0 +1,20 @@
+.cooperation{
+    padding: 0 13.5%;
+}
+
+.cooperation h2{
+    text-align: center;
+}
+
+.cooperation__list-inner{
+
+}
+
+.cooperation__list{
+    column-count: 2;
+    column-gap: 50px;
+}
+
+.cooperation__list li::marker{
+    color: #B09F74;
+}
