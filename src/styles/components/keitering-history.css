@@ -1,0 +1,17 @@
+.keitering-history{
+padding: 0 13.5%;
+}
+
+.keitering-history__logo{
+    display: flex;
+    justify-content: center;
+}
+
+.keitering-history__text{
+    text-align: center;
+}
+
+.keitering-history__button-inner{
+    display: flex;
+    justify-content: center;
+}
