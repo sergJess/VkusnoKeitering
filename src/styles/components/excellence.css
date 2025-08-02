@@ -91,6 +91,7 @@ grid-area: excellence__block5;
     "excellence__block4"
     "excellence__block5" 
     "excellence__block6";
+    gap: 27px 10px;
 }
 .excellence__title {
     align-self: auto;
@@ -105,4 +106,10 @@ grid-area: excellence__block5;
     justify-content: center;
 }
 
+}
+
+@media screen and (max-width: 780px) {
+    .excellence__title_word{
+        display: block;
+    }
 }

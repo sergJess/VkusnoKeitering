@@ -22,3 +22,21 @@
 .service-keitering__page-excellence{
     margin: 44px 0 66px 0;
 }
+
+
+
+@media screen and (max-width: 860px) {
+.service-keitering__ready-made-solutions{
+    margin: 31px 0 0 0;
+}
+
+.service-keitering__page-menu-galery{
+    margin: 27px 0 44px 0;
+}
+
+.service-keitering__page-excellence{
+    margin: 55px 0 66px 0;
+}
+
+
+}
