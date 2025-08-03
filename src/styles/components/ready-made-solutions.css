@@ -30,6 +30,11 @@
     background: linear-gradient(180deg, #423329 61%, #fff 61%);
 }
 
+.ready-made-solutions__content_child-keitering{
+     background: #C76A6A;
+    background: linear-gradient(180deg, #C76A6A 61%, #C76A6A 61%);
+}
+
 .ready-made-solutions__img-inner img{
     border-radius: 33px;
 }
@@ -89,12 +94,17 @@
 }
 
 .ready-made-solutions__text-subtitle{
-    margin: 50px 0 20px 0;
+    margin: 0 0 20px 0;
 }
 
 .ready-made-solutions__text{
     min-height: 110px;
     padding: 0 0 10px 0;
+}
+
+.ready-made-solutions__text-description{
+    max-width: 70%;
+    margin: 0 0 0 44px;
 }
 
 @media screen and (max-width: 1660px) {
