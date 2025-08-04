@@ -1,0 +1,17 @@
+.service-feature{
+    padding: 0 12px;
+}
+
+.service-feature__galery{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: 1fr 1fr;
+    gap: 1px;
+    justify-content: center;
+}
+
+.service-feature__text{
+    max-width: 911px;
+    text-align: center;
+    margin: 0 auto;
+}
