@@ -1,0 +1,14 @@
+.slogan {
+padding: 0 12px;
+
+}
+
+.slogan__title{
+    text-align: center;
+}
+
+.slogan__text{
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}

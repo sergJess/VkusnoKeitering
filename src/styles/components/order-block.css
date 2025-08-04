@@ -54,7 +54,9 @@
 }
 
 .form__disclaimer {
+  max-width: 472px;
   text-align: center;
+  margin: 0 auto;
   padding: 42px 0 62px 0;
 }
 
@@ -64,6 +66,7 @@
   align-items: center;
   padding: 10px 50px 10px 0;
 }
+
 
 @media screen and (max-width: 1400px) {
   .order-block {
@@ -115,12 +118,9 @@
   display: block;
 }
 
-.form__disclaimer_space{
-  display: none;
-}
-
 .form__disclaimer {
   padding: 29px 0 35px 0;
+  max-width: 389px;
 }
 
 }
