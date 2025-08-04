@@ -123,6 +123,14 @@
   color: #000000;
 }
 
+.text-cost {
+  font-family: "PFDinTextCompPro", sans-serif;
+  font-weight: 500;
+  font-size: 1.8rem;
+  letter-spacing: 0;
+  color: #000000;
+}
+
 .text-item-writing {
   font-family: "PFDinTextCompPro", sans-serif;
   font-weight: 500;

@@ -1,0 +1,15 @@
+.service-info{
+padding: 0 12px;
+}
+
+.service-info h3{
+    text-align: center;
+}
+
+.service-info__block-inner{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 300px));
+    grid-template-rows: 1fr;
+    justify-content: center;
+    gap: 10px 55px;
+}

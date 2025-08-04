@@ -1,0 +1,27 @@
+.food-and-cost{
+    padding: 0 12px;
+}
+
+.food-and-cost h2{
+    text-align: center;
+}
+
+.food-and-cost__slider{
+    display: flex;
+    gap: 45px;
+    max-width: 1500px;
+    justify-content: center;
+    overflow-x: hidden;
+    margin: 0 auto;
+}
+
+.food-and-cost__slider-conrols{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+
+.food-and-cost__slider-arrow-inner{
+    cursor: pointer;
+}
