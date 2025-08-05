@@ -23,6 +23,10 @@
 .child-keitering-page__service-info{
     margin: 63px 0 62px 0;
 }
+
+.child-keitering-page__slogan{
+    margin: 76px 0 44px 0;
+}
 @media screen and (max-width: 860px) {
 
 }

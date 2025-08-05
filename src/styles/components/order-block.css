@@ -2,6 +2,10 @@
   padding: 59px 10px 70px 10px;
 }
 
+.order-block_2 {
+  padding: 10px 10px 0 10px;
+}
+
 .order-block_padding {
   padding: 59px 10px 10px 10px;
 }
@@ -57,14 +61,14 @@
   max-width: 472px;
   text-align: center;
   margin: 0 auto;
-  padding: 42px 0 62px 0;
+  padding: 42px 0 52px 0;
 }
 
 .order__subtext {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 50px 10px 0;
+  padding: 20px 50px 10px 0;
 }
 
 
@@ -104,7 +108,7 @@
 
 .order__subtext {
   display: block;
-  padding: 10px 10px 10px 10px;
+  padding: 20px 10px 10px 10px;
   text-align: right;
 }
 
@@ -119,7 +123,7 @@
 }
 
 .form__disclaimer {
-  padding: 29px 0 35px 0;
+  padding: 29px 0 25px 0;
   max-width: 389px;
 }
 
