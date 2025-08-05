@@ -15,3 +15,11 @@
     text-align: center;
     margin: 0 auto;
 }
+
+.service-feature__text_up-paragraph{
+    margin: 20px auto 60px auto;
+}
+
+.service-feature__text_down-paragraph{
+    margin: 63px auto 19px auto;
+}

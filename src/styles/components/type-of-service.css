@@ -13,10 +13,11 @@
 .type-of-service__content{
     position: relative;
     padding: 0 0 100px 0;
+    margin: 20px 0 0 0;
 }
 .type-of-service__button-inner{
     position: absolute;
     left: 50%;
     bottom: 0;
-    transform: translate(-25%, -25%);
+    transform: translate(-50%, -26%);
 }

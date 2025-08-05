@@ -74,6 +74,9 @@
     gap: 10px 76px;
     padding: 35px 0 10px 0;
 }
+.ready-made-solutions__services_padding{
+    padding: 20px 0 10px 48px;
+}
 
 .ready-made-solutions__services-title-block_1{
     max-width: 260px;

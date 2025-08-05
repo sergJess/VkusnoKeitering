@@ -16,6 +16,13 @@
 @import url("../../layout/navigation.css");
 @import url("../../layout/footer.css");
 
+.child-keitering-page__ready-made-solutions{
+    margin: 38px 0 144px 0;
+}
+
+.child-keitering-page__service-info{
+    margin: 63px 0 38px 0;
+}
 @media screen and (max-width: 860px) {
 
 }
