@@ -4,6 +4,7 @@
 
 .food-and-cost h2{
     text-align: center;
+    margin-bottom: 35px;
 }
 
 .food-and-cost__slider{
@@ -20,8 +21,17 @@
     justify-content: center;
     gap: 10px;
     align-items: center;
+    margin: 28px 0 0 0;
 }
 
 .food-and-cost__slider-arrow-inner{
     cursor: pointer;
+}
+
+.food-and-cost__item-title{
+    margin: 26px 0 10px 0;
+}
+
+.food-and-cost__item-cost-text{
+    margin: 5px 0 0 0;
 }
