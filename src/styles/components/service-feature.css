@@ -23,3 +23,13 @@
 .service-feature__text_down-paragraph{
     margin: 63px auto 19px auto;
 }
+
+@media screen and (max-width: 780px) {
+    .service-feature__text_up-paragraph{
+    margin: 19px auto 52px auto;
+}
+
+.service-feature__text_down-paragraph{
+    margin: 48px auto 19px auto;
+}
+}

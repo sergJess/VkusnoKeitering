@@ -29,4 +29,10 @@ padding: 0 12px;
     .service-info__block-inner{
     grid-template-columns: 1fr;
 }
+
+.service-info h3{
+    max-width: 94%;
+    margin: 0 auto 32px auto;
+    font-size: 3.5rem;
+}
 }
