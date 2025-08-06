@@ -27,6 +27,9 @@
 .child-keitering-page__slogan{
     margin: 76px 0 44px 0;
 }
-@media screen and (max-width: 860px) {
 
+@media screen and (max-width: 780px) {
+.child-keitering-page__type-of-service{
+    margin: 36px 0 0 0;
+}
 }

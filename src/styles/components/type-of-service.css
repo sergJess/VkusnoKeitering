@@ -8,6 +8,7 @@
 
 .type-of-service__img-inner img{
     border-radius: 33px;
+    width: 100%;
 }
 
 .type-of-service__content{
@@ -15,9 +16,32 @@
     padding: 0 0 100px 0;
     margin: 20px 0 0 0;
 }
+
 .type-of-service__button-inner{
     position: absolute;
     left: 50%;
     bottom: 0;
     transform: translate(-50%, -26%);
+}
+
+@media screen and (max-width: 1660px) {
+    .type-of-service{
+    padding: 0 3.5% 0 3.5%;
+}
+}
+
+@media screen and (max-width: 1400px) {
+    .type-of-service{
+    padding: 0 12px 0 12px;
+}
+}
+
+@media screen and (max-width: 780px) {
+    .type-of-service__img-inner img{
+    border-radius: 20px;
+}
+.type-of-service__button-inner{
+    transform: translate(-50%, -2%);
+}
+
 }

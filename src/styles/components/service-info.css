@@ -18,3 +18,15 @@ padding: 0 12px;
     justify-content: center;
     gap: 10px 55px;
 }
+
+@media screen and (max-width: 1200px) {
+.service-info__block-inner{
+    gap: 10px 15px;
+}
+}
+
+@media screen and (max-width: 780px) {
+    .service-info__block-inner{
+    grid-template-columns: 1fr;
+}
+}

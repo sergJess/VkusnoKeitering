@@ -26,6 +26,9 @@
     display: flex;
     gap: 10px 45px;
     padding: 45px 13.5% 0 13.5%;
+}
+
+.ready-made-solutions__content_service-keitering{
     background: #423329;
     background: linear-gradient(180deg, #423329 61%, #fff 61%);
 }
@@ -135,8 +138,20 @@
 @media screen and (max-width: 860px) {
     .ready-made-solutions__content{
     display: block;
+}
+
+.ready-made-solutions__content_service-keitering{
     background: #423329;
     background: linear-gradient(180deg, #423329 62%, #fff 62%);
+}
+
+.ready-made-solutions__content_child-keitering{
+    background: #C76A6A;
+    background: linear-gradient(180deg, #C76A6A 61%, #fff 61%);
+}
+
+.ready-made-solutions__text-description {
+    margin: 0 auto;
 }
 
 .ready-made-solutions__text-title-block{
