@@ -21,7 +21,7 @@ padding: 0 12px;
 
 @media screen and (max-width: 1200px) {
 .service-info__block-inner{
-    gap: 10px 15px;
+    gap: 57px 15px;
 }
 }
 
@@ -32,7 +32,7 @@ padding: 0 12px;
 
 .service-info h3{
     max-width: 94%;
-    margin: 0 auto 32px auto;
+    margin: 0 auto 15px auto;
     font-size: 3.5rem;
 }
 }

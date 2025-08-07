@@ -14,3 +14,9 @@ padding: 0 12px;
     margin: 0 auto;
     text-align: center;
 }
+
+@media screen and (max-width: 780px) {
+    .slogan__title{
+    letter-spacing: 1px;
+}
+}
