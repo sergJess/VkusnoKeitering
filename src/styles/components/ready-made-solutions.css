@@ -30,7 +30,7 @@
 
 .ready-made-solutions__content_service-keitering{
     background: #423329;
-    background: linear-gradient(180deg, #423329 61%, #fff 61%);
+    background: linear-gradient(180deg, #423329 58%, #fff 58%);
 }
 
 .ready-made-solutions__content_child-keitering{
@@ -76,6 +76,10 @@
     padding: 20px 0 10px 48px;
 }
 
+.ready-made-solutions__services_padding2{
+     padding: 20px 0 10px 0;
+}
+
 .ready-made-solutions__services-title-block_1{
     max-width: 260px;
     width: 100%;
@@ -104,8 +108,7 @@
 }
 
 .ready-made-solutions__text-description{
-    max-width: 70%;
-    margin: 0 0 0 44px;
+    max-width: 86%;
 }
 
 .ready-made-solutions__text-description2{
@@ -125,6 +128,16 @@ max-width: 75%;
     grid-template-columns: auto auto;
     grid-template-rows: auto;
     margin-left: 40px;
+}
+
+.ready-made-solutions__text-title-block_service{
+    display: grid;
+    gap: 8px 18px;
+    grid-template-areas: "ready-made-solutions__text-title-content2 ready-made-solutions__buttons-inner"
+    "ready-made-solutions__text-description2 ready-made-solutions__text-description";
+    grid-template-rows: auto;
+    margin-left: 40px;
+    grid-template-columns: 432px auto;
 }
 
 .ready-made-solutions-mobile{
@@ -162,6 +175,11 @@ max-width: 75%;
     background: linear-gradient(180deg, #C76A6A 57%, #fff 57%);
 }
 
+.ready-made-solutions__text-title-block_service{
+    grid-template-columns: auto auto;
+    margin: 0;
+}
+
 }
 
 @media screen and (max-width: 860px) {
@@ -181,6 +199,16 @@ max-width: 75%;
     text-align: center;
 }
 
+.ready-made-solutions__text-title-block_service{
+    gap: 8px 18px;
+    grid-template-areas: "ready-made-solutions__text-title-content2"
+    "ready-made-solutions__text-description2" "ready-made-solutions__buttons-inner";
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    justify-content: center;
+    text-align: center;
+}
+
 .ready-made-solutions__content_service-keitering{
     background: linear-gradient(180deg, #423329 62%, #fff 62%);
 }
@@ -191,16 +219,11 @@ max-width: 75%;
 
 .ready-made-solutions__text-description {
     margin: 0 auto;
-    order: 1;
 }
 
 .ready-made-solutions__text-description2 {
     margin: 0 auto;
     max-width: 100%;
-}
-
-.ready-made-solutions__text-description-services-block{
-    order: 3;
 }
 
 .ready-made-solutions__text-subtitle{
@@ -225,6 +248,10 @@ max-width: 75%;
     margin: 0 auto;
     text-align: center;
     padding: 0 0 18px 0;
+}
+
+.ready-made-solutions__text_service{
+    max-width: 100%;
 }
 
 .ready-made-solutions__services{
