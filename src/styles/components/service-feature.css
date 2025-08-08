@@ -29,6 +29,10 @@
     margin: 19px auto 52px auto;
 }
 
+.service-feature__galery img{
+   width: 100%;
+}
+
 .service-feature__text_down-paragraph{
     margin: 48px auto 19px auto;
 }
