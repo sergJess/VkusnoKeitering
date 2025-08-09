@@ -10,6 +10,10 @@
     justify-content: center;
 }
 
+.service-feature__galery img{
+   width: 100%;
+}
+
 .service-feature__text{
     max-width: 911px;
     text-align: center;
@@ -27,10 +31,6 @@
 @media screen and (max-width: 780px) {
     .service-feature__text_up-paragraph{
     margin: 19px auto 52px auto;
-}
-
-.service-feature__galery img{
-   width: 100%;
 }
 
 .service-feature__text_down-paragraph{
