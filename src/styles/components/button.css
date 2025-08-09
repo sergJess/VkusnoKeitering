@@ -38,6 +38,12 @@ background-repeat: no-repeat;
   border: 2px solid #EDDBAE;
 }
 
+.button_colored-5 {
+  background-color: #292E42;
+  border: 2px solid #EDDBAE;
+}
+
+
 .button-order {
   display: flex;
   justify-content: center;

@@ -34,8 +34,13 @@
 }
 
 .ready-made-solutions__content_child-keitering{
-     background: #C76A6A;
+    background: #C76A6A;
     background: linear-gradient(180deg, #C76A6A 61%, #fff 61%);
+}
+
+.ready-made-solutions__content_outdoor-bars{
+    background: #292E42;
+    background: linear-gradient(180deg, #292E42 55%, #fff 55%);
 }
 
 .ready-made-solutions__content_coffee-break{
@@ -174,11 +179,16 @@ max-width: 75%;
 .ready-made-solutions__content{
     gap: 10px 40px;
 }
+
 }
 
 @media screen and (max-width: 1000px) {
     .ready-made-solutions__content_child-keitering{
     background: linear-gradient(180deg, #C76A6A 57%, #fff 57%);
+}
+
+.ready-made-solutions__content_outdoor-bars{
+    background: linear-gradient(180deg, #292E42 57%, #fff 57%);
 }
 
 .ready-made-solutions__text-title-block_service{
@@ -221,6 +231,10 @@ max-width: 75%;
 
 .ready-made-solutions__content_child-keitering{
     background: linear-gradient(180deg, #C76A6A 62%, #fff 62%);
+}
+
+.ready-made-solutions__content_outdoor-bars{
+    background: linear-gradient(180deg, #292E42 60%, #fff 60%);
 }
 
 .ready-made-solutions__text-description {
