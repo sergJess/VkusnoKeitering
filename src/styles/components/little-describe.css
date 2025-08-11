@@ -1,0 +1,20 @@
+
+.little-describe{
+    padding: 0 12px;
+}
+
+.little-describe__text{
+    max-width: 1006px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.little-describe__text_margin{
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 780px) {
+    .little-describe__text{
+    max-width: 100%;
+}
+}

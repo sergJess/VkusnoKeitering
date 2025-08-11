@@ -53,6 +53,11 @@ background-repeat: no-repeat;
  border: 2px solid #EDDBAE;
 }
 
+.button_colored-8{
+ background-color: #557A81;
+ border: 2px solid #EDDBAE;
+}
+
 .button-order {
   display: flex;
   justify-content: center;

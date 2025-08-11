@@ -58,6 +58,11 @@
     background: linear-gradient(180deg, #698155 55%, #fff 55%);
 }
 
+.ready-made-solutions__content_bankets{
+    background: #557A81;
+    background: linear-gradient(180deg, #557A81 55%, #fff 55%);
+}
+
 .ready-made-solutions__img-inner img{
     border-radius: 33px;
 }
@@ -254,6 +259,11 @@ max-width: 75%;
 .ready-made-solutions__content_gala{
     background: #3B4249;
     background: linear-gradient(180deg, #3B4249 60%, #fff 60%);
+}
+
+.ready-made-solutions__content_bankets{
+    background: #557A81;
+    background: linear-gradient(180deg, #557A81 60%, #fff 60%);
 }
 
 .ready-made-solutions__text-description {
