@@ -43,6 +43,10 @@ background-repeat: no-repeat;
   border: 2px solid #EDDBAE;
 }
 
+.button_colored-6{
+ background-color: #3B4249;
+ border: 2px solid #EDDBAE;
+}
 
 .button-order {
   display: flex;

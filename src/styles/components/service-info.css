@@ -19,14 +19,30 @@ padding: 0 12px;
     gap: 10px 55px;
 }
 
+.service-info__block-inner-2{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 420px));
+    grid-template-rows: 1fr;
+    justify-content: center;
+    gap: 10px 70px;
+}
+
 @media screen and (max-width: 1200px) {
 .service-info__block-inner{
+    gap: 57px 15px;
+}
+
+.service-info__block-inner-2{
     gap: 57px 15px;
 }
 }
 
 @media screen and (max-width: 780px) {
     .service-info__block-inner{
+    grid-template-columns: 1fr;
+}
+
+.service-info__block-inner-2{
     grid-template-columns: 1fr;
 }
 
