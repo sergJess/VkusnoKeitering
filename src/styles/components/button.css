@@ -48,6 +48,11 @@ background-repeat: no-repeat;
  border: 2px solid #EDDBAE;
 }
 
+.button_colored-7{
+ background-color: #698155;
+ border: 2px solid #EDDBAE;
+}
+
 .button-order {
   display: flex;
   justify-content: center;

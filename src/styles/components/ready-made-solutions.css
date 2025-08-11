@@ -53,6 +53,10 @@
     background: linear-gradient(180deg, #423329 61%, #fff 61%);
 }
 
+.ready-made-solutions__content_furshet{
+    background: #698155;
+    background: linear-gradient(180deg, #698155 55%, #fff 55%);
+}
 
 .ready-made-solutions__img-inner img{
     border-radius: 33px;
@@ -240,6 +244,16 @@ max-width: 75%;
 
 .ready-made-solutions__content_outdoor-bars{
     background: linear-gradient(180deg, #292E42 60%, #fff 60%);
+}
+
+.ready-made-solutions__content_furshet{
+    background: #698155;
+    background: linear-gradient(180deg, #698155 60%, #fff 60%);
+}
+
+.ready-made-solutions__content_gala{
+    background: #3B4249;
+    background: linear-gradient(180deg, #3B4249 60%, #fff 60%);
 }
 
 .ready-made-solutions__text-description {
