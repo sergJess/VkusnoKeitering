@@ -19,9 +19,10 @@
   cursor: pointer;
   padding-bottom: 9px;
   border-bottom: 1px solid transparent;
+  background-color: transparent;
 }
 
-.food-example__tab:hover{
+.food-example__tab_active{
   border-bottom: 1px solid #698155;
 }
 
@@ -30,6 +31,8 @@
   justify-content: center;
   gap: 45px;
   flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: 2fr;
 }
 
 .food-example__button {
@@ -44,6 +47,18 @@
 
 .food-example__item-price {
   padding: 10px 0 8px 0;
+}
+
+.food-example__slider-conrols{
+  margin: 30px 0 18px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px 13px;
+}
+
+.food-example__slider-arrow-inner{
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1660px) {
@@ -64,12 +79,9 @@
 }
 
 @media screen and (max-width: 1220px) {
-.food-example__item_hiiden{
-  display: none;
-}
 
 .food-example-tabs {
-  justify-content: flex-start;
+  gap: 15px;
 }
 
 .food-example__tab{
@@ -79,6 +91,7 @@
 
 .food-example__tab_active{
   background-color: #DFDFDF;
+  border-bottom: 1px solid transparent;
 }
 
   .food-example {
@@ -90,8 +103,8 @@
 @media screen and (max-width: 860px) {
   .food-example-tabs {
   display: grid;
-  grid-template: "a b b "
-                  "c d e ";       
+   grid-template: "a b b "
+                  "c d e ";        
   gap: 15px 46px;
   padding: 15px 0 21px 0;
 }
@@ -115,8 +128,18 @@
 .food-example__tab5{
   grid-area: e;
 }
+
+.food-example-goods {
+  display: grid;
+  justify-content: start;
+  gap: 40px 15px;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 1fr 1fr;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
+}
 
 @media screen and (max-width: 443px) {
   .food-example-tabs {
@@ -125,6 +148,13 @@
 
 .food-example__tab{
   padding: 7px 5px 9px 5px;
+}
+
+}
+
+@media screen and (max-width: 400px) {
+  .food-example-tabs {
+ gap: 15px;
 }
 
 }

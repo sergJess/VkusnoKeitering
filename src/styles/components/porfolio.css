@@ -16,6 +16,11 @@
   padding: 36px 13% 36px 13%;
 }
 
+.porfolio__tab{
+  cursor: pointer;
+  background-color: transparent;
+}
+
 .porfolio__examples {
   display: flex;
   gap: 1px;
