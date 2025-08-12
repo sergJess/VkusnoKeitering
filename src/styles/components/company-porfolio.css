@@ -31,16 +31,9 @@
     width: 100%;
 }
 
-.company-portfolio__tab-area_mobile{
-   display: none;
-}
-
 @media screen and (max-width: 780px) {
    .company-portfolio__tabs{
     margin: 13px 0 24px 0;
 }
-.company-portfolio__tab-area_mobile{
-   display: grid;
-   margin-bottom: 12px;
-}
+
 }
