@@ -179,6 +179,11 @@ max-width: 75.5%;
     gap: 10px 40px;
 }
 
+.ready-made-solutions__text-title-block{
+    gap: 8px 18px;
+    grid-template-columns: auto auto;
+}
+
 }
 
 @media screen and (max-width: 1000px) {
