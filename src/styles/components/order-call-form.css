@@ -5,6 +5,9 @@
     z-index: 100;
     width: 100.5vw;
     height: 100.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: all 0.8s ease-in-out;
     background-color: #696C7A;
 }
@@ -16,7 +19,6 @@
 .order-call__form-inner{
     max-width: 515px;
     padding: 19px 10px 53px 10px;
-    margin: auto auto;
 }
 
 .order-call__form-inner h2{

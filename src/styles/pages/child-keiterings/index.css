@@ -12,6 +12,7 @@
 @import url("../../components/food-and-cost.css");
 @import url("../../components/slogan.css");
 @import url("../../components/order-block.css");
+@import url("../../components/order-call-form.css");
 @import url("../../layout/header.css");
 @import url("../../layout/navigation.css");
 @import url("../../layout/footer.css");
@@ -42,6 +43,6 @@
 }
 
 .child-keitering-page__slogan{
-    margin: 93px 0 58px 0;
+    margin: 88px 0 58px 0;
 }
 }

@@ -42,9 +42,9 @@
   display: block;
 }
 
-.navigation-show__submenu:hover .navigation__submenu {
+/* .navigation-show__submenu:hover .navigation__submenu {
   display: block;
-}
+} */
 
 .navigation_mobile{
   display: none;
