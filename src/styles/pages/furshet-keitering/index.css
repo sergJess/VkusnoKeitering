@@ -12,36 +12,37 @@
 @import url("../../components/food-and-cost.css");
 @import url("../../components/slogan.css");
 @import url("../../components/order-block.css");
+@import url("../../components/order-call-form.css");
 @import url("../../layout/header.css");
 @import url("../../layout/navigation.css");
 @import url("../../layout/footer.css");
 
-.child-keitering-page__ready-made-solutions{
+.furshet-keitering-page__ready-made-solutions{
     margin: 38px 0 144px 0;
 }
 
-.child-keitering-page__service-info{
+.furshet-keitering-page__service-info{
     margin: 63px 0 62px 0;
 }
 
-.child-keitering-page__slogan{
+.furshet-keitering-page__slogan{
     margin: 76px 0 44px 0;
 }
 
 @media screen and (max-width: 780px) {
-.child-keitering-page__type-of-service{
+.furshet-keitering-page__type-of-service{
     margin: 36px 0 0 0;
 }
 
-.child-keitering-page__ready-made-solutions{
+.furshet-keitering-page__ready-made-solutions{
     margin: 46px 0 67px 0;
 }
 
-.child-keitering-page__service-info{
+.furshet-keitering-page__service-info{
     margin: 54px 0 57px 0;
 }
 
-.child-keitering-page__slogan{
-    margin: 93px 0 58px 0;
+.furshet-keitering-page__slogan{
+    margin: 88px 0 58px 0;
 }
 }

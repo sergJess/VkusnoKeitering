@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="wrapper">
-         <header class="header-block">
+         <header class="header-block" id="header-id">
         <div class="navigation-burger"><div class="navigation-burger__line"></div>
         <div class="navigation-burger__line navigation-burger__line_padding"></div>
         <div class="navigation-burger__line"></div>
@@ -48,7 +48,7 @@
             </div>
           </div>
           <div class="header__block header__botton-block">
-            <button class="button text-button button__letter-space">Заказать звонок</button>
+            <button class="button text-button button__letter-space order-call-button_btn">Заказать звонок</button>
           </div>
           <div class="header__contacts">
             <div>
@@ -78,8 +78,8 @@
           </div>
           <nav class="header__navigation">
             <ul class="navigation">
-              <li class="navigation__list navigation-show__submenu">
-                <p class="text-base">
+              <li class="navigation-show__submenu">
+                <p class="text-base navigation__list">
                   О нас<span class="navigation__arrow"></span>
                 </p>
                 <div class="navigation__submenu"><ul>
@@ -88,8 +88,8 @@
                 </ul></div>
               </li>
               <li><a class="text-base" href="../index.html#porfolio-id">Портфолио</a></li>
-              <li class="navigation__list navigation-show__submenu">
-                <p class="text-base">
+              <li class="navigation-show__submenu">
+                <p class="text-base navigation__list">
                   Услуги<span class="navigation__arrow"></span>
                 </p>
                 <div class="navigation__submenu"><ul>
@@ -119,12 +119,12 @@
             />
             <span class="search__icon"></span>
           </div></div>
-          <div class="navigation__mobile-button navigation_mobile"><button class="button-order text-button button-order_colored-mobile">Оставить<br/> заявку</button></div>
+          <div class="navigation__mobile-button navigation_mobile"><button class="button-order text-button button-order_colored-mobile order-call-button_btn">Заказать<br/> звонок</button></div>
         </div>
       </header>
       <div class="page-info"><p class="text-base">Главная - Услуги - <span class="text_colored3">Выездные фуршеты</span></p>
     </div>
-    <div class="type-of-service child-keitering-page__type-of-service">
+    <div class="type-of-service furshet-keitering-page__type-of-service">
         <h2 class="text-block-title uppercase">Выездные <span class="text_colored4 ">фуршеты</span></h2>
         <div class="type-of-service__content">
             <div class="type-of-service__img-inner"><picture><source type="image/jpeg"
@@ -133,12 +133,12 @@
      <img class="main-info__img" src="../assets/img/type-of-service/furshet.jpg" alt="furshet-keitering"> 
   </picture>
 </div>
-<div class="type-of-service__button-inner">
-    <button class="button-order text-button">Оставить<br/> заявку</button>
+<div class="type-of-service__button-inner"><a href="#order-block-id">
+    <button class="button-order text-button">Оставить<br/> заявку</button></a>
 </div>
         </div>
     </div>
-      <div class="ready-made-solutions child-keitering-page__ready-made-solutions">
+      <div class="ready-made-solutions furshet-keitering-page__ready-made-solutions">
         <div class="ready-made-solutions__content ready-made-solutions__content_furshet">
             <div class="ready-made-solutions__img-inner">
                   <picture><source type="image/jpeg"
@@ -157,7 +157,7 @@
                             "><span class="font_bold">от 3 000 руб.</span> на персону</p>
                         </div>
                         <div class="ready-made-solutions__buttons-inner">
-                          <div class=""><button class="button text-button button_colored-2 ">Заказать расчет</button></div>
+                          <div class=""><a href="#order-block-id"><button class="button text-button button_colored-2 ">Заказать расчет</button></a></div>
                           <div class=""><button class="button text-button button_colored-7 button__dowload-icon">Скачать меню</button></div>
                         </div>
                          <div class="ready-made-solutions__text-description2">
@@ -264,7 +264,7 @@
 Все наши предложения изготавливаются из свежих и натуральных продуктов, что гарантирует не только их качество, но и эстетическое оформление.</p>
         </div>
       </div>
-      <div class="service-info child-keitering-page__service-info">
+      <div class="service-info furshet-keitering-page__service-info">
         <h3 class="text-block-little-title uppercase">Фуршет <span class="text_colored4" >от Вкусно Кейтеринг</span></h3>
         <div class="service-info__block-inner">
           <div class="">
@@ -340,11 +340,11 @@
           <div class="food-and-cost__slider-arrow-inner"><img src="../assets/img/slider/arrow-right-2.svg" alt=""></div>
         </div>
       </div>
-      <div class="slogan child-keitering-page__slogan">
+      <div class="slogan furshet-keitering-page__slogan">
         <h2 class="uppercase slogan__title text-block-little-title ">Вкусно кейтеринг - атмосфера, наполненная впечатлениями</h2>
         <p class="text-item-subtitle slogan__text text_line-height2">"Вкусно Кейтеринг" обеспечит не только изысканное гастрономическое оформление выездного фуршета, но и атмосферу, которая будет приятна вашим гостям. Мы позаботимся обо всех аспектах от сервировки до уборки, позволяя вам наслаждаться общением и радостью от события без дополнительных хлопот. Доверьте ваш фуршет нам, и мы создадим для вас момент, достойный воспоминаний!</p>
       </div>
-      <div class="order-block_2">
+      <div class="order-block_2" id="order-block-id">
         <h2 class="text-extra-title text_colored4 order-block__title uppercase">Оставить заявку</h2>
         <form action="" class="order-block__form">
           <div class="form__fields">
@@ -411,6 +411,24 @@
           </div>
         </div>
       </footer>
+      <div class="order-call-form-block" id="order-call-form-block-id">
+        <div class="order-call__form-inner">
+          <div class="order-call__form-cross-inner"><img src="../assets/img/icons/form/order-cross.svg" id="order-call-form-cross-id" class="order-call__form-cross" alt=""></div>
+          <h2 class="uppercase text-block-little-title">Заказать звонок</h2>
+          <form action="order-call__form">
+            <div class="order-call-form__input-inner">
+              <div class=""><input class="order-call-form__input text-item-subtitle" type="text" placeholder="Имя"></div>
+              <div class=""><input class="order-call-form__input text-item-subtitle" type="text" placeholder="+7 (ххх) ххх-хх-хх"></div>
+            </div>
+            <p class="text-base text_colored3 text_spacing order-call-form__text">Отправляя данную форму вы даете согласие на <br> обработку <br>
+своих персональных данных</p>
+            <textarea class="order-call-form__textarea text-item-subtitle" name="" id="" placeholder="Ваш вопрос"></textarea>
+            <div class="order-call-form__button-inner">
+              <button type="submit" class="button text-button button_colored-2 ">Отправить</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
 </body>
 <script src="../js/furshet-keitering/furshet-keitering.js"></script>
