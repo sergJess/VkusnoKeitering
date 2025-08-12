@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <header class="header-block">
+      <header class="header-block" id="header-id">
         <div class="navigation-burger"><div class="navigation-burger__line"></div>
         <div class="navigation-burger__line navigation-burger__line_padding"></div>
         <div class="navigation-burger__line"></div>
@@ -48,7 +48,7 @@
             </div>
           </div>
           <div class="header__block header__botton-block">
-            <button class="button text-button button__letter-space">Заказать звонок</button>
+            <button class="button text-button button__letter-space order-call-button_btn">Заказать звонок</button>
           </div>
           <div class="header__contacts">
             <div>
@@ -120,7 +120,7 @@
             />
             <span class="search__icon"></span>
           </div></div>
-          <div class="navigation__mobile-button navigation_mobile"><button class="button-order text-button button-order_colored-mobile">Оставить<br/> заявку</button></div>
+          <div class="navigation__mobile-button navigation_mobile"><button class="button-order text-button button-order_colored-mobile order-call-button_btn">Заказать<br/> звонок</button></div>
         </div>
       </header>
       <div class="main-info">
@@ -144,7 +144,7 @@
       </div>
         <div class="main-info__block-control">
 <div class="main-info__button-inner">
-        <button class="button-order text-button main-info__button">Оставить<br/> заявку</button>
+  <a href="#order-block-id"> <button class="button-order text-button main-info__button">Оставить<br/> заявку</button></a>
         </div>
 <div class="main-info-slider">
           <div class="main-info-slider__arrows">
@@ -361,7 +361,7 @@
 <p class="text-item-writing food-example__item-price text-item-writing_size">139 руб./шт.</p>
           </div>
         </div>
-        <div class="food-example__button"> <button class="button-order text-button button-order_colored">Оставить<br/> заявку</button></div>
+        <div class="food-example__button"><a href="#order-block-id"><button class="button-order text-button button-order_colored">Оставить<br/> заявку</button></a></div>
       </div>
       <div class="about-company">
         <h2 class="text-block-title about-company__title uppercase">О компании</h2>
@@ -374,7 +374,7 @@
       
           </div>
       </div>
-      <div class="order-block">
+      <div class="order-block" id="order-block-id">
         <h2 class="text-extra-title text_colored4 order-block__title uppercase">Оставить заявку</h2>
         <form action="" class="order-block__form">
           <div class="form__fields">

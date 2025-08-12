@@ -10,6 +10,15 @@ cross.onclick = () => {
 }
 
 //order-call-form
+const header = document.getElementById('header-id');
+const orderCallButtons = header.querySelectorAll('.order-call-button_btn');
 const crossOrderCallForm = document.getElementById('order-call-form-cross-id');
 const orderCallForm = document.getElementById('order-call-form-block-id');
-crossOrderCallForm.onclick = () => {}
+crossOrderCallForm.onclick = () => {
+     orderCallForm.classList.remove('order-call-form-block_show');
+}
+for(let i = 0, length = orderCallButtons.length; i < length; i++){
+    orderCallButtons[i].onclick = () => {
+        orderCallForm.classList.add('order-call-form-block_show');
+    }
+}
