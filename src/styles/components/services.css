@@ -93,6 +93,7 @@
 .service-order {
   padding: 22px 1% 32px 1%;
   margin: 0 12px 0 12px;
+  justify-content: center;
 }
 
 .services__text-block{

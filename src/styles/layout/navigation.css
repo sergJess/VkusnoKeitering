@@ -25,15 +25,21 @@
   transform: translateX(-13%) translateY(100%);
   background-color: #fff;
   padding: 3px 26px;
+  z-index: 15;
 }
 
 .navigation__submenu-link {
   text-wrap: nowrap;
   display: block;
+  margin: 8px 0;
 }
 
 .navigation-show__submenu {
   position: relative;
+}
+
+.navigation__submenu_show {
+  display: block;
 }
 
 .navigation-show__submenu:hover .navigation__submenu {
