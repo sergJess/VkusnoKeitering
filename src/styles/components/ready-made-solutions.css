@@ -24,7 +24,7 @@
 
 .ready-made-solutions__content{
     display: flex;
-    gap: 10px 45px;
+    gap: 10px 6%;
     padding: 45px 13.5% 0 13.5%;
 }
 
@@ -75,7 +75,6 @@
     grid-area: ready-made-solutions__buttons-inner ;
 } 
 
-
 .ready-made-solutions__text-inner{
     padding: 15px 0 0 0;
 }
@@ -97,12 +96,9 @@
     gap: 10px 76px;
     padding: 35px 0 10px 0;
 }
-.ready-made-solutions__services_padding{
-    padding: 20px 0 10px 48px;
-}
 
-.ready-made-solutions__services_padding2{
-     padding: 20px 0 10px 0;
+.ready-made-solutions__services_padding{
+    padding: 20px 0 10px 0;
 }
 
 .ready-made-solutions__services-title-block_1{
@@ -138,7 +134,7 @@
 
 .ready-made-solutions__text-description2{
 grid-area: ready-made-solutions__text-description2;
-max-width: 75%;
+max-width: 75.5%;
 }
 
 .ready-made-solutions__text-title-content{
@@ -147,22 +143,11 @@ max-width: 75%;
 
 .ready-made-solutions__text-title-block{
     display: grid;
-    gap: 8px 18px;
+    gap: 8px 23px;
     grid-template-areas: "ready-made-solutions__text-title-content2 ready-made-solutions__buttons-inner"
     "ready-made-solutions__text-description2 ready-made-solutions__text-description2";
-    grid-template-columns: auto auto;
+    grid-template-columns: minmax(406px, auto) auto;
     grid-template-rows: auto;
-    margin-left: 40px;
-}
-
-.ready-made-solutions__text-title-block_service{
-    display: grid;
-    gap: 8px 18px;
-    grid-template-areas: "ready-made-solutions__text-title-content2 ready-made-solutions__buttons-inner"
-    "ready-made-solutions__text-description2 ready-made-solutions__text-description";
-    grid-template-rows: auto;
-    margin-left: 40px;
-    grid-template-columns: 432px auto;
 }
 
 .ready-made-solutions-mobile{
@@ -205,11 +190,6 @@ max-width: 75%;
     background: linear-gradient(180deg, #292E42 57%, #fff 57%);
 }
 
-.ready-made-solutions__text-title-block_service{
-    grid-template-columns: auto auto;
-    margin: 0;
-}
-
 }
 
 @media screen and (max-width: 860px) {
@@ -218,23 +198,12 @@ max-width: 75%;
 }
 
 .ready-made-solutions__text-title-block {
-    gap: 8px 18px;
+    gap: 11px 18px;
     grid-template-areas: "ready-made-solutions__text-title-content2"
     "ready-made-solutions__text-description2"
     "ready-made-solutions__buttons-inner";
     grid-template-columns: auto;
     grid-template-rows: auto;
-    margin-left: 0;
-    justify-content: center;
-    text-align: center;
-}
-
-.ready-made-solutions__text-title-block_service{
-    gap: 8px 18px;
-    grid-template-areas: "ready-made-solutions__text-title-content2"
-    "ready-made-solutions__text-description2" "ready-made-solutions__buttons-inner";
-    grid-template-rows: auto;
-    grid-template-columns: auto;
     justify-content: center;
     text-align: center;
 }
