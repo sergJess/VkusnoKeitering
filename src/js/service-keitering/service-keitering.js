@@ -44,3 +44,16 @@ navigationLists[i].onclick = () => {
     if(navigationSubmenu) navigationSubmenu.classList.toggle('navigation__submenu_show');
 }
 }
+//height in ready made solutions block linear-gradient
+const readyMeadeSolutionsBlock = document.getElementById('ready-made-solutions-id');
+const readyMadeSolutionsContent = readyMeadeSolutionsBlock.querySelector('.ready-made-solutions__content');
+const readyMadeSolutionsImgInner = readyMeadeSolutionsBlock.querySelector('.ready-made-solutions__img-inner');
+const readyMadeSolutionsTextTitleBlock = readyMeadeSolutionsBlock.querySelector('.ready-made-solutions__text-title-block');
+const readyMadeSolutionsTextTitleBlockHeight = readyMadeSolutionsTextTitleBlock.clientHeight;
+const readyMadeSolutionsImgInnerHeight = readyMadeSolutionsImgInner.clientHeight;
+if(window.innerWidth > 860){
+readyMadeSolutionsContent.style.backgroundImage = `linear-gradient(180deg, #423329 ${readyMadeSolutionsTextTitleBlockHeight - 8}px, #fff ${readyMeadeSolutionsBlock.clientHeight-readyMadeSolutionsTextTitleBlockHeight}px)`;
+}
+else{
+    readyMadeSolutionsContent.style.backgroundImage = `linear-gradient(180deg, #423329 ${readyMadeSolutionsTextTitleBlockHeight + readyMadeSolutionsImgInnerHeight - 5}px, #fff ${readyMeadeSolutionsBlock.clientHeight-readyMadeSolutionsTextTitleBlockHeight - readyMadeSolutionsImgInnerHeight}px)`;
+}

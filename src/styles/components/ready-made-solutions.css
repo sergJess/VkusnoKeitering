@@ -25,42 +25,39 @@
 .ready-made-solutions__content{
     display: flex;
     gap: 10px 6%;
-    padding: 45px 13.5% 0 13.5%;
+    padding: 0 13.5% 0 13.5%;
 }
 
 .ready-made-solutions__content_service-keitering{
-    background: #423329;
     background: linear-gradient(180deg, #423329 58%, #fff 58%);
 }
 
 .ready-made-solutions__content_child-keitering{
-    background: #C76A6A;
     background: linear-gradient(180deg, #C76A6A 61%, #fff 61%);
 }
 
 .ready-made-solutions__content_outdoor-bars{
-    background: #292E42;
     background: linear-gradient(180deg, #292E42 55%, #fff 55%);
 }
 
 .ready-made-solutions__content_gala{
-    background: #3B4249;
     background: linear-gradient(180deg, #3B4249 55%, #fff 55%);
 }
 
 .ready-made-solutions__content_coffee-break{
-    background: #423329;
     background: linear-gradient(180deg, #423329 61%, #fff 61%);
 }
 
 .ready-made-solutions__content_furshet{
-    background: #698155;
     background: linear-gradient(180deg, #698155 55%, #fff 55%);
 }
 
 .ready-made-solutions__content_bankets{
-    background: #557A81;
     background: linear-gradient(180deg, #557A81 55%, #fff 55%);
+}
+
+.ready-made-solutions__img-inner {
+    padding: 45px 0 0 0;
 }
 
 .ready-made-solutions__img-inner img{
@@ -74,10 +71,6 @@
 .ready-made-solutions__buttons-inner{
     grid-area: ready-made-solutions__buttons-inner ;
 } 
-
-.ready-made-solutions__text-inner{
-    padding: 15px 0 0 0;
-}
 
 .ready-made-solutions__services-title-block{
     display: flex;
@@ -148,6 +141,7 @@ max-width: 75.5%;
     "ready-made-solutions__text-description2 ready-made-solutions__text-description2";
     grid-template-columns: minmax(406px, auto) auto;
     grid-template-rows: auto;
+    padding: 65px 0 20px 0;
 }
 
 .ready-made-solutions-mobile{
@@ -167,15 +161,7 @@ max-width: 75.5%;
 
 @media screen and (max-width: 1400px) {
 .ready-made-solutions__content{
-    padding: 51px 12px 0 12px;
-}
-.ready-made-solutions__content{
-    gap: 10px 20px;
-}
-.ready-made-solutions__content{
-    gap: 10px 55px;
-}
-.ready-made-solutions__content{
+    padding: 0 12px 0 12px;
     gap: 10px 40px;
 }
 
@@ -211,6 +197,7 @@ max-width: 75.5%;
     grid-template-rows: auto;
     justify-content: center;
     text-align: center;
+    padding: 50px 0 20px 0;
 }
 
 .ready-made-solutions__content_service-keitering{
@@ -260,7 +247,7 @@ max-width: 75.5%;
 
 .ready-made-solutions__text-inner
  {
-    padding: 51px 0 0 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
 }
@@ -280,7 +267,7 @@ max-width: 75.5%;
 .ready-made-solutions__services{
     flex-direction: column;
     align-items: center;
-     padding: 49px 0 10px 16px;
+    padding: 49px 0 10px 16px;
 }
 
 .ready-made-solutions__img-inner{
