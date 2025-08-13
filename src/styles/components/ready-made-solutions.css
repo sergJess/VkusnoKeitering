@@ -23,9 +23,22 @@
 }
 
 .ready-made-solutions__content{
+    position: relative;
     display: flex;
     gap: 10px 6%;
     padding: 0 13.5% 0 13.5%;
+    z-index: 2;
+}
+.ready-made-solutions__tabs-inner{
+    position: relative;
+}
+
+.ready-made-solutions__content_hidden{
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 .ready-made-solutions__content_service-keitering{
@@ -91,7 +104,7 @@
 }
 
 .ready-made-solutions__services_padding{
-    padding: 20px 0 10px 0;
+    padding: 25px 0 10px 0;
 }
 
 .ready-made-solutions__services-title-block_1{
@@ -154,7 +167,7 @@ max-width: 75.5%;
 
 @media screen and (max-width: 1660px) {
 .ready-made-solutions__content{
-    padding: 45px 3.5% 0 3.5%;
+    padding: 0 3.5% 0 3.5%;
 }
 
 }
@@ -267,7 +280,7 @@ max-width: 75.5%;
 .ready-made-solutions__services{
     flex-direction: column;
     align-items: center;
-    padding: 49px 0 10px 16px;
+    padding: 25px 0 10px 16px;
 }
 
 .ready-made-solutions__img-inner{
@@ -288,6 +301,8 @@ max-width: 75.5%;
 .ready-made-solutions__tabs-button{
     background-color: transparent;
     border-bottom: none;
+    border-radius: 5px;
+    padding: 1px;
 }
 
 .ready-made-solutions__tabs-button_active{

@@ -47,13 +47,56 @@ navigationLists[i].onclick = () => {
 //height in ready made solutions block linear-gradient
 const readyMeadeSolutionsBlock = document.getElementById('ready-made-solutions-id');
 const readyMadeSolutionsContent = readyMeadeSolutionsBlock.querySelector('.ready-made-solutions__content');
-const readyMadeSolutionsImgInner = readyMeadeSolutionsBlock.querySelector('.ready-made-solutions__img-inner');
-const readyMadeSolutionsTextTitleBlock = readyMeadeSolutionsBlock.querySelector('.ready-made-solutions__text-title-block');
-const readyMadeSolutionsTextTitleBlockHeight = readyMadeSolutionsTextTitleBlock.clientHeight;
-const readyMadeSolutionsImgInnerHeight = readyMadeSolutionsImgInner.clientHeight;
+setReadyMadeSolutionsLinearGradient(readyMadeSolutionsContent,'#423329');
+function setReadyMadeSolutionsLinearGradient(
+    contentInnerBlock, color
+){
+const contentBlockHeight = contentInnerBlock.clientHeight;
+const imgInnerHeigh = contentInnerBlock.querySelector('.ready-made-solutions__img-inner').clientHeight;
+const textInnerHeight = contentInnerBlock.querySelector('.ready-made-solutions__text-title-block').clientHeight;
 if(window.innerWidth > 860){
-readyMadeSolutionsContent.style.backgroundImage = `linear-gradient(180deg, #423329 ${readyMadeSolutionsTextTitleBlockHeight - 8}px, #fff ${readyMeadeSolutionsBlock.clientHeight-readyMadeSolutionsTextTitleBlockHeight}px)`;
+contentInnerBlock.style.backgroundImage = `linear-gradient(180deg, ${color} ${textInnerHeight - 8}px, #fff ${contentBlockHeight - textInnerHeight}px)`;
 }
 else{
-    readyMadeSolutionsContent.style.backgroundImage = `linear-gradient(180deg, #423329 ${readyMadeSolutionsTextTitleBlockHeight + readyMadeSolutionsImgInnerHeight - 5}px, #fff ${readyMeadeSolutionsBlock.clientHeight-readyMadeSolutionsTextTitleBlockHeight - readyMadeSolutionsImgInnerHeight}px)`;
+    contentInnerBlock.style.backgroundImage = `linear-gradient(180deg, ${color} ${textInnerHeight + imgInnerHeigh - 5}px, #fff ${contentBlockHeight - textInnerHeight - imgInnerHeigh}px)`;
+}
+}
+const readyMadeSolutionsButtons = readyMeadeSolutionsBlock.querySelectorAll('.ready-made-solutions__tabs-button');
+for(let i = 0, length = readyMadeSolutionsButtons.length; i < length; i++){
+    readyMadeSolutionsButtons[i].onclick = () =>{
+        for(let j = 0; j < length; j++){
+            if(readyMadeSolutionsButtons[j].classList.contains('ready-made-solutions__tabs-button_active')){
+                const attribute = readyMadeSolutionsButtons[j].getAttribute('data-ready-made-solutions-tab');
+                readyMeadeSolutionsBlock.querySelector(`.${attribute}`).classList.add('ready-made-solutions__content_hidden');
+                readyMadeSolutionsButtons[j].classList.remove('ready-made-solutions__tabs-button_active');
+            }
+}
+const attribute = readyMadeSolutionsButtons[i].getAttribute('data-ready-made-solutions-tab');
+const readyMadeSolutionsContentBlock = readyMeadeSolutionsBlock.querySelector(`.${attribute}`);
+if(readyMadeSolutionsContentBlock){
+switch(attribute){
+case 'ready-made-solutions__content_coffee-break':
+    setReadyMadeSolutionsLinearGradient(readyMadeSolutionsContentBlock,'#423329');
+    break;
+case 'ready-made-solutions__content_outdoor-bars': 
+     setReadyMadeSolutionsLinearGradient(readyMadeSolutionsContentBlock,'#292E42');
+     break; 
+case 'ready-made-solutions__content_furshet': 
+     setReadyMadeSolutionsLinearGradient(readyMadeSolutionsContentBlock,'#698155');
+     break;
+case 'ready-made-solutions__content_bankets': 
+     setReadyMadeSolutionsLinearGradient(readyMadeSolutionsContentBlock,'#557A81');
+     break;
+case 'ready-made-solutions__content_gala': 
+     setReadyMadeSolutionsLinearGradient(readyMadeSolutionsContentBlock,'#3B4249');
+     break;
+case 'ready-made-solutions__content_child-keitering': 
+     setReadyMadeSolutionsLinearGradient(readyMadeSolutionsContentBlock,'#C76A6A');
+     break;
+ 
+}
+readyMadeSolutionsContentBlock.classList.remove('ready-made-solutions__content_hidden');
+readyMadeSolutionsButtons[i].classList.add('ready-made-solutions__tabs-button_active');
+}
+    }
 }
