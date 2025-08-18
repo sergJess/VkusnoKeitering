@@ -1,0 +1,23 @@
+.up-button {
+  position: fixed;
+  z-index: 2;
+  right: 3%;
+  bottom: 5%;
+  width: 85px;
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-radius: 50%;
+  border: 5px solid #eddbae;
+  background-color: rgba(193, 101, 101, 0.6);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 780px) {
+  .up-button {
+    width: 70px;
+    height: 70px;
+  }
+}
