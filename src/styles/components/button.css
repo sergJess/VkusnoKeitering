@@ -6,10 +6,14 @@
   cursor: pointer;
 }
 
-.button__dowload-icon{
-background-image: url("../../assets/img/icons/dowload/download.svg");
-background-position: right 25px center;
-background-repeat: no-repeat;
+.button_anchor {
+  display: inline-block;
+}
+
+.button__dowload-icon {
+  background-image: url("../../assets/img/icons/dowload/download.svg");
+  background-position: right 25px center;
+  background-repeat: no-repeat;
 }
 
 .button__letter-space {
@@ -30,32 +34,32 @@ background-repeat: no-repeat;
 
 .button_colored-3 {
   background-color: #423329;
-  border: 2px solid #EDDBAE;
+  border: 2px solid #eddbae;
 }
 
 .button_colored-4 {
-  background-color: #C76A6A;
-  border: 2px solid #EDDBAE;
+  background-color: #c76a6a;
+  border: 2px solid #eddbae;
 }
 
 .button_colored-5 {
-  background-color: #292E42;
-  border: 2px solid #EDDBAE;
+  background-color: #292e42;
+  border: 2px solid #eddbae;
 }
 
-.button_colored-6{
- background-color: #3B4249;
- border: 2px solid #EDDBAE;
+.button_colored-6 {
+  background-color: #3b4249;
+  border: 2px solid #eddbae;
 }
 
-.button_colored-7{
- background-color: #698155;
- border: 2px solid #EDDBAE;
+.button_colored-7 {
+  background-color: #698155;
+  border: 2px solid #eddbae;
 }
 
-.button_colored-8{
- background-color: #557A81;
- border: 2px solid #EDDBAE;
+.button_colored-8 {
+  background-color: #557a81;
+  border: 2px solid #eddbae;
 }
 
 .button-order {

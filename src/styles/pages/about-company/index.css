@@ -11,23 +11,23 @@
 @import url("../../components/company-porfolio.css");
 @import url("../../components/order-call-form.css");
 @import url("../../components/services.css");
+@import url("../../components/up-button.css");
 @import url("../../layout/header.css");
 @import url("../../layout/navigation.css");
 @import url("../../layout/footer.css");
 
-.about-company-page__services{
-    margin: 56px 0 79px 0;
+.about-company-page__services {
+  margin: 56px 0 79px 0;
 }
 
 @media screen and (max-width: 780px) {
-  .about-company-page__services{
+  .about-company-page__services {
     margin: -10px 0 72px 0;
-}
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .about-company-page__trust-us{
-        margin: 18px 0 0 0;
-    }
+  .about-company-page__trust-us {
+    margin: 18px 0 0 0;
+  }
 }
-

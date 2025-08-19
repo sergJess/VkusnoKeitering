@@ -31,7 +31,7 @@ for (let i = 0, length = navigationLists.length; i < length; i++) {
       navigationSubmenu.classList.toggle("navigation__submenu_show");
   };
 }
-//scroll to anchors
+//smooth scroll
 function isNodeOrParent(target) {
   let anchor = target;
   if (target.parentNode.classList.contains("scroll-to")) {
@@ -40,7 +40,7 @@ function isNodeOrParent(target) {
   }
   return anchor;
 }
-document.addEventListener("click", function (e) {
+function smoothScroll(e) {
   if (
     e.target.classList.contains("scroll-to") ||
     e.target.parentNode.classList.contains("scroll-to")
@@ -56,7 +56,6 @@ document.addEventListener("click", function (e) {
       toScrollElelement.getBoundingClientRect().top;
     let start = null;
     requestAnimationFrame(step);
-
     function step(time) {
       if (start === null) start = time;
       let progress = time - start;
@@ -79,4 +78,15 @@ document.addEventListener("click", function (e) {
       }
     }
   }
-});
+}
+document.addEventListener("click", smoothScroll);
+// scroll button up
+function showOrHideUpButton() {
+  const buttonUp = this.document.getElementById("up-button-id");
+  if (this.window.scrollY > 500) {
+    buttonUp.classList.add("up-button_show");
+  } else {
+    buttonUp.classList.remove("up-button_show");
+  }
+}
+window.addEventListener("scroll", showOrHideUpButton);

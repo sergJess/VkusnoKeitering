@@ -85,7 +85,7 @@
   color: #000;
 }
 
-.text-info-solutions{
+.text-info-solutions {
   font-family: "Raleway", sans-serif;
   font-weight: 300;
   font-size: 3rem;
@@ -139,15 +139,15 @@
   color: #000000;
 }
 
-.text-info-block-title{
+.text-info-block-title {
   font-family: "Ebbe", sans-serif;
   font-weight: 100;
   font-size: 8rem;
   color: #000000;
 }
 
-.text-item-writing_size{
-   font-size: 1.8rem;
+.text-item-writing_size {
+  font-size: 1.8rem;
 }
 
 .font_semi-bold {
@@ -158,7 +158,7 @@
   font-weight: 700;
 }
 
-.font_light{
+.font_light {
   font-weight: 300;
 }
 
@@ -178,96 +178,99 @@
   color: #b09f74;
 }
 
-.text_colored5{
-  color: #7A7069;
+.text_colored5 {
+  color: #7a7069;
 }
 
-.text_colored6{
-  color: #D89696;
+.text_colored6 {
+  color: #d89696;
 }
 
-.text_colored7{
-  color: #696C7A;
+.text_colored7 {
+  color: #696c7a;
 }
 
-.text_colored8{
-  color:#757A7F;
+.text_colored8 {
+  color: #757a7f;
 }
 
-.text_colored9{
-  color:#96A788;
+.text_colored9 {
+  color: #96a788;
 }
 
-.text_colored10{
+.text_colored10 {
   color: #719196;
 }
 
-.text_spacing{
+.text_spacing {
   letter-spacing: 2.4px;
 }
 
-.text_spacing2{
+.text_spacing2 {
   letter-spacing: 6px;
 }
 
-.text_spacing3{
+.text_spacing3 {
   letter-spacing: 1.3px;
 }
 
-.text_spacing4{
+.text_spacing4 {
   letter-spacing: 1.6px;
 }
 
-.text_line-height{
+.text_line-height {
   line-height: 2.5rem;
 }
 
-.text_line-height2{
+.text_line-height2 {
   line-height: 3rem;
+}
+
+.text_center {
+  text-align: center;
 }
 
 @media screen and (max-width: 1400px) {
   .text-main-title {
-   font-size: 8rem;
-}
-  .text-main-text{
-   font-size: 2.5rem;
-}
+    font-size: 8rem;
+  }
+  .text-main-text {
+    font-size: 2.5rem;
+  }
 
-.text-extra-title {
-  font-size: 9rem;
-}
+  .text-extra-title {
+    font-size: 9rem;
+  }
 
-.text-info-block-title{
-  font-size: 7rem;
-}
-
+  .text-info-block-title {
+    font-size: 7rem;
+  }
 }
 
 @media screen and (max-width: 1200px) {
-  .text-info-block-title{
-  font-size: 5rem;
-}
+  .text-info-block-title {
+    font-size: 5rem;
+  }
 }
 
 @media screen and (max-width: 780px) {
-    .text-main-title {
-     font-size: 5rem;
-}
+  .text-main-title {
+    font-size: 5rem;
+  }
 
-    .text-section-big-title {
-     font-size: 3.5rem;
-}
+  .text-section-big-title {
+    font-size: 3.5rem;
+  }
 
-    .text-block-title {
-     font-size: 3.5rem;
-}
+  .text-block-title {
+    font-size: 3.5rem;
+  }
 
-    .text-extra-title {
-     font-size: 3.5rem;
-}
+  .text-extra-title {
+    font-size: 3.5rem;
+  }
 
-  .text-info-block-title{
-  font-size: 3.5rem;
-}
+  .text-info-block-title {
+    font-size: 3.5rem;
+  }
 }

@@ -30,8 +30,8 @@ const crossOrderCallForm2 = document.getElementById(
   "order-call-form-cross-id2"
 );
 const orderCallForm2 = document.getElementById("order-call-form-block-id2");
-const orderButton1 = document.getElementById("order-button-1");
-const orderButton2 = document.getElementById("order-button-2");
+const orderButton1 = document.getElementById("order-button-id-1");
+const orderButton2 = document.getElementById("order-button-id-2");
 crossOrderCallForm2.onclick = () => {
   orderCallForm2.classList.remove("order-call-form-block_show");
 };
@@ -156,3 +156,62 @@ for (let i = 0, length = readyMadeSolutionsButtons.length; i < length; i++) {
     }
   };
 }
+// scroll button up
+function showOrHideUpButton() {
+  const buttonUp = this.document.getElementById("up-button-id");
+  if (this.window.scrollY > 500) {
+    buttonUp.classList.add("up-button_show");
+  } else {
+    buttonUp.classList.remove("up-button_show");
+  }
+}
+window.addEventListener("scroll", showOrHideUpButton);
+// smooth scroll
+function isNodeOrParent(target) {
+  let anchor = target;
+  if (target.parentNode.classList.contains("scroll-to")) {
+    anchor = target.parentNode;
+    return anchor;
+  }
+  return anchor;
+}
+function smoothScroll(e) {
+  if (
+    e.target.classList.contains("scroll-to") ||
+    e.target.parentNode.classList.contains("scroll-to")
+  ) {
+    e.preventDefault();
+    const scrollSpeed = 0.7;
+    let windowOffSetY = window.pageYOffset;
+    let anchorElement = isNodeOrParent(e.target)
+      .getAttribute("href")
+      .replace("#", "");
+    let toScrollElelement = document.getElementById(anchorElement);
+    let topCoordsOftoScrollElelement =
+      toScrollElelement.getBoundingClientRect().top;
+    let start = null;
+    requestAnimationFrame(step);
+    function step(time) {
+      if (start === null) start = time;
+      let progress = time - start;
+      let windowCoordsToScrollY =
+        topCoordsOftoScrollElelement < 0
+          ? Math.max(
+              windowOffSetY - progress / scrollSpeed,
+              windowOffSetY + topCoordsOftoScrollElelement
+            )
+          : Math.min(
+              windowOffSetY + progress / scrollSpeed,
+              windowOffSetY + topCoordsOftoScrollElelement
+            );
+      window.scrollTo(0, windowCoordsToScrollY);
+      if (
+        windowCoordsToScrollY !=
+        windowOffSetY + topCoordsOftoScrollElelement
+      ) {
+        requestAnimationFrame(step);
+      }
+    }
+  }
+}
+document.addEventListener("click", smoothScroll);

@@ -11,32 +11,30 @@
 @import url("../../components/keitering-history.css");
 @import url("../../components/excellence.css");
 @import url("../../components/cooperation.css");
+@import url("../../components/up-button.css");
 @import url("../../components/order-call-form.css");
 @import url("../../layout/header.css");
 @import url("../../layout/navigation.css");
 @import url("../../layout/footer.css");
 
-.service-keitering__page-menu-galery{
-    margin: 15px 0 60px 0;
+.service-keitering__page-menu-galery {
+  margin: 15px 0 60px 0;
 }
 
-.service-keitering__page-excellence{
-    margin: 44px 0 66px 0;
+.service-keitering__page-excellence {
+  margin: 44px 0 66px 0;
 }
-
 
 @media screen and (max-width: 860px) {
-.service-keitering__ready-made-solutions{
+  .service-keitering__ready-made-solutions {
     margin: 31px 0 0 0;
-}
+  }
 
-.service-keitering__page-menu-galery{
+  .service-keitering__page-menu-galery {
     margin: 27px 0 44px 0;
-}
+  }
 
-.service-keitering__page-excellence{
+  .service-keitering__page-excellence {
     margin: 55px 0 66px 0;
-}
-
-
+  }
 }

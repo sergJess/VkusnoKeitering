@@ -14,40 +14,41 @@
 @import url("../../components/order-block.css");
 @import url("../../components/little-describe.css");
 @import url("../../components/order-call-form.css");
+@import url("../../components/up-button.css");
 @import url("../../layout/header.css");
 @import url("../../layout/navigation.css");
 @import url("../../layout/footer.css");
 
-.bankets-keitering-page__ready-made-solutions{
-    margin: 38px 0 144px 0;
+.bankets-keitering-page__ready-made-solutions {
+  margin: 38px 0 144px 0;
 }
 
-.bankets-keitering-page__service-info{
-    margin: 63px 0 62px 0;
+.bankets-keitering-page__service-info {
+  margin: 63px 0 62px 0;
 }
 
-.bankets-keitering-page__slogan{
-    margin: 76px 0 44px 0;
+.bankets-keitering-page__slogan {
+  margin: 76px 0 44px 0;
 }
 
-.bankets-keitering-page__little-describe{
-    margin: 58px 0 0 0;
+.bankets-keitering-page__little-describe {
+  margin: 58px 0 0 0;
 }
 
 @media screen and (max-width: 780px) {
-.bankets-keitering-page__type-of-service{
+  .bankets-keitering-page__type-of-service {
     margin: 36px 0 0 0;
-}
+  }
 
-.bankets-keitering-page__ready-made-solutions{
+  .bankets-keitering-page__ready-made-solutions {
     margin: 46px 0 67px 0;
-}
+  }
 
-.bankets-keitering-page__service-info{
+  .bankets-keitering-page__service-info {
     margin: 54px 0 57px 0;
-}
+  }
 
-.bankets-keitering-page__slogan{
+  .bankets-keitering-page__slogan {
     margin: 88px 0 58px 0;
-}
+  }
 }
