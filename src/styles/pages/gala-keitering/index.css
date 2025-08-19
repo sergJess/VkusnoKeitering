@@ -12,37 +12,38 @@
 @import url("../../components/food-and-cost.css");
 @import url("../../components/slogan.css");
 @import url("../../components/order-block.css");
+@import url("../../components/up-button.css");
 @import url("../../components/order-call-form.css");
 @import url("../../layout/header.css");
 @import url("../../layout/navigation.css");
 @import url("../../layout/footer.css");
 
-.gala-keitering-page__ready-made-solutions{
-    margin: 38px 0 144px 0;
+.gala-keitering-page__ready-made-solutions {
+  margin: 38px 0 144px 0;
 }
 
-.gala-keitering-page__service-info{
-    margin: 63px 0 62px 0;
+.gala-keitering-page__service-info {
+  margin: 63px 0 62px 0;
 }
 
-.gala-keitering-page__slogan{
-    margin: 76px 0 44px 0;
+.gala-keitering-page__slogan {
+  margin: 76px 0 44px 0;
 }
 
 @media screen and (max-width: 780px) {
-.gala-keitering-page__type-of-service{
+  .gala-keitering-page__type-of-service {
     margin: 36px 0 0 0;
-}
+  }
 
-.gala-keitering-page__ready-made-solutions{
+  .gala-keitering-page__ready-made-solutions {
     margin: 46px 0 67px 0;
-}
+  }
 
-.gala-keitering-page__service-info{
+  .gala-keitering-page__service-info {
     margin: 54px 0 57px 0;
-}
+  }
 
-.gala-keitering-page__slogan{
+  .gala-keitering-page__slogan {
     margin: 88px 0 58px 0;
-}
+  }
 }
