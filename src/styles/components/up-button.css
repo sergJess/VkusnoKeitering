@@ -3,15 +3,14 @@
   z-index: 2;
   right: 3%;
   bottom: 5%;
-  width: 85px;
-  height: 85px;
+  width: 68px;
+  height: 68px;
   display: none;
   justify-content: center;
   align-items: center;
   padding: 15px;
   border-radius: 50%;
-  border: 5px solid #eddbae;
-  background-color: rgba(193, 101, 101, 0.6);
+  background-color: #eddbae;
   cursor: pointer;
 }
 
