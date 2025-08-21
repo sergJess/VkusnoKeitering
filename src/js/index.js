@@ -107,14 +107,19 @@ const foodExampleArrowLeft = foodExampleBlock.querySelector(
 const foodExampleArrowRight = foodExampleBlock.querySelector(
   ".food-example__slider-button-next"
 );
-function sliderFoodExampleInit(sliderInner, sliderItemClass, slidesPerView) {
+function sliderFoodExampleInit(
+  slider,
+  sliderInner,
+  sliderItemClass,
+  slidesPerView
+) {
   sliderInner.setAttribute("data-transform", "0");
   const slides = sliderInner.querySelectorAll(`.${sliderItemClass}`);
   const length = slides.length;
   if (length + 3 > slidesPerView && slidesPerView > 1) {
     const marginRight = getComputedStyle(slides[0]).marginRight;
     const digitsMarginRight = parseInt(marginRight.match(/\d+/), 10);
-    sliderInner.style.width = `${
+    slider.style.width = `${
       slides[0].clientWidth * slidesPerView +
       (slidesPerView - 1) * digitsMarginRight
     }px`;
@@ -122,7 +127,7 @@ function sliderFoodExampleInit(sliderInner, sliderItemClass, slidesPerView) {
 }
 function moveSliderFood(sliderInner, sliderItem, direction) {
   const shift = sliderItem.offsetWidth;
-  console.log(shift);
+
   let currentIndex = sliderInner.getAttribute("data-transform");
   if (direction == -1) {
     sliderInner.style.transform = `translateX(${
@@ -138,7 +143,12 @@ function moveSliderFood(sliderInner, sliderItem, direction) {
 }
 
 window.onload = function () {
-  sliderFoodExampleInit(foodExampleSlider, "food-example-goods__item", 5);
+  sliderFoodExampleInit(
+    foodExampleSlider,
+    foodExampleSliderInner,
+    "food-example-goods__item",
+    5
+  );
   foodExampleArrowLeft.addEventListener(
     "click",
     moveSliderFood.bind(null, foodExampleSliderInner, foodExampleSliderItem, -1)
