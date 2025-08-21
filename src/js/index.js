@@ -90,3 +90,61 @@ function showOrHideUpButton() {
   }
 }
 window.addEventListener("scroll", showOrHideUpButton);
+// food-example slider
+const foodExampleBlock = document.getElementById("food-example-id");
+const foodExampleSlider = foodExampleBlock.querySelector(
+  ".food-example__slider"
+);
+const foodExampleSliderInner = foodExampleBlock.querySelector(
+  ".food-example-goods"
+);
+const foodExampleSliderItem = foodExampleSliderInner.querySelector(
+  ".food-example-goods__item"
+);
+const foodExampleArrowLeft = foodExampleBlock.querySelector(
+  ".food-example__slider-button-prev"
+);
+const foodExampleArrowRight = foodExampleBlock.querySelector(
+  ".food-example__slider-button-next"
+);
+function sliderFoodExampleInit(sliderInner, sliderItemClass, slidesPerView) {
+  sliderInner.setAttribute("data-transform", "0");
+  const slides = sliderInner.querySelectorAll(`.${sliderItemClass}`);
+  const length = slides.length;
+  if (length + 3 > slidesPerView && slidesPerView > 1) {
+    const marginRight = getComputedStyle(slides[0]).marginRight;
+    const digitsMarginRight = parseInt(marginRight.match(/\d+/), 10);
+    sliderInner.style.width = `${
+      slides[0].clientWidth * slidesPerView +
+      (slidesPerView - 1) * digitsMarginRight
+    }px`;
+  }
+}
+function moveSliderFood(sliderInner, sliderItem, direction) {
+  const shift = sliderItem.offsetWidth;
+  console.log(shift);
+  let currentIndex = sliderInner.getAttribute("data-transform");
+  if (direction == -1) {
+    sliderInner.style.transform = `translateX(${
+      +currentIndex - (+shift + 45)
+    }px)`;
+    sliderInner.setAttribute("data-transform", +currentIndex - (+shift + 45));
+  } else {
+    sliderInner.style.transform = `translateX(${
+      +currentIndex + (+shift + 45)
+    }px)`;
+    sliderInner.setAttribute("data-transform", +currentIndex + (+shift + 45));
+  }
+}
+
+window.onload = function () {
+  sliderFoodExampleInit(foodExampleSlider, "food-example-goods__item", 5);
+  foodExampleArrowLeft.addEventListener(
+    "click",
+    moveSliderFood.bind(null, foodExampleSliderInner, foodExampleSliderItem, -1)
+  );
+  foodExampleArrowRight.addEventListener(
+    "click",
+    moveSliderFood.bind(null, foodExampleSliderInner, foodExampleSliderItem, 1)
+  );
+};
