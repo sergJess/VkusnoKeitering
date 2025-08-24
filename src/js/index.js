@@ -107,48 +107,95 @@ const foodExampleArrowLeft = foodExampleBlock.querySelector(
 const foodExampleArrowRight = foodExampleBlock.querySelector(
   ".food-example__slider-button-next"
 );
-function sliderFoodExampleInit(
-  slider,
-  sliderInner,
-  sliderItemClass,
-  slidesPerView
-) {
-  sliderInner.setAttribute("data-transform", "0");
-  const slides = sliderInner.querySelectorAll(`.${sliderItemClass}`);
+function sliderFoodExampleInit(sliderConfig) {
+  const maxSlidesPerView = 5;
+  const slider = sliderConfig.sliderInner;
+  slider.setAttribute("data-transform", "0");
+  slider.setAttribute("data-is-active-arrows", "false");
+  const slides = slider.querySelectorAll(`.${sliderConfig.sliderItemClass}`);
+  const parentNode = slider.parentNode;
+  const paddingLeft = parseInt(
+    getComputedStyle(parentNode).getPropertyValue("padding-left")
+  );
+  const paddingRight = parseInt(
+    getComputedStyle(parentNode).getPropertyValue("padding-right")
+  );
+  const widthPadding = paddingLeft + paddingRight;
+  const leftWidthForSlider =
+    parseInt(parentNode.clientWidth, 10) - widthPadding;
   const length = slides.length;
-  if (length + 3 > slidesPerView && slidesPerView > 1) {
+  if (length > 0) {
     const marginRight = getComputedStyle(slides[0]).marginRight;
     const digitsMarginRight = parseInt(marginRight.match(/\d+/), 10);
-    slider.style.width = `${
-      slides[0].clientWidth * slidesPerView +
-      (slidesPerView - 1) * digitsMarginRight
+    parentNode.style.width = `${
+      slides[0].clientWidth * maxSlidesPerView +
+      (maxSlidesPerView - 1) * digitsMarginRight
     }px`;
+    const awailableSlidersToShow = Math.trunc(
+      leftWidthForSlider / (slides[0].clientWidth + digitsMarginRight)
+    );
+    if (
+      awailableSlidersToShow >= length &&
+      awailableSlidersToShow >= maxSlidesPerView
+    ) {
+      //slider arrows inactive
+      console.log(true);
+      return;
+    }
+    if (
+      awailableSlidersToShow < length &&
+      awailableSlidersToShow > maxSlidesPerView
+    ) {
+      slider.setAttribute("data-current-slide", "1");
+      slider.setAttribute("data-is-active-arrows", "true");
+      slider.prepend(slides[length - 1].cloneNode(true));
+      slider.append(slides[0].cloneNode(true));
+      moveSliderFood(slider, slides[0], -1);
+      const slidesWithCloneSlides = slider.querySelectorAll(
+        `.${sliderConfig.sliderItemClass}`
+      );
+      for (let i = 0, length = slidesWithCloneSlides.length; i < length; i++) {
+        slidesWithCloneSlides[i].setAttribute("data-index", `${i}`);
+      }
+    }
   }
 }
 function moveSliderFood(sliderInner, sliderItem, direction) {
-  const shift = sliderItem.offsetWidth;
-
-  let currentIndex = sliderInner.getAttribute("data-transform");
-  if (direction == -1) {
-    sliderInner.style.transform = `translateX(${
-      +currentIndex - (+shift + 45)
-    }px)`;
-    sliderInner.setAttribute("data-transform", +currentIndex - (+shift + 45));
-  } else {
-    sliderInner.style.transform = `translateX(${
-      +currentIndex + (+shift + 45)
-    }px)`;
-    sliderInner.setAttribute("data-transform", +currentIndex + (+shift + 45));
+  if (sliderInner.getAttribute("data-is-active-arrows") == "true") {
+    const currentSlide = parseInt(
+      sliderInner.getAttribute("data-current-slide"),
+      10
+    );
+    const shift = sliderItem.offsetWidth;
+    const marginRight = getComputedStyle(sliderItem).marginRight;
+    const digitsMarginRight = parseInt(marginRight.match(/\d+/), 10);
+    let currentIndex = sliderInner.getAttribute("data-transform");
+    if (direction == -1) {
+      sliderInner.style.transform = `translateX(${
+        +currentIndex - (+shift + digitsMarginRight)
+      }px)`;
+      sliderInner.setAttribute(
+        "data-transform",
+        +currentIndex - (+shift + digitsMarginRight)
+      );
+    } else {
+      sliderInner.style.transform = `translateX(${
+        +currentIndex + (+shift + digitsMarginRight)
+      }px)`;
+      sliderInner.setAttribute(
+        "data-transform",
+        +currentIndex + (+shift + digitsMarginRight)
+      );
+    }
   }
 }
 
 window.onload = function () {
-  sliderFoodExampleInit(
-    foodExampleSlider,
-    foodExampleSliderInner,
-    "food-example-goods__item",
-    5
-  );
+  sliderFoodExampleInit({
+    slider: foodExampleSlider,
+    sliderInner: foodExampleSliderInner,
+    sliderItemClass: "food-example-goods__item",
+  });
   foodExampleArrowLeft.addEventListener(
     "click",
     moveSliderFood.bind(null, foodExampleSliderInner, foodExampleSliderItem, -1)
