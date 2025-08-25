@@ -33,8 +33,11 @@
 .food-example-goods {
   display: flex;
   gap: 45px 0;
-  transition: transform 0.4s ease;
   transform: translateX(0);
+}
+
+.food-example-goods__slider {
+  transition: transform 0.4s ease;
 }
 
 .food-example-goods__item {
@@ -80,7 +83,7 @@
   }
 
   .food-example-goods {
-    gap: 36px 10px;
+    gap: 36px 0;
   }
 }
 

@@ -108,50 +108,60 @@ const foodExampleArrowRight = foodExampleBlock.querySelector(
   ".food-example__slider-button-next"
 );
 function sliderFoodExampleInit(sliderConfig) {
-  const maxSlidesPerView = 5;
-  const slider = sliderConfig.sliderInner;
-  slider.setAttribute("data-transform", "0");
-  slider.setAttribute("data-is-active-arrows", "false");
-  const slides = slider.querySelectorAll(`.${sliderConfig.sliderItemClass}`);
-  const parentNode = slider.parentNode;
-  const paddingLeft = parseInt(
-    getComputedStyle(parentNode).getPropertyValue("padding-left")
+  const sliderTrack = sliderConfig.sliderTrack;
+  const slides = sliderTrack.querySelectorAll(
+    `.${sliderConfig.sliderItemClass}`
   );
-  const paddingRight = parseInt(
-    getComputedStyle(parentNode).getPropertyValue("padding-right")
-  );
-  const widthPadding = paddingLeft + paddingRight;
-  const leftWidthForSlider =
-    parseInt(parentNode.clientWidth, 10) - widthPadding;
   const length = slides.length;
   if (length > 0) {
+    const maxSlidesPerView = sliderConfig.tryMaxSlidesPerView;
+    const slider = sliderTrack.parentNode;
+    sliderTrack.setAttribute("data-transform", "0");
+    sliderTrack.setAttribute("data-is-active-arrows", "false");
+    const sliderWidth = slider.clientWidth;
+    const paddingLeft = parseInt(
+      getComputedStyle(slider).getPropertyValue("padding-left")
+    );
+    const paddingRight = parseInt(
+      getComputedStyle(slider).getPropertyValue("padding-right")
+    );
+    const widthPadding = paddingLeft + paddingRight;
+    const leftWidthForSliderTrack = parseInt(sliderWidth, 10) - widthPadding;
     const marginRight = getComputedStyle(slides[0]).marginRight;
     const digitsMarginRight = parseInt(marginRight.match(/\d+/), 10);
-    parentNode.style.width = `${
-      slides[0].clientWidth * maxSlidesPerView +
-      (maxSlidesPerView - 1) * digitsMarginRight
+    const slideWidth = parseInt(slides[0].clientWidth, 10);
+    const awailableSlidesToShow =
+      leftWidthForSliderTrack / (slideWidth + digitsMarginRight) <
+      maxSlidesPerView
+        ? Math.trunc(leftWidthForSliderTrack / (slideWidth + digitsMarginRight))
+        : maxSlidesPerView;
+    slider.style.width = `${
+      slideWidth * awailableSlidesToShow +
+      (awailableSlidesToShow - 1) * digitsMarginRight
     }px`;
-    const awailableSlidersToShow = Math.trunc(
-      leftWidthForSlider / (slides[0].clientWidth + digitsMarginRight)
-    );
+    sliderTrack.setAttribute("data-slides-per-view", `${maxSlidesPerView}`);
     if (
-      awailableSlidersToShow >= length &&
-      awailableSlidersToShow >= maxSlidesPerView
+      awailableSlidesToShow >= length &&
+      awailableSlidesToShow >= maxSlidesPerView
     ) {
       //slider arrows inactive
-      console.log(true);
       return;
     }
     if (
-      awailableSlidersToShow < length &&
-      awailableSlidersToShow > maxSlidesPerView
+      awailableSlidesToShow < length &&
+      awailableSlidesToShow > maxSlidesPerView
     ) {
-      slider.setAttribute("data-current-slide", "1");
-      slider.setAttribute("data-is-active-arrows", "true");
-      slider.prepend(slides[length - 1].cloneNode(true));
-      slider.append(slides[0].cloneNode(true));
-      moveSliderFood(slider, slides[0], -1);
-      const slidesWithCloneSlides = slider.querySelectorAll(
+      sliderTrack.setAttribute("data-current-slide", "0");
+      sliderTrack.setAttribute("data-is-active-arrows", "true");
+      // sliderTrack.setAttribute("data-transform", `${}`);
+      sliderTrack.prepend(slides[length - 1].cloneNode(true));
+      sliderTrack.append(slides[0].cloneNode(true));
+      // moveSliderFood(sliderTrack, slides[0], 1);
+      sliderTrack.setAttribute(
+        "data-start-position",
+        sliderTrack.getAttribute("data-transform")
+      );
+      const slidesWithCloneSlides = sliderTrack.querySelectorAll(
         `.${sliderConfig.sliderItemClass}`
       );
       for (let i = 0, length = slidesWithCloneSlides.length; i < length; i++) {
@@ -160,32 +170,54 @@ function sliderFoodExampleInit(sliderConfig) {
     }
   }
 }
-function moveSliderFood(sliderInner, sliderItem, direction) {
-  if (sliderInner.getAttribute("data-is-active-arrows") == "true") {
+function setSliderTransition(sliderTrack, className) {
+  sliderTrack.classList.add(`${className}`);
+}
+
+function moveSliderFood(sliderTrack, sliderItem, direction) {
+  if (sliderTrack.getAttribute("data-is-active-arrows") == "true") {
     const currentSlide = parseInt(
-      sliderInner.getAttribute("data-current-slide"),
+      sliderTrack.getAttribute("data-current-slide"),
       10
     );
+    const maxSlidesPerView = parseInt(
+      sliderTrack.getAttribute("data-slides-per-view"),
+      10
+    );
+    const countOfslides = sliderTrack.children.length;
     const shift = sliderItem.offsetWidth;
     const marginRight = getComputedStyle(sliderItem).marginRight;
     const digitsMarginRight = parseInt(marginRight.match(/\d+/), 10);
-    let currentIndex = sliderInner.getAttribute("data-transform");
+    let currentIndex = sliderTrack.getAttribute("data-transform");
     if (direction == -1) {
-      sliderInner.style.transform = `translateX(${
-        +currentIndex - (+shift + digitsMarginRight)
+      // if (currentSlide == 0) {
+      //   sliderTrack.style.transform = `translateX(${sliderTrack.getAttribute(
+      //     "data-start-position"
+      //   )}px)`;
+      //   sliderTrack.setAttribute("data-transform", "1");
+      //   sliderTrack.setAttribute("data-current-slide", "1");
+      // }
+      sliderTrack.style.transform = `translateX(${
+        +currentIndex + (+shift + digitsMarginRight)
       }px)`;
-      sliderInner.setAttribute(
+      sliderTrack.setAttribute(
         "data-transform",
-        +currentIndex - (+shift + digitsMarginRight)
+        +currentIndex + (+shift + digitsMarginRight)
       );
+      sliderTrack.setAttribute("data-current-slide", `${currentSlide - 1}`);
     } else {
-      sliderInner.style.transform = `translateX(${
-        +currentIndex + (+shift + digitsMarginRight)
-      }px)`;
-      sliderInner.setAttribute(
+      const clonedSlides = 2;
+      if (currentSlide == countOfslides - clonedSlides) {
+      }
+
+      sliderTrack.setAttribute(
         "data-transform",
-        +currentIndex + (+shift + digitsMarginRight)
+        +currentIndex - (+shift + digitsMarginRight)
       );
+      sliderTrack.setAttribute("data-current-slide", `${currentSlide + 1}`);
+      sliderTrack.style.transform = `translateX(${
+        +currentIndex - (+shift + digitsMarginRight)
+      }px)`;
     }
   }
 }
@@ -193,9 +225,14 @@ function moveSliderFood(sliderInner, sliderItem, direction) {
 window.onload = function () {
   sliderFoodExampleInit({
     slider: foodExampleSlider,
-    sliderInner: foodExampleSliderInner,
+    sliderTrack: foodExampleSliderInner,
     sliderItemClass: "food-example-goods__item",
+    tryMaxSlidesPerView: 5,
   });
+  setTimeout(() => {
+    setSliderTransition(foodExampleSliderInner, "food-example-goods__slider");
+  }, 10);
+
   foodExampleArrowLeft.addEventListener(
     "click",
     moveSliderFood.bind(null, foodExampleSliderInner, foodExampleSliderItem, -1)
