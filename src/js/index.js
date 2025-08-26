@@ -244,19 +244,19 @@ window.onload = function () {
   );
   foodExampleSliderInner.addEventListener("transitionend", sliderTransitionEnd);
 };
-function sliderTransitionStart() {}
+function sliderTransitionStart() {
+  const sliderTrack = this;
+  sliderTrack.getAttribute("data-is-active-arrows") == "false";
+}
 function sliderTransitionEnd() {
   const sliderTrack = this;
+  sliderTrack.getAttribute("data-is-active-arrows") == "true";
   const slidesAwailableToView = parseInt(
     sliderTrack.getAttribute("data-slides-per-view"),
     10
   );
   const currentSlide = parseInt(
     sliderTrack.getAttribute("data-current-slide"),
-    10
-  );
-  const transformValue = parseInt(
-    sliderTrack.getAttribute("data-transform"),
     10
   );
   if (currentSlide == -1 * slidesAwailableToView) {
