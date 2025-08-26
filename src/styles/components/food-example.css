@@ -137,7 +137,7 @@
     grid-area: e;
   }
 
-  .food-example-goods {
+  /* .food-example-goods {
     display: grid;
     justify-content: start;
     gap: 40px 15px;
@@ -145,7 +145,7 @@
     grid-template-rows: 1fr 1fr;
     overflow-x: hidden;
     max-width: 100%;
-  }
+  } */
 }
 
 @media screen and (max-width: 443px) {
