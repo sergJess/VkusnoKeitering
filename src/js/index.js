@@ -112,8 +112,8 @@ function sliderFoodExampleInit(sliderConfig) {
   const slides = sliderTrack.querySelectorAll(
     `.${sliderConfig.sliderItemClass}`
   );
-  const length = slides.length;
-  if (length > 0) {
+  const slidesCount = slides.length;
+  if (slidesCount > 0) {
     const maxSlidesPerView = sliderConfig.tryMaxSlidesPerView;
     const slider = sliderTrack.parentNode;
     sliderTrack.setAttribute("data-transform", "0");
@@ -140,23 +140,35 @@ function sliderFoodExampleInit(sliderConfig) {
       (awailableSlidesToShow - 1) * digitsMarginRight
     }px`;
     sliderTrack.setAttribute("data-slides-per-view", `${maxSlidesPerView}`);
-    if (
-      awailableSlidesToShow >= length &&
-      awailableSlidesToShow >= maxSlidesPerView
-    ) {
+    if (awailableSlidesToShow >= slidesCount) {
       //slider arrows inactive
       return;
     }
-    if (
-      awailableSlidesToShow < length &&
-      awailableSlidesToShow > maxSlidesPerView
-    ) {
+    if (awailableSlidesToShow < slidesCount) {
       sliderTrack.setAttribute("data-current-slide", "0");
       sliderTrack.setAttribute("data-is-active-arrows", "true");
+      for (let i = 0; i < slidesCount; i++) {
+        slides[i].setAttribute("data-slide-index", `${i}`);
+      }
+      for (let i = 0; i < awailableSlidesToShow; i++) {
+        const node = slides[i].cloneNode(true);
+        node.setAttribute("data-slide-index", `${i}`);
+        sliderTrack.append(node);
+      }
+      for (
+        let i = slidesCount - 1;
+        i >= slidesCount - awailableSlidesToShow;
+        i--
+      ) {
+        const node = slides[i].cloneNode(true);
+        node.setAttribute("data-slide-index", `${i}`);
+        sliderTrack.prepend(node);
+      }
       // sliderTrack.setAttribute("data-transform", `${}`);
-      sliderTrack.prepend(slides[length - 1].cloneNode(true));
-      sliderTrack.append(slides[0].cloneNode(true));
       // moveSliderFood(sliderTrack, slides[0], 1);
+      for (let i = 0; i < awailableSlidesToShow; i++) {
+        moveSliderFood(sliderTrack, slides[0], 1);
+      }
       sliderTrack.setAttribute(
         "data-start-position",
         sliderTrack.getAttribute("data-transform")
@@ -164,9 +176,6 @@ function sliderFoodExampleInit(sliderConfig) {
       const slidesWithCloneSlides = sliderTrack.querySelectorAll(
         `.${sliderConfig.sliderItemClass}`
       );
-      for (let i = 0, length = slidesWithCloneSlides.length; i < length; i++) {
-        slidesWithCloneSlides[i].setAttribute("data-index", `${i}`);
-      }
     }
   }
 }
