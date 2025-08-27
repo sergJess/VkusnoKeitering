@@ -32,7 +32,7 @@
 
 .food-example-goods {
   display: flex;
-  gap: 45px 0;
+  gap: 45px;
   transform: translateX(0);
 }
 
@@ -42,7 +42,7 @@
 
 .food-example-goods__item {
   flex-shrink: 0;
-  margin-right: 45px;
+  /* margin-right: 45px; */
 }
 
 .food-example__button {
@@ -87,7 +87,7 @@
   }
 
   .food-example-goods {
-    gap: 36px 0;
+    gap: 36px 15px;
   }
 }
 
@@ -141,17 +141,8 @@
     grid-area: e;
   }
 
-  /* .food-example-goods {
-    display: grid;
-    justify-content: start;
-    gap: 40px 0;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: 1fr 1fr;
-    overflow-x: hidden;
-    max-width: 100%;
-  } */
   .food-example-goods__item {
-    margin-right: 15px;
+    margin-right: 0;
   }
 }
 

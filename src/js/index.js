@@ -107,6 +107,21 @@ const foodExampleArrowLeft = foodExampleBlock.querySelector(
 const foodExampleArrowRight = foodExampleBlock.querySelector(
   ".food-example__slider-button-next"
 );
+function getGapValues(element) {
+  const parent = element.parentNode.clientWidth;
+  const reformGapValue = (gapString) =>
+    gapString.includes("%")
+      ? parent * (parseFloat(gapString) / 100)
+      : parseFloat(gapString);
+  const gap = getComputedStyle(element).gap.split(" ");
+  if (gap.length == 2) {
+    return [reformGapValue(gap[0]), reformGapValue(gap[1])];
+  }
+  if (gap.length == 1) {
+    return [reformGapValue(gap[0]), reformGapValue(gap[0])];
+  }
+  return [0, 0];
+}
 function sliderFoodExampleInit(sliderConfig) {
   const sliderTrack = sliderConfig.sliderTrack;
   const slides = sliderTrack.querySelectorAll(
@@ -127,17 +142,17 @@ function sliderFoodExampleInit(sliderConfig) {
     );
     const widthPadding = paddingLeft + paddingRight;
     const leftWidthForSliderTrack = parseInt(sliderWidth, 10) - widthPadding;
-    const marginRight = getComputedStyle(slides[0]).marginRight;
-    const digitsMarginRight = parseInt(marginRight.match(/\d+/), 10);
+    const gapHorizontal = getGapValues(sliderTrack)[1];
+    // const marginRight = getComputedStyle(slides[0]).marginRight;
+    // const digitsMarginRight = parseInt(marginRight.match(/\d+/), 10);
     const slideWidth = parseInt(slides[0].clientWidth, 10);
     const awailableSlidesToShow =
-      leftWidthForSliderTrack / (slideWidth + digitsMarginRight) <
-      maxSlidesPerView
-        ? Math.trunc(leftWidthForSliderTrack / (slideWidth + digitsMarginRight))
+      leftWidthForSliderTrack / (slideWidth + gapHorizontal) < maxSlidesPerView
+        ? Math.trunc(leftWidthForSliderTrack / (slideWidth + gapHorizontal))
         : maxSlidesPerView;
     slider.style.width = `${
       slideWidth * awailableSlidesToShow +
-      (awailableSlidesToShow - 1) * digitsMarginRight
+      (awailableSlidesToShow - 1) * gapHorizontal
     }px`;
     sliderTrack.setAttribute(
       "data-slides-per-view",
@@ -162,7 +177,11 @@ function sliderFoodExampleInit(sliderConfig) {
     ) {
       sliderTrack.setAttribute("data-current-slide", "0");
       sliderTrack.setAttribute("data-is-active-arrows", "true");
-
+      const columnsGrid = Math.ceil(slidesCount / 2);
+      const rowsGrid = 2;
+      sliderTrack.style.display = "grid";
+      sliderTrack.style.gridTemplateColumns = `repeat(${columnsGrid}, ${slideWidth}px)`;
+      sliderTrack.style.gridTemplateRows = `${rowsGrid}`;
       return;
     }
     if (awailableSlidesToShow < slidesCount) {
@@ -208,17 +227,16 @@ function moveSliderFood(sliderTrack, sliderItem, direction) {
       10
     );
     const countOfslides = sliderTrack.children.length;
+    const gapHorizontal = getGapValues(sliderTrack)[1];
     const shift = sliderItem.offsetWidth;
-    const marginRight = getComputedStyle(sliderItem).marginRight;
-    const digitsMarginRight = parseInt(marginRight.match(/\d+/), 10);
     let currentIndex = sliderTrack.getAttribute("data-transform");
     if (direction == -1) {
       sliderTrack.style.transform = `translateX(${
-        +currentIndex + (+shift + digitsMarginRight)
+        +currentIndex + (+shift + gapHorizontal)
       }px)`;
       sliderTrack.setAttribute(
         "data-transform",
-        +currentIndex + (+shift + digitsMarginRight)
+        +currentIndex + (+shift + gapHorizontal)
       );
       sliderTrack.setAttribute("data-current-slide", `${currentSlide - 1}`);
     } else {
@@ -228,11 +246,11 @@ function moveSliderFood(sliderTrack, sliderItem, direction) {
 
       sliderTrack.setAttribute(
         "data-transform",
-        +currentIndex - (+shift + digitsMarginRight)
+        +currentIndex - (+shift + gapHorizontal)
       );
       sliderTrack.setAttribute("data-current-slide", `${currentSlide + 1}`);
       sliderTrack.style.transform = `translateX(${
-        +currentIndex - (+shift + digitsMarginRight)
+        +currentIndex - (+shift + gapHorizontal)
       }px)`;
     }
   }
