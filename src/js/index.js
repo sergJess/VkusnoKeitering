@@ -177,6 +177,9 @@ function sliderFoodExampleInit(sliderConfig) {
     ) {
       sliderTrack.setAttribute("data-current-slide", "0");
       sliderTrack.setAttribute("data-is-active-arrows", "true");
+      for (let i = 0; i < slidesCount; i++) {
+        slides[i].setAttribute("data-slide-index", `${i}`);
+      }
       const columnsGrid = Math.ceil(slidesCount / 2);
       const rowsGrid = 2;
       sliderTrack.style.display = "grid";
@@ -261,7 +264,6 @@ function sliderTransitionStart() {
 }
 function sliderTransitionEnd() {
   const sliderTrack = this;
-  sliderTrack.getAttribute("data-is-active-arrows") == "true";
   const slidesAwailableToView = parseInt(
     sliderTrack.getAttribute("data-slides-per-view"),
     10
@@ -270,17 +272,23 @@ function sliderTransitionEnd() {
     sliderTrack.getAttribute("data-current-slide"),
     10
   );
+  const slides = sliderTrack.children.length;
+  const slidesWithoutClones = slides - slidesAwailableToView * 2;
   if (currentSlide == -1 * slidesAwailableToView) {
     sliderTrack.classList.remove("food-example-goods__slider");
-    for (let i = currentSlide; i < slidesAwailableToView - 1; i++) {
+    for (
+      let i = currentSlide;
+      i < slidesWithoutClones - slidesAwailableToView;
+      i++
+    ) {
       foodExampleArrowRight.click();
     }
     setTimeout(function () {
       sliderTrack.classList.add("food-example-goods__slider");
     }, 0);
+    sliderTrack.getAttribute("data-is-active-arrows") == "true";
+    return;
   }
-  const slides = sliderTrack.children.length;
-  const slidesWithoutClones = slides - slidesAwailableToView * 2;
   if (currentSlide == slidesWithoutClones) {
     sliderTrack.classList.remove("food-example-goods__slider");
     for (let i = currentSlide; i > 0; i--) {
@@ -289,6 +297,7 @@ function sliderTransitionEnd() {
     setTimeout(function () {
       sliderTrack.classList.add("food-example-goods__slider");
     }, 0);
+    sliderTrack.getAttribute("data-is-active-arrows") == "true";
   }
 }
 
