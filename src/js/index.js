@@ -143,8 +143,6 @@ function sliderFoodExampleInit(sliderConfig) {
     const widthPadding = paddingLeft + paddingRight;
     const leftWidthForSliderTrack = parseInt(sliderWidth, 10) - widthPadding;
     const gapHorizontal = getGapValues(sliderTrack)[1];
-    // const marginRight = getComputedStyle(slides[0]).marginRight;
-    // const digitsMarginRight = parseInt(marginRight.match(/\d+/), 10);
     const slideWidth = parseInt(slides[0].clientWidth, 10);
     const awailableSlidesToShow =
       leftWidthForSliderTrack / (slideWidth + gapHorizontal) < maxSlidesPerView
@@ -177,6 +175,7 @@ function sliderFoodExampleInit(sliderConfig) {
     ) {
       sliderTrack.setAttribute("data-current-slide", "0");
       sliderTrack.setAttribute("data-is-active-arrows", "true");
+      sliderTrack.setAttribute("data-is-mobile-grid", "true");
       for (let i = 0; i < slidesCount; i++) {
         slides[i].setAttribute("data-slide-index", `${i}`);
       }
@@ -262,8 +261,13 @@ function sliderTransitionStart() {
   const sliderTrack = this;
   sliderTrack.getAttribute("data-is-active-arrows") == "false";
 }
-function sliderTransitionEnd() {
-  const sliderTrack = this;
+function sliderTransitionEnd(sliderConfig) {
+  const sliderBlock = sliderConfig.sliderBlock;
+  const sliderTrack = sliderConfig.sliderTrack;
+  const arrowLeft = sliderConfig.arrowLeft;
+  const arrowRight = sliderConfig.arrowRight;
+  const isGridMobile =
+    sliderTrack.getAttribute("data-is-mobile-grid") == "true";
   const slidesAwailableToView = parseInt(
     sliderTrack.getAttribute("data-slides-per-view"),
     10
@@ -274,6 +278,21 @@ function sliderTransitionEnd() {
   );
   const slides = sliderTrack.children.length;
   const slidesWithoutClones = slides - slidesAwailableToView * 2;
+  if (isGridMobile) {
+    if (currentSlide == 0) {
+      arrowLeft.classList.add(sliderConfig.arrowClassInactive);
+    }
+    if (currentSlide > 0) {
+      arrowLeft.classList.remove(sliderConfig.arrowClassInactive);
+    }
+    if (currentSlide == slidesAwailableToView) {
+      arrowRight.classList.add(sliderConfig.arrowClassInactive);
+    }
+    if (currentSlide < slidesAwailableToView) {
+      arrowRight.classList.remove(sliderConfig.arrowClassInactive);
+    }
+    return;
+  }
   if (currentSlide == -1 * slidesAwailableToView) {
     sliderTrack.classList.remove("food-example-goods__slider");
     for (
@@ -327,5 +346,14 @@ window.onload = function () {
     "transitionstart",
     sliderTransitionStart
   );
-  foodExampleSliderInner.addEventListener("transitionend", sliderTransitionEnd);
+  foodExampleSliderInner.addEventListener(
+    "transitionend",
+    sliderTransitionEnd.bind(null, {
+      sliderBlock: foodExampleBlock,
+      sliderTrack: foodExampleSliderInner,
+      arrowLeft: foodExampleArrowLeft,
+      arrowRight: foodExampleArrowRight,
+      arrowClassInactive: "food-example__slider-arrow-inner_inactive",
+    })
+  );
 };
