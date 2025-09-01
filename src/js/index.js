@@ -133,6 +133,8 @@ function sliderFoodExampleInit(sliderConfig) {
     const slider = sliderTrack.parentNode;
     sliderTrack.setAttribute("data-transform", "0");
     sliderTrack.setAttribute("data-is-active-arrows", "false");
+    sliderTrack.setAttribute("data-left-arrow-unactive", "false");
+    sliderTrack.setAttribute("data-right-arrow-unactive", "false");
     const sliderWidth = slider.clientWidth;
     const paddingLeft = parseInt(
       getComputedStyle(slider).getPropertyValue("padding-left")
@@ -176,6 +178,9 @@ function sliderFoodExampleInit(sliderConfig) {
       sliderTrack.setAttribute("data-current-slide", "0");
       sliderTrack.setAttribute("data-is-active-arrows", "true");
       sliderTrack.setAttribute("data-is-mobile-grid", "true");
+      sliderTrack.setAttribute("data-left-arrow-unactive", "true");
+      const leftArrow = sliderConfig.leftArrow;
+      leftArrow.classList.add(`${sliderConfig.sliderArrowsInnerClassInactive}`);
       for (let i = 0; i < slidesCount; i++) {
         slides[i].setAttribute("data-slide-index", `${i}`);
       }
@@ -228,11 +233,14 @@ function moveSliderFood(sliderTrack, sliderItem, direction) {
       sliderTrack.getAttribute("data-current-slide"),
       10
     );
-    const countOfslides = sliderTrack.children.length;
     const gapHorizontal = getGapValues(sliderTrack)[1];
     const shift = sliderItem.offsetWidth;
     let currentIndex = sliderTrack.getAttribute("data-transform");
     if (direction == -1) {
+      const isUnactiveArrowLeft = sliderTrack.getAttribute(
+        "data-left-arrow-unactive"
+      );
+      if (isUnactiveArrowLeft == "true") return;
       sliderTrack.style.transform = `translateX(${
         +currentIndex + (+shift + gapHorizontal)
       }px)`;
@@ -242,10 +250,10 @@ function moveSliderFood(sliderTrack, sliderItem, direction) {
       );
       sliderTrack.setAttribute("data-current-slide", `${currentSlide - 1}`);
     } else {
-      const clonedSlides = 2;
-      if (currentSlide == countOfslides - clonedSlides) {
-      }
-
+      const isUnactiveArrowRight = sliderTrack.getAttribute(
+        "data-right-arrow-unactive"
+      );
+      if (isUnactiveArrowRight == "true") return;
       sliderTrack.setAttribute(
         "data-transform",
         +currentIndex - (+shift + gapHorizontal)
@@ -257,6 +265,7 @@ function moveSliderFood(sliderTrack, sliderItem, direction) {
     }
   }
 }
+
 function sliderTransitionStart() {
   const sliderTrack = this;
   sliderTrack.getAttribute("data-is-active-arrows") == "false";
@@ -281,15 +290,19 @@ function sliderTransitionEnd(sliderConfig) {
   if (isGridMobile) {
     if (currentSlide == 0) {
       arrowLeft.classList.add(sliderConfig.arrowClassInactive);
+      sliderTrack.setAttribute("data-left-arrow-unactive", "true");
     }
     if (currentSlide > 0) {
       arrowLeft.classList.remove(sliderConfig.arrowClassInactive);
+      sliderTrack.setAttribute("data-left-arrow-unactive", "false");
     }
     if (currentSlide == slidesAwailableToView) {
       arrowRight.classList.add(sliderConfig.arrowClassInactive);
+      sliderTrack.setAttribute("data-right-arrow-unactive", "true");
     }
     if (currentSlide < slidesAwailableToView) {
       arrowRight.classList.remove(sliderConfig.arrowClassInactive);
+      sliderTrack.setAttribute("data-right-arrow-unactive", "false");
     }
     return;
   }
@@ -328,6 +341,7 @@ window.onload = function () {
     tryMaxSlidesPerView: 5,
     sliderArrowsInnerClass: "food-example__slider-arrow-inner",
     sliderArrowsInnerClassInactive: "food-example__slider-arrow-inner_inactive",
+    leftArrow: foodExampleArrowLeft,
     mobileGridWindowWidth: 860,
   });
   setTimeout(() => {
