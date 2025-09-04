@@ -41,6 +41,7 @@
 }
 
 .food-example-goods__item {
+  cursor: pointer;
   flex-shrink: 0;
 }
 
@@ -72,6 +73,25 @@
 
 .food-example__slider-arrow-inner_inactive {
   opacity: 0.5;
+}
+
+.food-example-slider__popup {
+  display: none;
+  width: 100%;
+  min-height: 99vh;
+  top: 0;
+  left: 0;
+  background-color: cadetblue;
+  border: 35px solid #698155;
+  border-radius: 15px;
+  padding: 35px 45px;
+}
+
+.food-example-slider__popup_opened {
+  display: fixed;
+}
+.food-example-popup_close {
+  display: inline-block;
 }
 
 @media screen and (max-width: 1660px) {

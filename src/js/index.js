@@ -333,6 +333,25 @@ function sliderTransitionEnd(sliderConfig) {
   }
 }
 
+//food-example tabs
+const foodExampleTabsSliderInner = document.getElementById(
+  "food-example-tabs-id"
+);
+const foodExampleTabsSlider =
+  foodExampleTabsSliderInner.querySelectorAll(".food-example__tab");
+for (let i = 0, length = foodExampleTabsSlider.length; i < length; i++) {
+  foodExampleTabsSlider[i].onclick = () => {
+    if (foodExampleTabsSlider[i].classList.contains("food-example__tab_active"))
+      return;
+    else {
+      for (let j = 0, length = foodExampleTabsSlider.length; j < length; j++) {
+        foodExampleTabsSlider[j].classList.remove("food-example__tab_active");
+      }
+      foodExampleTabsSlider[i].classList.add("food-example__tab_active");
+    }
+  };
+}
+
 window.onload = function () {
   sliderFoodExampleInit({
     slider: foodExampleSlider,
@@ -370,4 +389,41 @@ window.onload = function () {
       arrowClassInactive: "food-example__slider-arrow-inner_inactive",
     })
   );
+  let startTouchX = 0;
+  foodExampleSliderInner.addEventListener("touchstart", function (e) {
+    startTouchX = e.touches[0].clientX;
+  });
+  foodExampleSliderInner.addEventListener("touchend", function (e) {
+    const endX = e.changedTouches[0].clientX;
+    const threshold = 10;
+    const deltaX = endX - startTouchX;
+    if (Math.abs(deltaX) > threshold) {
+      const direction = deltaX > 0 ? -1 : 1;
+      moveSliderFood(foodExampleSliderInner, foodExampleSliderItem, direction);
+    }
+  });
+  function setPopUpForSlider(config) {
+    const popup = config.popup;
+    const popupContent = config.content;
+    const popupClose = config.popupClose;
+    const sliderTrack = config.sliderTrack;
+    const slides = sliderTrack.children;
+    for (let i = 0, length = slides.length; i < length; i++) {
+      slides[i].onclick = () => {
+        popupContent.empty();
+        const cloneNode = slides[i].cloneNode(false);
+        cloneNode.classList.add(config.contentItemClass);
+        popupContent.appendChild(cloneNode);
+      };
+    }
+  }
+  const sliderButtonPopUps = foodExampleSliderInner.children;
+  for (let i = 0, length = sliderButtonPopUps.length; i < length; i++) {
+    sliderButtonPopUps[i].onclick = () => {
+      const popup = document.getElementById("food-example-slider__popup-id");
+      popup.empty();
+      popup.appendChild(sliderButtonPopUps[i].cloneNode(true));
+      popup.classList.add("food-example-slider__popup_opened");
+    };
+  }
 };
