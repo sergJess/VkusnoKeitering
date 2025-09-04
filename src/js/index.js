@@ -270,7 +270,7 @@ function moveSliderFood(sliderTrack, sliderItem, direction) {
 
 function sliderTransitionStart() {
   const sliderTrack = this;
-  sliderTrack.getAttribute("data-is-active-arrows") == "false";
+  sliderTrack.setAttribute("data-is-active-arrows", "false");
 }
 function sliderTransitionEnd(sliderConfig) {
   const sliderBlock = sliderConfig.sliderBlock;
@@ -278,7 +278,6 @@ function sliderTransitionEnd(sliderConfig) {
   const arrowLeft = sliderConfig.arrowLeft;
   const arrowRight = sliderConfig.arrowRight;
   const sliderTrackClassTransition = sliderConfig.sliderTrackClassTransition;
-
   const isGridMobile =
     sliderTrack.getAttribute("data-is-mobile-grid") == "true";
   const slidesAwailableToView = parseInt(
@@ -289,12 +288,13 @@ function sliderTransitionEnd(sliderConfig) {
     sliderTrack.getAttribute("data-current-slide"),
     10
   );
-  const allSlides = parseInt(sliderTrack.getAttribute("data-all-slides"), 10);
-  const slides = sliderTrack.children.length;
-  const slidesWithoutClones = slides - slidesAwailableToView * 2;
+  const slidesWithoutClones = parseInt(
+    sliderTrack.getAttribute("data-all-slides"),
+    10
+  );
   if (isGridMobile) {
     const gridRows = parseInt(sliderTrack.getAttribute("data-rows-grid"), 10);
-    const rightBorderToSlide = Math.floor(allSlides / gridRows);
+    const rightBorderToSlide = Math.floor(slidesWithoutClones / gridRows);
     if (currentSlide == 0) {
       arrowLeft.classList.add(sliderConfig.arrowClassInactive);
       sliderTrack.setAttribute("data-left-arrow-unactive", "true");
@@ -311,6 +311,7 @@ function sliderTransitionEnd(sliderConfig) {
       arrowRight.classList.remove(sliderConfig.arrowClassInactive);
       sliderTrack.setAttribute("data-right-arrow-unactive", "false");
     }
+    sliderTrack.setAttribute("data-is-active-arrows", "true");
     return;
   }
   if (currentSlide == -1 * slidesAwailableToView) {
@@ -320,24 +321,26 @@ function sliderTransitionEnd(sliderConfig) {
       i < slidesWithoutClones - slidesAwailableToView;
       i++
     ) {
+      sliderTrack.setAttribute("data-is-active-arrows", "true");
       moveSliderFood(sliderTrack, foodExampleSliderItem, 1);
     }
     setTimeout(function () {
       sliderTrack.classList.add(`${sliderTrackClassTransition}`);
     }, 0);
-    sliderTrack.getAttribute("data-is-active-arrows") == "true";
     return;
   }
   if (currentSlide == slidesWithoutClones) {
     sliderTrack.classList.remove(`${sliderTrackClassTransition}`);
     for (let i = currentSlide; i > 0; i--) {
+      sliderTrack.setAttribute("data-is-active-arrows", "true");
       moveSliderFood(sliderTrack, foodExampleSliderItem, -1);
     }
     setTimeout(function () {
       sliderTrack.classList.add(`${sliderTrackClassTransition}`);
     }, 0);
-    sliderTrack.getAttribute("data-is-active-arrows") == "true";
+    return;
   }
+  sliderTrack.setAttribute("data-is-active-arrows", "true");
 }
 //food-example tabs
 const foodExampleTabsSliderInner = document.getElementById(
