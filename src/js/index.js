@@ -431,15 +431,15 @@ window.onload = function () {
   );
   setPopUpForSliderPopUp({
     popup: sliderPopUp,
-    popupContent: sliderPopUpContentInner,
+    popupContent: sliderPopUpContent,
     popupClose: "",
     sliderTrack: foodExampleSliderInner,
     popupClassOpen: "food-example-slider__popup_opened",
-    contentItemClass: "",
+    contentItemClass: "jess",
   });
   function setPopUpForSliderPopUp(config) {
     const popup = config.popup;
-    const popupContent = config.content;
+    const popupContent = config.popupContent;
     const popupClose = config.popupClose;
     const sliderTrack = config.sliderTrack;
     const slides = sliderTrack.children;
@@ -447,9 +447,9 @@ window.onload = function () {
     const contentItemClass = config.contentItemClass;
     for (let i = 0, length = slides.length; i < length; i++) {
       slides[i].onclick = () => {
-        popupContent.empty();
-        const cloneNode = slides[i].cloneNode(false);
-        cloneNode.classList.add(config.contentItemClass);
+        popupContent.innerHTML = "";
+        const cloneNode = slides[i].cloneNode(true);
+        cloneNode.classList.add(contentItemClass);
         popupContent.appendChild(cloneNode);
         popup.classList.add(popupClassOpen);
       };
