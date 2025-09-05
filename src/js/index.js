@@ -268,12 +268,10 @@ function moveSliderFood(sliderTrack, sliderItem, direction) {
   }
 }
 
-function sliderTransitionStart() {
-  const sliderTrack = this;
+function sliderTransitionStart(sliderTrack) {
   sliderTrack.setAttribute("data-is-active-arrows", "false");
 }
 function sliderTransitionEnd(sliderConfig) {
-  const sliderBlock = sliderConfig.sliderBlock;
   const sliderTrack = sliderConfig.sliderTrack;
   const arrowLeft = sliderConfig.arrowLeft;
   const arrowRight = sliderConfig.arrowRight;
@@ -386,7 +384,7 @@ window.onload = function () {
   );
   foodExampleSliderInner.addEventListener(
     "transitionstart",
-    sliderTransitionStart
+    sliderTransitionStart.bind(null, foodExampleSliderInner)
   );
   foodExampleSliderInner.addEventListener(
     "transitionend",
@@ -400,10 +398,10 @@ window.onload = function () {
     })
   );
   let startTouchX = 0;
-  foodExampleSliderInner.addEventListener("touchstart", function (e) {
+  foodExampleSlider.addEventListener("touchstart", function (e) {
     startTouchX = e.touches[0].clientX;
   });
-  foodExampleSliderInner.addEventListener("touchend", function (e) {
+  foodExampleSlider.addEventListener("touchend", function (e) {
     const endX = e.changedTouches[0].clientX;
     const threshold = 10;
     const deltaX = endX - startTouchX;
