@@ -30,7 +30,18 @@
   margin: 0 auto;
 }
 
+.food-example-slider__popup-content-inner {
+  overflow-x: hidden;
+  margin: 0 auto;
+}
+
 .food-example-goods {
+  display: flex;
+  gap: 45px;
+  transform: translateX(0);
+}
+
+.food-example-slider__popup-content {
   display: flex;
   gap: 45px;
   transform: translateX(0);
@@ -90,8 +101,9 @@
 .food-example-slider__popup_opened {
   display: fixed;
 }
-.food-example-popup_close {
-  display: inline-block;
+.food-example-popup__close {
+  display: inline-flex;
+  justify-content: flex-end;
 }
 
 @media screen and (max-width: 1660px) {

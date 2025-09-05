@@ -410,20 +410,48 @@ window.onload = function () {
       moveSliderFood(foodExampleSliderInner, foodExampleSliderItem, direction);
     }
   });
-  function setPopUpForSlider(config) {
+  const sliderPopUp = document.getElementById("food-example-slider__popup-id");
+  const sliderPopUpCross = sliderPopUp.querySelector(
+    ".food-example-popup__close-img"
+  );
+  sliderPopUpCross.onclick = () => {
+    sliderPopUp.classList.remove("food-example-slider__popup_opened");
+  };
+  const sliderPopUpContentInner = sliderPopUp.querySelector(
+    ".food-example-slider__popup-content-inner"
+  );
+  const sliderPopUpContent = sliderPopUp.querySelector(
+    ".food-example-slider__popup-content"
+  );
+  const sliderPopUpArrowLeft = sliderPopUp.querySelector(
+    ".food-example__slider-button-prev"
+  );
+  const sliderPopUpArrowRight = sliderPopUp.querySelector(
+    ".food-example__slider-button-next"
+  );
+  setPopUpForSliderPopUp({
+    popup: sliderPopUp,
+    popupContent: sliderPopUpContentInner,
+    popupClose: "",
+    sliderTrack: foodExampleSliderInner,
+    popupClassOpen: "food-example-slider__popup_opened",
+    contentItemClass: "",
+  });
+  function setPopUpForSliderPopUp(config) {
     const popup = config.popup;
     const popupContent = config.content;
     const popupClose = config.popupClose;
     const sliderTrack = config.sliderTrack;
     const slides = sliderTrack.children;
     const popupClassOpen = config.popupClassOpen;
-    const popupClassClose = config.popupClassClose;
+    const contentItemClass = config.contentItemClass;
     for (let i = 0, length = slides.length; i < length; i++) {
       slides[i].onclick = () => {
         popupContent.empty();
         const cloneNode = slides[i].cloneNode(false);
         cloneNode.classList.add(config.contentItemClass);
         popupContent.appendChild(cloneNode);
+        popup.classList.add(popupClassOpen);
       };
     }
   }
