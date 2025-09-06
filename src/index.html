@@ -316,7 +316,7 @@
 <div class=""><picture><source type="image/jpeg"
     media="(max-width: 1275px)"
     srcset="./assets/img/mobile/food-example/food-example-m-1.jpg"/>
-     <img src="./assets/img/food-example/food-example-1.jpg" alt=""> 
+     <img class="food-example-goods__item-img" src="./assets/img/food-example/food-example-1.jpg" alt=""> 
   </picture></div>
 <h3 class="text-item-subtitle food-example__item-title">Пифур “Черничный мусс”</h3>
 <p class="text-base text_colored4">от 12 шт.</p>
@@ -326,17 +326,17 @@
 <div class=""><picture><source type="image/jpeg"
     media="(max-width: 1275px)"
     srcset="./assets/img/mobile/food-example/food-example-m-2.jpg"/>
-     <img src="./assets/img/food-example/food-example-2.jpg" alt=""> 
+     <img class="food-example-goods__item-img" src="./assets/img/food-example/food-example-2.jpg" alt=""> 
   </picture></div>
 <h3 class="text-item-subtitle food-example__item-title">Фруктовые мини-шпажки</h3>
 <p class="text-base text_colored4">от 12 шт.</p>
 <p class="text-item-writing food-example__item-price text-item-writing_size">106 руб./шт.</p>
           </div>
-          <div class="food-example-goods__item ">
+          <div class="food-example-goods__item">
 <div class=""><picture><source type="image/jpeg"
     media="(max-width: 1275px)"
     srcset="./assets/img/mobile/food-example/food-example-m-3.jpg"/>
-     <img src="./assets/img/food-example/food-example-3.jpg" alt=""> 
+     <img class="food-example-goods__item-img" src="./assets/img/food-example/food-example-3.jpg" alt=""> 
   </picture></div>
 <h3 class="text-item-subtitle food-example__item-title">Три шоколада</h3>
 <p class="text-base text_colored4">от 10 шт.</p>
@@ -346,7 +346,7 @@
 <div class=""><picture><source type="image/jpeg"
     media="(max-width: 1275px)"
     srcset="./assets/img/mobile/food-example/food-example-m-4.jpg"/>
-     <img src="./assets/img/food-example/food-example-4.jpg" alt=""> 
+     <img class="food-example-goods__item-img" src="./assets/img/food-example/food-example-4.jpg" alt=""> 
   </picture></div>
 <h3 class="text-item-subtitle food-example__item-title">Итальянская Панна-кота</h3>
 <p class="text-base text_colored4">от 10 шт.</p>
@@ -366,7 +366,7 @@
 <div class=""><picture><source type="image/jpeg"
     media="(max-width: 1275px)"
     srcset="./assets/img/mobile/food-example/food-example-m-5.jpg"/>
-     <img src="./assets/img/food-example/food-example-5.jpg" alt=""> 
+     <img class="food-example-goods__item-img" src="./assets/img/food-example/food-example-5.jpg" alt=""> 
   </picture></div>
 <h3 class="text-item-subtitle food-example__item-title">Test food-1</h3>
 <p class="text-base text_colored4">X-1</p>
@@ -376,7 +376,7 @@
 <div class=""><picture><source type="image/jpeg"
     media="(max-width: 1275px)"
     srcset="./assets/img/mobile/food-example/food-example-m-5.jpg"/>
-     <img src="./assets/img/food-example/food-example-5.jpg" alt=""> 
+     <img class="food-example-goods__item-img" src="./assets/img/food-example/food-example-5.jpg" alt=""> 
   </picture></div>
 <h3 class="text-item-subtitle food-example__item-title">Test Food-2</h3>
 <p class="text-base text_colored4">X-2</p>
@@ -391,14 +391,18 @@
         </div>
         <div class="food-example__button"><a class="scroll-to button-order text-button button-order_colored text_center" href="#order-block-id">Оставить<br/> заявку</a></div>
         <div id="food-example-slider__popup-id" class="food-example-slider__popup">
-          <div class="food-example-popup__close"><img src="./assets/img/icons/form/order-cross.svg" alt="" class="food-example-popup__close-img"></div>
+          <div class="food-example-popup__close-inner">
+             <div class="food-example-popup__close"><img src="./assets/img/icons/form/order-cross.svg" alt="" class="food-example-popup__close-img"></div>
+          </div>
           <div class="food-example-slider__popup-content-inner">
             <div class="food-example-slider__popup-content"></div>
           </div>
-          <div class="food-example-slider__popup-arrows">
+          <div class="food-example__slider-conrols">
+            <div class="food-example-slider__popup-arrows">
             <div class="food-example__slider-arrow-inner food-example__slider-button-prev"><img src="./assets/img/slider/arrow-left-2.svg" alt=""></div>
           <p class="uppercase text-base text_spacing3">листать</p>
           <div class="food-example__slider-arrow-inner food-example__slider-button-next"><img src="./assets/img/slider/arrow-right-2.svg" alt=""></div>
+          </div>
           </div>
         </div>
       </div>

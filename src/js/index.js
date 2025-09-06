@@ -46,7 +46,7 @@ function smoothScroll(e) {
     e.target.parentNode.classList.contains("scroll-to")
   ) {
     e.preventDefault();
-    const scrollSpeed = 0.7;
+    const scrollSpeed = 0.35;
     let windowOffSetY = window.pageYOffset;
     let anchorElement = isNodeOrParent(e.target)
       .getAttribute("href")
