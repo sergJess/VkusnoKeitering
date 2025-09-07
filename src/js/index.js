@@ -446,7 +446,7 @@ window.onload = function () {
     popupClose: "",
     sliderTrack: foodExampleSliderInner,
     popupClassOpen: "food-example-slider__popup_opened",
-    contentItemClass: "jess",
+    contentItemClass: "food-example-goods__item_popup",
   });
   function setPopUpForSliderPopUp(config) {
     const popup = config.popup;
@@ -459,9 +459,17 @@ window.onload = function () {
     for (let i = 0, length = slides.length; i < length; i++) {
       slides[i].onclick = () => {
         popupContent.innerHTML = "";
-        const cloneNode = slides[i].cloneNode(true);
-        cloneNode.classList.add(contentItemClass);
-        popupContent.appendChild(cloneNode);
+        const slidesWithoutClones = parseInt(
+          sliderTrack.getAttribute("data-all-slides"),
+          10
+        );
+        for (let j = 0; j < slidesWithoutClones; j++) {
+          const cloneNode = sliderTrack
+            .querySelector(`[data-slide-index="${j}"]`)
+            .cloneNode(true);
+          cloneNode.classList.add(contentItemClass);
+          popupContent.appendChild(cloneNode);
+        }
         popup.classList.add(popupClassOpen);
       };
     }

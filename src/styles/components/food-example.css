@@ -55,6 +55,14 @@
   cursor: pointer;
   flex-shrink: 0;
 }
+
+.food-example-goods__item_popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
 .food-example-goods__item-img {
   border-radius: 18px;
 }
