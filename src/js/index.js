@@ -456,6 +456,8 @@ window.onload = function () {
     const slides = sliderTrack.children;
     const popupClassOpen = config.popupClassOpen;
     const contentItemClass = config.contentItemClass;
+    const arrowLeft = config.arrowLeft;
+    const arrowRight = config.arrowRight;
     for (let i = 0, length = slides.length; i < length; i++) {
       slides[i].onclick = () => {
         popupContent.innerHTML = "";
@@ -471,6 +473,19 @@ window.onload = function () {
           popupContent.appendChild(cloneNode);
         }
         popup.classList.add(popupClassOpen);
+        //         sliderFoodExampleInit({
+        //   slider: foodExampleSlider,
+        //   sliderTrack: foodExampleSliderInner,
+        //   sliderItemClass: "food-example-goods__item",
+        //   tryMaxSlidesPerView: 5,
+        //   sliderArrowsInnerClass: "food-example__slider-arrow-inner",
+        //   sliderArrowsInnerClassInactive: "food-example__slider-arrow-inner_inactive",
+        //   leftArrow: foodExampleArrowLeft,
+        //   mobileGridWindowWidth: 860,
+        // });
+        // setTimeout(() => {
+        //   setSliderTransition(foodExampleSliderInner, "food-example-goods__slider");
+        // }, 10);
       };
     }
   }

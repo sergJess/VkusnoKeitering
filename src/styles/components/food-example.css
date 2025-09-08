@@ -43,7 +43,7 @@
 
 .food-example-slider__popup-content {
   display: flex;
-  gap: 45px;
+  /* gap: 45px; */
   transform: translateX(0);
 }
 
@@ -127,6 +127,11 @@
   justify-content: space-between;
   gap: 10px;
   padding: 15px 10px;
+}
+
+.food-example__popup-slider-arrow-right,
+.food-example__popup-slider-arrow-left {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1660px) {
