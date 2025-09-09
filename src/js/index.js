@@ -392,7 +392,6 @@ const sliderPopUpArrowRight = sliderPopUp.querySelector(
 function setPopUpForSliderPopUp(config) {
   const popup = config.popup;
   const popupSliderTrack = config.popupSliderTrack;
-  const popupClose = config.popupClose;
   const sliderTrack = config.sliderTrack;
   const popupClassOpen = config.popupClassOpen;
   const contentItemClass = config.contentItemClass;
@@ -409,8 +408,8 @@ function setPopUpForSliderPopUp(config) {
     config.popupSliderTrackClassTransition;
   const slides = sliderTrack.children;
   for (let i = 0, length = slides.length; i < length; i++) {
+    // click on slider item
     slides[i].onclick = () => {
-      popupSliderTrack.innerHTML = "";
       const slidesWithoutClones = parseInt(
         sliderTrack.getAttribute(`${dataAttributeAllSlidesWithoutClones}`),
         10
@@ -434,6 +433,11 @@ function setPopUpForSliderPopUp(config) {
           sliderArrowsInnerClassInactive: `${sliderArrowsInnerClassInactive}`,
           leftArrow: arrowLeft,
           mobileGridWindowWidth: 0,
+        });
+        setSliderToCorrectPositionInPopUp({
+          sliderItemClass: contentItemClass,
+          sliderTrack: popupSliderTrack,
+          clickedSlide: slides[i],
         });
         arrowLeft.addEventListener(
           "click",
@@ -477,6 +481,43 @@ function setPopUpForSliderPopUp(config) {
       }, 10);
     };
   }
+}
+// set slider to correct position
+function setSliderToCorrectPositionInPopUp(config) {
+  const sliderTrack = config.sliderTrack;
+  const clickedSlide = config.clickedSlide;
+  const sliderItem = sliderTrack.querySelector(`.${config.sliderItemClass}`);
+  const currentSlide = Math.abs(
+    parseInt(sliderTrack.getAttribute("data-current-slide"), 10)
+  );
+  const clickedSlideNumber = parseInt(
+    clickedSlide.getAttribute("data-slide-index"),
+    10
+  );
+  if (clickedSlideNumber == currentSlide) return;
+  if (clickedSlideNumber > currentSlide) {
+    for (let i = currentSlide; i < clickedSlideNumber; i++) {
+      moveSliderFood(sliderTrack, sliderItem, 1);
+    }
+    return;
+  }
+  if (clickedSlideNumber < currentSlide) {
+    for (let i = currentSlide; i > clickedSlideNumber; i--) {
+      moveSliderFood(sliderTrack, sliderItem, -1);
+    }
+    return;
+  }
+}
+// close slider popup
+function closeSliderPopup(config) {
+  const sliderTrackPopUp = config.sliderTrackPopUp;
+  const popUpSlider = config.popUpSlider;
+  const classPopUpSliderOpen = config.classPopUpSliderOpen;
+  const classSliderTrackPopUpTransition =
+    config.classSliderTrackPopUpTransition;
+  popUpSlider.classList.remove(classPopUpSliderOpen);
+  sliderTrackPopUp.innerHTML = "";
+  sliderTrackPopUp.classList.remove(classSliderTrackPopUpTransition);
 }
 
 window.onload = function () {
@@ -529,9 +570,17 @@ window.onload = function () {
       moveSliderFood(foodExampleSliderInner, foodExampleSliderItem, direction);
     }
   });
-  sliderPopUpCross.onclick = () => {
-    sliderPopUp.classList.remove("food-example-slider__popup_opened");
-  };
+
+  sliderPopUpCross.addEventListener(
+    "click",
+    closeSliderPopup.bind(null, {
+      sliderTrackPopUp: sliderPopUpContent,
+      popUpSlider: sliderPopUp,
+      classPopUpSliderOpen: "food-example-slider__popup_opened",
+      classSliderTrackPopUpTransition: "food-example-goods__slider",
+    })
+  );
+
   setPopUpForSliderPopUp({
     popup: sliderPopUp,
     popupSliderTrack: sliderPopUpContent,
