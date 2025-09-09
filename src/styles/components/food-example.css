@@ -43,7 +43,7 @@
 
 .food-example-slider__popup-content {
   display: flex;
-  /* gap: 45px; */
+  gap: 0px;
   transform: translateX(0);
 }
 
@@ -53,7 +53,7 @@
 
 .food-example-goods__item {
   cursor: pointer;
-  flex-shrink: 0;
+  /* flex-shrink: 0; */
 }
 
 .food-example-goods__item_popup {
@@ -61,6 +61,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  flex-shrink: 0;
   width: 100%;
 }
 .food-example-goods__item-img {

@@ -369,10 +369,86 @@ for (let i = 0, length = foodExampleTabsSlider.length; i < length; i++) {
     }
   };
 }
+//slider popup
+function setPopUpForSliderPopUp(config) {
+  const popup = config.popup;
+  const popupSliderTrack = config.popupSliderTrack;
+  const popupClose = config.popupClose;
+  const slider = config.slider;
+  const sliderTrack = config.sliderTrack;
+  const popupClassOpen = config.popupClassOpen;
+  const contentItemClass = config.contentItemClass;
+  const arrowLeft = config.arrowLeft;
+  const arrowRight = config.arrowRight;
+  const tryMaxSlidesPerView = config.tryMaxSlidesPerView;
+  const sliderArrowsInnerClass = config.sliderArrowsInnerClass;
+  const dataAttributeForSearchSlidesWithoutClones =
+    config.dataAttributeForSearchSlidesWithoutClones;
+  const dataAttributeAllSlidesWithoutClones =
+    config.dataAttributeAllSlidesWithoutClones;
+  const sliderArrowsInnerClassInactive = config.sliderArrowsInnerClassInactive;
+  const popupSliderTrackClassTransition =
+    config.popupSliderTrackClassTransition;
+  const slides = sliderTrack.children;
+  for (let i = 0, length = slides.length; i < length; i++) {
+    slides[i].onclick = () => {
+      popupSliderTrack.innerHTML = "";
+      const slidesWithoutClones = parseInt(
+        sliderTrack.getAttribute(`${dataAttributeAllSlidesWithoutClones}`),
+        10
+      );
+      for (let j = 0; j < slidesWithoutClones; j++) {
+        const cloneNode = sliderTrack
+          .querySelector(
+            `[${dataAttributeForSearchSlidesWithoutClones}="${j}"]`
+          )
+          .cloneNode(true);
+        cloneNode.classList.add(contentItemClass);
+        popupSliderTrack.appendChild(cloneNode);
+      }
+      setTimeout(() => {
+        sliderFoodExampleInit({
+          sliderTrack: popupSliderTrack,
+          sliderItemClass: contentItemClass,
+          tryMaxSlidesPerView: tryMaxSlidesPerView,
+          sliderArrowsInnerClass: `${sliderArrowsInnerClass}`,
+          sliderArrowsInnerClassInactive: `${sliderArrowsInnerClassInactive}`,
+          leftArrow: arrowLeft,
+          mobileGridWindowWidth: 0,
+        });
+        arrowLeft.addEventListener(
+          "click",
+          moveSliderFood.bind(
+            null,
+            popupSliderTrack,
+            popupSliderTrack.querySelector(`.${contentItemClass}`),
+            -1
+          )
+        );
+        arrowRight.addEventListener(
+          "click",
+          moveSliderFood.bind(
+            null,
+            popupSliderTrack,
+            popupSliderTrack.querySelector(`.${contentItemClass}`),
+            1
+          )
+        );
+      }, 5);
+
+      setTimeout(() => {
+        setSliderTransition(
+          popupSliderTrack,
+          `${popupSliderTrackClassTransition}`
+        );
+      }, 10);
+      popup.classList.add(popupClassOpen);
+    };
+  }
+}
 
 window.onload = function () {
   sliderFoodExampleInit({
-    slider: foodExampleSlider,
     sliderTrack: foodExampleSliderInner,
     sliderItemClass: "food-example-goods__item",
     tryMaxSlidesPerView: 5,
@@ -435,58 +511,26 @@ window.onload = function () {
     ".food-example-slider__popup-content"
   );
   const sliderPopUpArrowLeft = sliderPopUp.querySelector(
-    ".food-example__slider-button-prev"
+    ".food-example__popup-slider-arrow-left"
   );
   const sliderPopUpArrowRight = sliderPopUp.querySelector(
-    ".food-example__slider-button-next"
+    ".food-example__popup-slider-arrow-right"
   );
   setPopUpForSliderPopUp({
     popup: sliderPopUp,
-    popupContent: sliderPopUpContent,
+    popupSliderTrack: sliderPopUpContent,
     popupClose: "",
+    slider: sliderPopUpContentInner,
     sliderTrack: foodExampleSliderInner,
+    tryMaxSlidesPerView: 1,
     popupClassOpen: "food-example-slider__popup_opened",
     contentItemClass: "food-example-goods__item_popup",
+    sliderArrowsInnerClass: "food-example__popup-slider-arrow-block",
+    arrowLeft: sliderPopUpArrowLeft,
+    arrowRight: sliderPopUpArrowRight,
+    sliderArrowsInnerClassInactive: "food-example__slider-arrow-inner_inactive",
+    dataAttributeForSearchSlidesWithoutClones: "data-slide-index",
+    dataAttributeAllSlidesWithoutClones: "data-all-slides",
+    popupSliderTrackClassTransition: "food-example-goods__slider",
   });
-  function setPopUpForSliderPopUp(config) {
-    const popup = config.popup;
-    const popupContent = config.popupContent;
-    const popupClose = config.popupClose;
-    const sliderTrack = config.sliderTrack;
-    const slides = sliderTrack.children;
-    const popupClassOpen = config.popupClassOpen;
-    const contentItemClass = config.contentItemClass;
-    const arrowLeft = config.arrowLeft;
-    const arrowRight = config.arrowRight;
-    for (let i = 0, length = slides.length; i < length; i++) {
-      slides[i].onclick = () => {
-        popupContent.innerHTML = "";
-        const slidesWithoutClones = parseInt(
-          sliderTrack.getAttribute("data-all-slides"),
-          10
-        );
-        for (let j = 0; j < slidesWithoutClones; j++) {
-          const cloneNode = sliderTrack
-            .querySelector(`[data-slide-index="${j}"]`)
-            .cloneNode(true);
-          cloneNode.classList.add(contentItemClass);
-          popupContent.appendChild(cloneNode);
-        }
-        popup.classList.add(popupClassOpen);
-        //         sliderFoodExampleInit({
-        //   slider: foodExampleSlider,
-        //   sliderTrack: foodExampleSliderInner,
-        //   sliderItemClass: "food-example-goods__item",
-        //   tryMaxSlidesPerView: 5,
-        //   sliderArrowsInnerClass: "food-example__slider-arrow-inner",
-        //   sliderArrowsInnerClassInactive: "food-example__slider-arrow-inner_inactive",
-        //   leftArrow: foodExampleArrowLeft,
-        //   mobileGridWindowWidth: 860,
-        // });
-        // setTimeout(() => {
-        //   setSliderTransition(foodExampleSliderInner, "food-example-goods__slider");
-        // }, 10);
-      };
-    }
-  }
 };
