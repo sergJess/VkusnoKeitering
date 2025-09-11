@@ -16,7 +16,7 @@
   padding: 36px 13% 36px 13%;
 }
 
-.porfolio__tab{
+.porfolio__tab {
   cursor: pointer;
   background-color: transparent;
 }
@@ -25,7 +25,25 @@
   display: flex;
   gap: 1px;
   max-width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* Для Internet Explorer и Edge */
+  scrollbar-width: none;
+}
+.porfolio__examples ::-webkit-scrollbar {
+  display: none;
+}
+
+.porfolio-examples__slider-conrols {
+  margin: 30px 0 18px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px 13px;
+}
+
+.porfolio-examplese__slider-arrow-inner {
+  cursor: pointer;
 }
 
 .porfolio__examples-subitem {
@@ -33,44 +51,38 @@
   gap: 1px;
 }
 
-.porfolio__examples-item_up{
+.porfolio__examples-item_up {
   margin-top: 1px;
 }
-
 
 @media screen and (max-width: 1660px) {
   .porfolio__title {
     padding: 0 3%;
-}
+  }
   .porfolio__tabs {
     padding: 36px 3% 36px 3%;
-}
-
-
+  }
 }
 
 @media screen and (max-width: 860px) {
-    .porfolio__examples_hidden{
+  .porfolio__examples_hidden {
     display: none;
-}
+  }
 
-.portfolio {
-  padding: 50px 0 10px 0;
+  .portfolio {
+    padding: 50px 0 10px 0;
+  }
 }
-}
-
 
 @media screen and (max-width: 500px) {
-    .porfolio__tabs {
-      padding: 20px 6px 19px 6px;
-      column-gap: 26px;
-}
-
-
+  .porfolio__tabs {
+    padding: 20px 6px 19px 6px;
+    column-gap: 26px;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    .porfolio__tabs {
-      column-gap: 10px;
-}
+  .porfolio__tabs {
+    column-gap: 10px;
+  }
 }

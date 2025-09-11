@@ -101,6 +101,32 @@ function showOrHideUpButton() {
   }
 }
 window.addEventListener("scroll", showOrHideUpButton);
+// porfolio scroll
+const porfolio = document.getElementById("portfolio-id");
+const porfolioExamples = porfolio.querySelector(".porfolio__examples");
+const porfolioLeftArrow = porfolio.querySelector(
+  ".portfolio-examples__slider-button-prev"
+);
+const porfolioRightArrow = porfolio.querySelector(
+  ".portfolio-examples__slider-button-next"
+);
+// porfolioExamples.addEventListener("scroll", function () {
+//   const items = porfolioExamples.querySelectorAll(".porfolio__examples-item");
+//   let blockWidth = 0;
+//   for (let i = 0, length = items.length; i < length; i++) {
+//     blockWidth += items[i].offsetWidth;
+//   }
+
+//   const windowWidth = window.innerWidth;
+//   const scrollRightBorder = windowWidth - blockWidth;
+//   console.log(scrollRightBorder);
+// });
+porfolioLeftArrow.onclick = () => {
+  porfolioExamples.scrollBy({ top: 0, left: 270, behavior: "smooth" });
+};
+porfolioRightArrow.onclick = () => {
+  porfolioExamples.scrollBy({ top: 0, left: -270, behavior: "smooth" });
+};
 // food-example slider
 const foodExampleBlock = document.getElementById("food-example-id");
 const foodExampleSlider = foodExampleBlock.querySelector(
@@ -375,7 +401,6 @@ const sliderPopUp = document.getElementById("food-example-slider__popup-id");
 const sliderPopUpCross = sliderPopUp.querySelector(
   ".food-example-popup__close-img"
 );
-
 const sliderPopUpContentInner = sliderPopUp.querySelector(
   ".food-example-slider__popup-content-inner"
 );
@@ -393,6 +418,7 @@ function setPopUpForSliderPopUp(config) {
   const popup = config.popup;
   const popupSliderTrack = config.popupSliderTrack;
   const sliderTrack = config.sliderTrack;
+  const classToSelectOriginSlides = config.classToSelectOriginSlides;
   const popupClassOpen = config.popupClassOpen;
   const contentItemClass = config.contentItemClass;
   const arrowLeft = config.arrowLeft;
@@ -406,7 +432,7 @@ function setPopUpForSliderPopUp(config) {
   const sliderArrowsInnerClassInactive = config.sliderArrowsInnerClassInactive;
   const popupSliderTrackClassTransition =
     config.popupSliderTrackClassTransition;
-  const slides = sliderTrack.children;
+  const slides = sliderTrack.querySelectorAll(`.${classToSelectOriginSlides}`);
   for (let i = 0, length = slides.length; i < length; i++) {
     // click on slider item
     slides[i].onclick = () => {
@@ -439,6 +465,27 @@ function setPopUpForSliderPopUp(config) {
           sliderTrack: popupSliderTrack,
           clickedSlide: slides[i],
         });
+        const slidesOfPopUpSliderTrack = popupSliderTrack.querySelectorAll(
+          ".food-example-goods__item"
+        );
+        for (let i = 0; i < slidesOfPopUpSliderTrack.length; i++) {
+          slidesOfPopUpSliderTrack[i].classList.remove(
+            "food-example-goods__item_pointer"
+          );
+          const title = slidesOfPopUpSliderTrack[i].querySelector(
+            ".food-example__item-title"
+          );
+          title.classList.remove("food-example__item-title");
+          title.classList.add("food-example__popup-slider-item-title");
+          const price = slidesOfPopUpSliderTrack[i].querySelector(".text-base");
+          price.classList.remove("text-base");
+          price.classList.add("food-example__popup-slider-item-count");
+          const count = slidesOfPopUpSliderTrack[i].querySelector(
+            ".food-example__item-price"
+          );
+          count.classList.remove("text-item-writing");
+          count.classList.add("food-example__popup-slider-item-count");
+        }
         arrowLeft.addEventListener(
           "click",
           moveSliderFood.bind(
@@ -604,6 +651,7 @@ window.onload = function () {
     slider: sliderPopUpContentInner,
     sliderTrack: foodExampleSliderInner,
     tryMaxSlidesPerView: 1,
+    classToSelectOriginSlides: "food-example-goods__item",
     popupClassOpen: "food-example-slider__popup_opened",
     contentItemClass: "food-example-goods__item_popup",
     sliderArrowsInnerClass: "food-example__popup-slider-arrow-block",

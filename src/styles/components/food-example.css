@@ -51,7 +51,7 @@
   transition: transform 0.4s ease;
 }
 
-.food-example-goods__item {
+.food-example-goods__item_pointer {
   cursor: pointer;
 }
 
@@ -133,7 +133,25 @@
 .food-example__popup-slider-arrow-left {
   cursor: pointer;
 }
-
+.food-example__popup-slider-item-title {
+  font-size: 3rem;
+  font-weight: 700;
+  padding: 10px 0;
+  font-family: "Raleway", sans-serif;
+  color: #96a788;
+}
+.food-example__popup-slider-item-count {
+  font-size: 2.2rem;
+  font-weight: 400;
+  font-family: "Raleway", sans-serif;
+}
+.food-example__popup-slider-item-price {
+  font-size: 2.5rem;
+  line-height: 3rem;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+  padding: 10px 0;
+}
 @media screen and (max-width: 1660px) {
   .food-example {
     padding: 46px 3% 106px 3%;
