@@ -388,7 +388,7 @@ const sliderPopUpArrowLeft = sliderPopUp.querySelector(
 const sliderPopUpArrowRight = sliderPopUp.querySelector(
   ".food-example__popup-slider-arrow-right"
 );
-
+let sliderPopUpSwipeClientX = 0;
 function setPopUpForSliderPopUp(config) {
   const popup = config.popup;
   const popupSliderTrack = config.popupSliderTrack;
@@ -473,6 +473,22 @@ function setPopUpForSliderPopUp(config) {
           sliderTrackClassTransition: "food-example-goods__slider",
         })
       );
+      popupSliderTrack.parentNode.addEventListener("touchstart", function (e) {
+        sliderPopUpSwipeClientX = e.touches[0].clientX;
+      });
+      popupSliderTrack.parentNode.addEventListener("touchend", function (e) {
+        const endX = e.changedTouches[0].clientX;
+        const threshold = 10;
+        const deltaX = endX - sliderPopUpSwipeClientX;
+        if (Math.abs(deltaX) > threshold) {
+          const direction = deltaX > 0 ? -1 : 1;
+          moveSliderFood(
+            popupSliderTrack,
+            popupSliderTrack.firstChild,
+            direction
+          );
+        }
+      });
       setTimeout(() => {
         setSliderTransition(
           popupSliderTrack,
