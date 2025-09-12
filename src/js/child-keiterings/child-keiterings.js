@@ -24,12 +24,23 @@ for (let i = 0, length = orderCallButtons.length; i < length; i++) {
   };
 }
 // navigation show submenu
-const navigationLists = header.querySelectorAll(".navigation__list");
+const navigation = document.getElementById("navigation-id");
+const navigationLists = navigation.querySelectorAll(
+  ".navigation-show__submenu"
+);
 for (let i = 0, length = navigationLists.length; i < length; i++) {
   navigationLists[i].onclick = () => {
-    const navigationSubmenu = navigationLists[i].nextElementSibling;
-    if (navigationSubmenu)
-      navigationSubmenu.classList.toggle("navigation__submenu_show");
+    const navigationSubmenu = navigation.querySelectorAll(
+      ".navigation__submenu"
+    );
+    const submenu = navigationLists[i].querySelector(".navigation__submenu");
+    const isHaveActiveClass = submenu.classList.contains(
+      "navigation__submenu_show"
+    );
+    for (let j = 0; j < navigationSubmenu.length; j++) {
+      navigationSubmenu[j].classList.remove("navigation__submenu_show");
+    }
+    if (!isHaveActiveClass) submenu.classList.add("navigation__submenu_show");
   };
 }
 //height in ready made solutions block linear-gradient
@@ -83,7 +94,7 @@ function smoothScroll(e) {
     e.target.parentNode.classList.contains("scroll-to")
   ) {
     e.preventDefault();
-    const scrollSpeed = 0.7;
+    const scrollSpeed = 0.35;
     let windowOffSetY = window.pageYOffset;
     let anchorElement = isNodeOrParent(e.target)
       .getAttribute("href")

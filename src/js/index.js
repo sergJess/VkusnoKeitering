@@ -100,6 +100,24 @@ function showOrHideUpButton() {
     buttonUp.classList.remove("up-button_show");
   }
 }
+//food-example tabs
+const foodExampleTabsSliderInner = document.getElementById(
+  "food-example-tabs-id"
+);
+const foodExampleTabsSlider =
+  foodExampleTabsSliderInner.querySelectorAll(".food-example__tab");
+for (let i = 0, length = foodExampleTabsSlider.length; i < length; i++) {
+  foodExampleTabsSlider[i].onclick = () => {
+    if (foodExampleTabsSlider[i].classList.contains("food-example__tab_active"))
+      return;
+    else {
+      for (let j = 0, length = foodExampleTabsSlider.length; j < length; j++) {
+        foodExampleTabsSlider[j].classList.remove("food-example__tab_active");
+      }
+      foodExampleTabsSlider[i].classList.add("food-example__tab_active");
+    }
+  };
+}
 window.addEventListener("scroll", showOrHideUpButton);
 // porfolio scroll
 const porfolio = document.getElementById("portfolio-id");
@@ -122,10 +140,10 @@ const porfolioRightArrow = porfolio.querySelector(
 //   console.log(scrollRightBorder);
 // });
 porfolioLeftArrow.onclick = () => {
-  porfolioExamples.scrollBy({ top: 0, left: 270, behavior: "smooth" });
+  porfolioExamples.scrollBy({ top: 0, left: -350, behavior: "smooth" });
 };
 porfolioRightArrow.onclick = () => {
-  porfolioExamples.scrollBy({ top: 0, left: -270, behavior: "smooth" });
+  porfolioExamples.scrollBy({ top: 0, left: 350, behavior: "smooth" });
 };
 // food-example slider
 const foodExampleBlock = document.getElementById("food-example-id");
@@ -377,24 +395,6 @@ function sliderTransitionEnd(sliderConfig) {
     return;
   }
   sliderTrack.setAttribute("data-is-active-arrows", "true");
-}
-//food-example tabs
-const foodExampleTabsSliderInner = document.getElementById(
-  "food-example-tabs-id"
-);
-const foodExampleTabsSlider =
-  foodExampleTabsSliderInner.querySelectorAll(".food-example__tab");
-for (let i = 0, length = foodExampleTabsSlider.length; i < length; i++) {
-  foodExampleTabsSlider[i].onclick = () => {
-    if (foodExampleTabsSlider[i].classList.contains("food-example__tab_active"))
-      return;
-    else {
-      for (let j = 0, length = foodExampleTabsSlider.length; j < length; j++) {
-        foodExampleTabsSlider[j].classList.remove("food-example__tab_active");
-      }
-      foodExampleTabsSlider[i].classList.add("food-example__tab_active");
-    }
-  };
 }
 //slider popup
 const sliderPopUp = document.getElementById("food-example-slider__popup-id");

@@ -134,6 +134,7 @@
   cursor: pointer;
 }
 .food-example__popup-slider-item-title {
+  text-align: center;
   font-size: 3rem;
   font-weight: 700;
   padding: 10px 0;
@@ -216,6 +217,9 @@
 
   .food-example__tab5 {
     grid-area: e;
+  }
+  .food-example__popup-slider-item-title {
+    font-size: 2.5rem;
   }
 }
 
