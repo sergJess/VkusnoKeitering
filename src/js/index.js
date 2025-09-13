@@ -433,6 +433,7 @@ function setPopUpForSliderPopUp(config) {
   const popupSliderTrackClassTransition =
     config.popupSliderTrackClassTransition;
   const slides = sliderTrack.querySelectorAll(`.${classToSelectOriginSlides}`);
+  const popupItemsInfoArray = config.popupItemsInfoArray;
   for (let i = 0, length = slides.length; i < length; i++) {
     // click on slider item
     slides[i].onclick = () => {
@@ -469,26 +470,25 @@ function setPopUpForSliderPopUp(config) {
           ".food-example-goods__item"
         );
         for (let i = 0; i < slidesOfPopUpSliderTrack.length; i++) {
-          slidesOfPopUpSliderTrack[i].classList.remove(
-            "food-example-goods__item_pointer"
-          );
-          const img = slidesOfPopUpSliderTrack[i].querySelector(
-            ".food-example-goods__item-img"
-          );
-          img.classList.add("food-example-goods__item-img_popup");
-          const title = slidesOfPopUpSliderTrack[i].querySelector(
-            ".food-example__item-title"
-          );
-          title.classList.remove("food-example__item-title");
-          title.classList.add("food-example__popup-slider-item-title");
-          const price = slidesOfPopUpSliderTrack[i].querySelector(".text-base");
-          price.classList.remove("text-base");
-          price.classList.add("food-example__popup-slider-item-count");
-          const count = slidesOfPopUpSliderTrack[i].querySelector(
-            ".food-example__item-price"
-          );
-          count.classList.remove("text-item-writing");
-          count.classList.add("food-example__popup-slider-item-count");
+          for (let j = 0; j < popupItemsInfoArray.length; j++) {
+            const element = slidesOfPopUpSliderTrack[i].querySelector(
+              `${popupItemsInfoArray[j].elementQuerySelector}`
+            );
+            if (element) {
+              if (popupItemsInfoArray[j].hasOwnProperty("elementClassRemove"))
+                element.classList.remove(
+                  `${popupItemsInfoArray[j].elementClassRemove}`
+                );
+              if (popupItemsInfoArray[j].hasOwnProperty("elementClassAdd"))
+                element.classList.add(
+                  `${popupItemsInfoArray[j].elementClassAdd}`
+                );
+            }
+          }
+          if (config.hasOwnProperty("popupItemClassRemove"))
+            slidesOfPopUpSliderTrack[i].classList.remove(
+              `${config.popupItemClassRemove}`
+            );
         }
         arrowLeft.addEventListener(
           "click",
@@ -665,5 +665,27 @@ window.onload = function () {
     dataAttributeForSearchSlidesWithoutClones: "data-slide-index",
     dataAttributeAllSlidesWithoutClones: "data-all-slides",
     popupSliderTrackClassTransition: "food-example-goods__slider",
+    popupItemClassRemove: "food-example-goods__item_pointer",
+    popupItemsInfoArray: [
+      {
+        elementQuerySelector: ".food-example-goods__item-img",
+        elementClassAdd: "food-example-goods__item-img_popup",
+      },
+      {
+        elementQuerySelector: ".food-example__item-title",
+        elementClassRemove: "food-example__item-title",
+        elementClassAdd: "food-example__popup-slider-item-title",
+      },
+      {
+        elementQuerySelector: ".food-example__item-count",
+        elementClassRemove: "text-base",
+        elementClassAdd: "food-example__popup-slider-item-count",
+      },
+      {
+        elementQuerySelector: ".food-example__item-price",
+        elementClassRemove: "text-item-writing",
+        elementClassAdd: "food-example__popup-slider-item-count",
+      },
+    ],
   });
 };
