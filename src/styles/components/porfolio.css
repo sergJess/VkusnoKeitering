@@ -95,6 +95,50 @@
   margin-top: 1px;
 }
 
+.porfolio__examples-slider__popup {
+  position: fixed;
+  display: none;
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  padding: 35px 10px;
+  z-index: 15;
+}
+
+.porfolio__examples-slider__popup_opened {
+  display: block;
+}
+
+.porfolio__examples-popup__close-inner {
+  display: flex;
+  justify-content: end;
+}
+
+.porfolio__examples-popup__close-img {
+  cursor: pointer;
+}
+
+.porfolio__examples__popup-slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 15px 10px;
+}
+
+.porfolio__examples__popup-slider-arrow-right,
+.porfolio__examples__popup-slider-arrow-left {
+  cursor: pointer;
+}
+.porfolio__examples__item-img_popup {
+  width: 26.5%;
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 1660px) {
   .porfolio__title {
     padding: 0 3%;
