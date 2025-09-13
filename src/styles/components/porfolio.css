@@ -41,7 +41,47 @@
   align-items: center;
   gap: 15px 13px;
 }
+.porfolio__examples-item-1 {
+  width: 456px;
+  height: 359px;
+}
 
+.porfolio__examples-item-2 {
+  width: 456px;
+  height: 274px;
+}
+.porfolio__examples-item-3 {
+  width: 298px;
+  height: 217px;
+}
+.porfolio__examples-item-4 {
+  width: 241px;
+  height: 217px;
+}
+.porfolio__examples-item-5 {
+  width: 540px;
+  height: 416px;
+}
+.porfolio__examples-item-6 {
+  width: 536px;
+  height: 634px;
+}
+.porfolio__examples-item-7 {
+  width: 312px;
+  height: 230px;
+}
+.porfolio__examples-item-8 {
+  width: 72px;
+  height: 230px;
+}
+.porfolio__examples-item-9 {
+  width: 385px;
+  height: 402px;
+}
+.porfolio__examples-item-img {
+  width: 100%;
+  height: 100%;
+}
 .porfolio-examplese__slider-arrow-inner {
   cursor: pointer;
 }
@@ -67,6 +107,44 @@
 @media screen and (max-width: 860px) {
   .porfolio__examples_hidden {
     display: none;
+  }
+
+  .porfolio__examples-item-1 {
+    width: 400px;
+    height: 270px;
+  }
+
+  .porfolio__examples-item-2 {
+    width: 400px;
+    height: 200px;
+  }
+  .porfolio__examples-item-3 {
+    width: 220px;
+    height: 140px;
+  }
+  .porfolio__examples-item-4 {
+    width: 180px;
+    height: 140px;
+  }
+  .porfolio__examples-item-5 {
+    width: 400px;
+    height: 330px;
+  }
+  .porfolio__examples-item-6 {
+    width: 500px;
+    height: 470px;
+  }
+  .porfolio__examples-item-7 {
+    width: 250px;
+    height: 150px;
+  }
+  .porfolio__examples-item-8 {
+    width: 45px;
+    height: 150px;
+  }
+  .porfolio__examples-item-9 {
+    width: 295px;
+    height: 320px;
   }
 
   .portfolio {
