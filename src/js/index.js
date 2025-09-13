@@ -121,6 +121,13 @@ for (let i = 0, length = foodExampleTabsSlider.length; i < length; i++) {
 window.addEventListener("scroll", showOrHideUpButton);
 // porfolio scroll
 const porfolio = document.getElementById("portfolio-id");
+const porfolioSlides = porfolio.querySelectorAll(
+  ".porfolio__examples-item-slide"
+);
+for (let i = 0, length = porfolioSlides.length; i < length; i++) {
+  porfolioSlides[i].setAttribute("data-slide-index", i);
+  porfolioSlides[i].onclick = () => {};
+}
 const porfolioExamples = porfolio.querySelector(".porfolio__examples");
 const porfolioLeftArrow = porfolio.querySelector(
   ".portfolio-examples__slider-button-prev"
