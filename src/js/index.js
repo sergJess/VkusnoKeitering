@@ -472,6 +472,10 @@ function setPopUpForSliderPopUp(config) {
           slidesOfPopUpSliderTrack[i].classList.remove(
             "food-example-goods__item_pointer"
           );
+          const img = slidesOfPopUpSliderTrack[i].querySelector(
+            ".food-example-goods__item-img"
+          );
+          img.classList.add("food-example-goods__item-img_popup");
           const title = slidesOfPopUpSliderTrack[i].querySelector(
             ".food-example__item-title"
           );
