@@ -30,6 +30,10 @@
   margin: 0 auto;
 }
 
+.food-example-slider__popup-block-content {
+  overflow-x: hidden;
+}
+
 .food-example-slider__popup-content-inner {
   overflow-x: hidden;
   margin: 0 auto;
@@ -56,11 +60,6 @@
 }
 
 .food-example-goods__item_popup {
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  */
   flex-shrink: 0;
   width: 100%;
 }

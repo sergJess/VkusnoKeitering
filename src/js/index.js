@@ -1,4 +1,11 @@
-import smoothScroll from "./utils/smooth-scroll.js";
+import { smoothScroll } from "./utils/smooth-scroll/smooth-scroll.js";
+import { moveSliderFood } from "./utils/slider/move-slider.js";
+import {
+  setSliderTransition,
+  sliderTransitionStart,
+  sliderTransitionEnd,
+} from "./utils/slider/slider-transition.js";
+import { sliderFoodExampleInit } from "./utils/slider/food-slider-init.js";
 const header = document.getElementById("header-id");
 //menu
 const burger = header.querySelector(".navigation-burger");
@@ -125,244 +132,14 @@ const foodExampleArrowLeft = foodExampleBlock.querySelector(
 const foodExampleArrowRight = foodExampleBlock.querySelector(
   ".food-example__slider-button-next"
 );
-function getGapValues(element) {
-  const parent = element.parentNode.clientWidth;
-  const reformGapValue = (gapString) =>
-    gapString.includes("%")
-      ? parent * (parseFloat(gapString) / 100)
-      : parseFloat(gapString);
-  const gap = getComputedStyle(element).gap.split(" ");
-  if (gap.length == 2) {
-    return [reformGapValue(gap[0]), reformGapValue(gap[1])];
-  }
-  if (gap.length == 1) {
-    return [reformGapValue(gap[0]), reformGapValue(gap[0])];
-  }
-  return [0, 0];
-}
-function sliderFoodExampleInit(sliderConfig) {
-  const sliderTrack = sliderConfig.sliderTrack;
-  const slides = sliderTrack.querySelectorAll(
-    `.${sliderConfig.sliderItemClass}`
-  );
-  const slidesCount = slides.length;
-  if (slidesCount > 0) {
-    const maxSlidesPerView = sliderConfig.tryMaxSlidesPerView;
-    const slider = sliderTrack.parentNode;
-    sliderTrack.setAttribute("data-transform", "0");
-    sliderTrack.setAttribute("data-all-slides", `${slidesCount}`);
-    sliderTrack.setAttribute("data-is-active-arrows", "false");
-    sliderTrack.setAttribute("data-left-arrow-unactive", "false");
-    sliderTrack.setAttribute("data-right-arrow-unactive", "false");
-    const sliderWidth = slider.clientWidth;
-    const paddingLeft = parseInt(
-      getComputedStyle(slider).getPropertyValue("padding-left")
-    );
-    const paddingRight = parseInt(
-      getComputedStyle(slider).getPropertyValue("padding-right")
-    );
-    const widthPadding = paddingLeft + paddingRight;
-    const leftWidthForSliderTrack = parseInt(sliderWidth, 10) - widthPadding;
-    const gapHorizontal = getGapValues(sliderTrack)[1];
-    const slideWidth = parseInt(slides[0].clientWidth, 10);
-    const awailableSlidesToShow =
-      leftWidthForSliderTrack / (slideWidth + gapHorizontal) < maxSlidesPerView
-        ? Math.trunc(leftWidthForSliderTrack / (slideWidth + gapHorizontal))
-        : maxSlidesPerView;
-    slider.style.width = `${
-      slideWidth * awailableSlidesToShow +
-      (awailableSlidesToShow - 1) * gapHorizontal
-    }px`;
-    sliderTrack.setAttribute(
-      "data-slides-per-view",
-      `${awailableSlidesToShow}`
-    );
-    if (awailableSlidesToShow >= slidesCount) {
-      //make slider arrows inactive
-      const sliderParent = slider.parentNode;
-      const sliderArrowsInner = sliderParent.querySelectorAll(
-        `.${sliderConfig.sliderArrowsInnerClass}`
-      );
-      for (let i = 0, length = sliderArrowsInner.length; i < length; i++) {
-        sliderArrowsInner[i].classList.add(
-          `${sliderConfig.sliderArrowsInnerClassInactive}`
-        );
-      }
-      return;
-    }
-    if (
-      awailableSlidesToShow < slidesCount &&
-      window.outerWidth <= sliderConfig.mobileGridWindowWidth
-    ) {
-      sliderTrack.setAttribute("data-current-slide", "0");
-      sliderTrack.setAttribute("data-is-active-arrows", "true");
-      sliderTrack.setAttribute("data-is-mobile-grid", "true");
-      sliderTrack.setAttribute("data-left-arrow-unactive", "true");
-      const leftArrow = sliderConfig.leftArrow;
-      leftArrow.classList.add(`${sliderConfig.sliderArrowsInnerClassInactive}`);
-      for (let i = 0; i < slidesCount; i++) {
-        slides[i].setAttribute("data-slide-index", `${i}`);
-      }
-      const columnsGrid = Math.ceil(slidesCount / 2);
-      const rowsGrid = 2;
-      sliderTrack.setAttribute("data-rows-grid", rowsGrid);
-      sliderTrack.style.display = "grid";
-      sliderTrack.style.gridTemplateColumns = `repeat(${columnsGrid}, ${slideWidth}px)`;
-      sliderTrack.style.gridTemplateRows = `${rowsGrid}`;
-      return;
-    }
-    if (awailableSlidesToShow < slidesCount) {
-      sliderTrack.setAttribute("data-current-slide", "0");
-      sliderTrack.setAttribute("data-is-active-arrows", "true");
-      for (let i = 0; i < slidesCount; i++) {
-        slides[i].setAttribute("data-slide-index", `${i}`);
-      }
-      for (let i = 0; i < awailableSlidesToShow; i++) {
-        const node = slides[i].cloneNode(true);
-        node.setAttribute("data-slide-index", `${i}`);
-        sliderTrack.append(node);
-      }
-      for (
-        let i = slidesCount - 1;
-        i >= slidesCount - awailableSlidesToShow;
-        i--
-      ) {
-        const node = slides[i].cloneNode(true);
-        node.setAttribute("data-slide-index", `${i}`);
-        sliderTrack.prepend(node);
-      }
-      for (let i = 0; i < awailableSlidesToShow; i++) {
-        moveSliderFood(sliderTrack, slides[0], 1);
-      }
-      sliderTrack.setAttribute(
-        "data-start-position",
-        sliderTrack.getAttribute("data-transform")
-      );
-      sliderTrack.setAttribute("data-current-slide", "0");
-      return;
-    }
-  }
-}
-function setSliderTransition(sliderTrack, className) {
-  sliderTrack.classList.add(`${className}`);
-}
 
-function moveSliderFood(sliderTrack, sliderItem, direction) {
-  if (sliderTrack.getAttribute("data-is-active-arrows") == "true") {
-    const currentSlide = parseInt(
-      sliderTrack.getAttribute("data-current-slide"),
-      10
-    );
-    const gapHorizontal = getGapValues(sliderTrack)[1];
-    const shift = sliderItem.offsetWidth;
-    let currentIndex = sliderTrack.getAttribute("data-transform");
-    if (direction == -1) {
-      const isUnactiveArrowLeft = sliderTrack.getAttribute(
-        "data-left-arrow-unactive"
-      );
-      if (isUnactiveArrowLeft == "true") return;
-      sliderTrack.style.transform = `translateX(${
-        +currentIndex + (+shift + gapHorizontal)
-      }px)`;
-      sliderTrack.setAttribute(
-        "data-transform",
-        +currentIndex + (+shift + gapHorizontal)
-      );
-      sliderTrack.setAttribute("data-current-slide", `${currentSlide - 1}`);
-    } else {
-      const isUnactiveArrowRight = sliderTrack.getAttribute(
-        "data-right-arrow-unactive"
-      );
-      if (isUnactiveArrowRight == "true") return;
-      sliderTrack.setAttribute(
-        "data-transform",
-        +currentIndex - (+shift + gapHorizontal)
-      );
-      sliderTrack.setAttribute("data-current-slide", `${currentSlide + 1}`);
-      sliderTrack.style.transform = `translateX(${
-        +currentIndex - (+shift + gapHorizontal)
-      }px)`;
-    }
-  }
-}
-
-function sliderTransitionStart(sliderTrack) {
-  sliderTrack.setAttribute("data-is-active-arrows", "false");
-}
-function sliderTransitionEnd(sliderConfig) {
-  const sliderTrack = sliderConfig.sliderTrack;
-  const arrowLeft = sliderConfig.arrowLeft;
-  const arrowRight = sliderConfig.arrowRight;
-  const sliderTrackClassTransition = sliderConfig.sliderTrackClassTransition;
-  const sliderItem = sliderConfig.sliderItem;
-  const isGridMobile =
-    sliderTrack.getAttribute("data-is-mobile-grid") == "true";
-  const slidesAwailableToView = parseInt(
-    sliderTrack.getAttribute("data-slides-per-view"),
-    10
-  );
-  const currentSlide = parseInt(
-    sliderTrack.getAttribute("data-current-slide"),
-    10
-  );
-  const slidesWithoutClones = parseInt(
-    sliderTrack.getAttribute("data-all-slides"),
-    10
-  );
-  if (isGridMobile) {
-    const gridRows = parseInt(sliderTrack.getAttribute("data-rows-grid"), 10);
-    const rightBorderToSlide = Math.floor(slidesWithoutClones / gridRows);
-    if (currentSlide == 0) {
-      arrowLeft.classList.add(sliderConfig.arrowClassInactive);
-      sliderTrack.setAttribute("data-left-arrow-unactive", "true");
-    }
-    if (currentSlide > 0) {
-      arrowLeft.classList.remove(sliderConfig.arrowClassInactive);
-      sliderTrack.setAttribute("data-left-arrow-unactive", "false");
-    }
-    if (currentSlide == rightBorderToSlide) {
-      arrowRight.classList.add(sliderConfig.arrowClassInactive);
-      sliderTrack.setAttribute("data-right-arrow-unactive", "true");
-    }
-    if (currentSlide < rightBorderToSlide) {
-      arrowRight.classList.remove(sliderConfig.arrowClassInactive);
-      sliderTrack.setAttribute("data-right-arrow-unactive", "false");
-    }
-    sliderTrack.setAttribute("data-is-active-arrows", "true");
-    return;
-  }
-  if (currentSlide == -1 * slidesAwailableToView) {
-    sliderTrack.classList.remove(`${sliderTrackClassTransition}`);
-    for (
-      let i = currentSlide;
-      i < slidesWithoutClones - slidesAwailableToView;
-      i++
-    ) {
-      sliderTrack.setAttribute("data-is-active-arrows", "true");
-      moveSliderFood(sliderTrack, sliderItem, 1);
-    }
-    setTimeout(function () {
-      sliderTrack.classList.add(`${sliderTrackClassTransition}`);
-    }, 0);
-    return;
-  }
-  if (currentSlide == slidesWithoutClones) {
-    sliderTrack.classList.remove(`${sliderTrackClassTransition}`);
-    for (let i = currentSlide; i > 0; i--) {
-      sliderTrack.setAttribute("data-is-active-arrows", "true");
-      moveSliderFood(sliderTrack, sliderItem, -1);
-    }
-    setTimeout(function () {
-      sliderTrack.classList.add(`${sliderTrackClassTransition}`);
-    }, 0);
-    return;
-  }
-  sliderTrack.setAttribute("data-is-active-arrows", "true");
-}
 //slider popup
 const sliderPopUp = document.getElementById("food-example-slider__popup-id");
 const sliderPopUpCross = sliderPopUp.querySelector(
   ".food-example-popup__close-img"
+);
+const sliderPopUpBlockContent = sliderPopUp.querySelector(
+  ".food-example-slider__popup-block-content"
 );
 const sliderPopUpContentInner = sliderPopUp.querySelector(
   ".food-example-slider__popup-content-inner"
@@ -376,10 +153,10 @@ const sliderPopUpArrowLeft = sliderPopUp.querySelector(
 const sliderPopUpArrowRight = sliderPopUp.querySelector(
   ".food-example__popup-slider-arrow-right"
 );
-let sliderPopUpSwipeClientX = 0;
 function setPopUpForSliderPopUp(config) {
   const popup = config.popup;
-  const popupSliderTrack = config.popupSliderTrack;
+  const sliderBlockContent = config.sliderBlockContent;
+  // const popupSliderTrack = config.popupSliderTrack;
   const sliderTrack = config.sliderTrack;
   const classToSelectOriginSlides = config.classToSelectOriginSlides;
   const popupClassOpen = config.popupClassOpen;
@@ -388,6 +165,7 @@ function setPopUpForSliderPopUp(config) {
   const arrowRight = config.arrowRight;
   const tryMaxSlidesPerView = config.tryMaxSlidesPerView;
   const sliderArrowsInnerClass = config.sliderArrowsInnerClass;
+  const slidesPopupClass = config.slidesPopupClass;
   const dataAttributeForSearchSlidesWithoutClones =
     config.dataAttributeForSearchSlidesWithoutClones;
   const dataAttributeAllSlidesWithoutClones =
@@ -404,14 +182,22 @@ function setPopUpForSliderPopUp(config) {
         sliderTrack.getAttribute(`${dataAttributeAllSlidesWithoutClones}`),
         10
       );
+      const popUpSliderTrackParent = document.createElement("div");
+      popUpSliderTrackParent.classList.add(
+        "food-example-slider__popup-content-inner"
+      );
+      const popupSliderTrack = document.createElement("div");
       for (let j = 0; j < slidesWithoutClones; j++) {
         const cloneNode = sliderTrack
           .querySelector(
             `[${dataAttributeForSearchSlidesWithoutClones}="${j}"]`
           )
           .cloneNode(true);
+        popupSliderTrack.classList.add("food-example-slider__popup-content");
         cloneNode.classList.add(contentItemClass);
         popupSliderTrack.appendChild(cloneNode);
+        popUpSliderTrackParent.appendChild(popupSliderTrack);
+        sliderBlockContent.appendChild(popUpSliderTrackParent);
       }
       popup.classList.add(popupClassOpen);
       requestAnimationFrame(() => {
@@ -430,7 +216,7 @@ function setPopUpForSliderPopUp(config) {
           clickedSlide: slides[i],
         });
         const slidesOfPopUpSliderTrack = popupSliderTrack.querySelectorAll(
-          ".food-example-goods__item"
+          `.${slidesPopupClass}`
         );
         for (let i = 0; i < slidesOfPopUpSliderTrack.length; i++) {
           for (let j = 0; j < popupItemsInfoArray.length; j++) {
@@ -488,19 +274,29 @@ function setPopUpForSliderPopUp(config) {
         })
       );
       popupSliderTrack.parentNode.addEventListener("touchstart", function (e) {
-        sliderPopUpSwipeClientX = e.touches[0].clientX;
+        const node = this;
+        if (node) {
+          node.setAttribute(
+            "sliderPopUpSwipeClientX",
+            `${e.touches[0].clientX}`
+          );
+        }
       });
       popupSliderTrack.parentNode.addEventListener("touchend", function (e) {
-        const endX = e.changedTouches[0].clientX;
-        const threshold = 10;
-        const deltaX = endX - sliderPopUpSwipeClientX;
-        if (Math.abs(deltaX) > threshold) {
-          const direction = deltaX > 0 ? -1 : 1;
-          moveSliderFood(
-            popupSliderTrack,
-            popupSliderTrack.firstChild,
-            direction
-          );
+        const node = this;
+        if (node && node.hasAttribute("sliderPopUpSwipeClientX")) {
+          const endX = e.changedTouches[0].clientX;
+          const threshold = 10;
+          const deltaX =
+            endX - parseInt(node.getAttribute("sliderPopUpSwipeClientX"), 10);
+          if (Math.abs(deltaX) > threshold) {
+            const direction = deltaX > 0 ? -1 : 1;
+            moveSliderFood(
+              popupSliderTrack,
+              popupSliderTrack.firstChild,
+              direction
+            );
+          }
         }
       });
       setTimeout(() => {
@@ -543,13 +339,12 @@ function closeSliderPopup(config) {
   const sliderTrackPopUp = config.sliderTrackPopUp;
   const popUpSlider = config.popUpSlider;
   const classPopUpSliderOpen = config.classPopUpSliderOpen;
-  const classSliderTrackPopUpTransition =
-    config.classSliderTrackPopUpTransition;
+  const popUpSliderContentBlock = config.popUpSliderContentBlock;
+  // const classSliderTrackPopUpTransition =
+  //   config.classSliderTrackPopUpTransition;
   popUpSlider.classList.remove(classPopUpSliderOpen);
-  sliderTrackPopUp.innerHTML = "";
-  sliderTrackPopUp.classList.remove(classSliderTrackPopUpTransition);
+  popUpSliderContentBlock.innerHTML = "";
 }
-
 window.onload = function () {
   sliderFoodExampleInit({
     sliderTrack: foodExampleSliderInner,
@@ -600,11 +395,10 @@ window.onload = function () {
       moveSliderFood(foodExampleSliderInner, foodExampleSliderItem, direction);
     }
   });
-  console.log("React + Ang");
   sliderPopUpCross.addEventListener(
     "click",
     closeSliderPopup.bind(null, {
-      sliderTrackPopUp: sliderPopUpContent,
+      popUpSliderContentBlock: sliderPopUpBlockContent,
       popUpSlider: sliderPopUp,
       classPopUpSliderOpen: "food-example-slider__popup_opened",
       classSliderTrackPopUpTransition: "food-example-goods__slider",
@@ -613,11 +407,12 @@ window.onload = function () {
   document.addEventListener("click", smoothScroll);
   setPopUpForSliderPopUp({
     popup: sliderPopUp,
-    popupSliderTrack: sliderPopUpContent,
+    sliderBlockContent: sliderPopUpBlockContent,
     popupClose: "",
     slider: sliderPopUpContentInner,
     sliderTrack: foodExampleSliderInner,
     tryMaxSlidesPerView: 1,
+    slidesPopupClass: "food-example-goods__item",
     classToSelectOriginSlides: "food-example-goods__item",
     popupClassOpen: "food-example-slider__popup_opened",
     contentItemClass: "food-example-goods__item_popup",

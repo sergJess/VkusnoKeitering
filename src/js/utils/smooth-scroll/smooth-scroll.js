@@ -7,7 +7,7 @@ function isNodeOrParent(target) {
   }
   return anchor;
 }
-export default function smoothScroll(e) {
+export function smoothScroll(e) {
   if (
     e.target.classList.contains("scroll-to") ||
     e.target.parentNode.classList.contains("scroll-to")
