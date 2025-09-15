@@ -1,3 +1,4 @@
+import smoothScroll from "./utils/smooth-scroll.js";
 const header = document.getElementById("header-id");
 //menu
 const burger = header.querySelector(".navigation-burger");
@@ -42,55 +43,6 @@ for (let i = 0, length = navigationLists.length; i < length; i++) {
     if (!isHaveActiveClass) submenu.classList.add("navigation__submenu_show");
   };
 }
-//smooth scroll
-function isNodeOrParent(target) {
-  let anchor = target;
-  if (target.parentNode.classList.contains("scroll-to")) {
-    anchor = target.parentNode;
-    return anchor;
-  }
-  return anchor;
-}
-function smoothScroll(e) {
-  if (
-    e.target.classList.contains("scroll-to") ||
-    e.target.parentNode.classList.contains("scroll-to")
-  ) {
-    e.preventDefault();
-    const scrollSpeed = 0.35;
-    let windowOffSetY = window.pageYOffset;
-    let anchorElement = isNodeOrParent(e.target)
-      .getAttribute("href")
-      .replace("#", "");
-    let toScrollElelement = document.getElementById(anchorElement);
-    let topCoordsOftoScrollElelement =
-      toScrollElelement.getBoundingClientRect().top;
-    let start = null;
-    requestAnimationFrame(step);
-    function step(time) {
-      if (start === null) start = time;
-      let progress = time - start;
-      let windowCoordsToScrollY =
-        topCoordsOftoScrollElelement < 0
-          ? Math.max(
-              windowOffSetY - progress / scrollSpeed,
-              windowOffSetY + topCoordsOftoScrollElelement
-            )
-          : Math.min(
-              windowOffSetY + progress / scrollSpeed,
-              windowOffSetY + topCoordsOftoScrollElelement
-            );
-      window.scrollTo(0, windowCoordsToScrollY);
-      if (
-        windowCoordsToScrollY !=
-        windowOffSetY + topCoordsOftoScrollElelement
-      ) {
-        requestAnimationFrame(step);
-      }
-    }
-  }
-}
-document.addEventListener("click", smoothScroll);
 // scroll button up
 function showOrHideUpButton() {
   const buttonUp = this.document.getElementById("up-button-id");
@@ -120,19 +72,23 @@ for (let i = 0, length = foodExampleTabsSlider.length; i < length; i++) {
 }
 window.addEventListener("scroll", showOrHideUpButton);
 // porfolio scroll
-const porfolio = document.getElementById("portfolio-id");
-const porfolioSlides = porfolio.querySelectorAll(
+const portfolio = document.getElementById("portfolio-id");
+const portfolioSlides = portfolio.querySelectorAll(
   ".porfolio__examples-item-slide"
 );
-for (let i = 0, length = porfolioSlides.length; i < length; i++) {
-  porfolioSlides[i].setAttribute("data-slide-index", i);
-  porfolioSlides[i].onclick = () => {};
+const porfolioPopUpCrossClose = portfolio.querySelector(
+  ".porfolio__examples-popup__close-img"
+);
+// porfolioPopUpCrossClose.addEventListener("click");
+for (let i = 0, length = portfolioSlides.length; i < length; i++) {
+  portfolioSlides[i].setAttribute("data-slide-index", i);
+  portfolioSlides[i].onclick = () => {};
 }
-const porfolioExamples = porfolio.querySelector(".porfolio__examples");
-const porfolioLeftArrow = porfolio.querySelector(
+const porfolioExamples = portfolio.querySelector(".porfolio__examples");
+const porfolioLeftArrow = portfolio.querySelector(
   ".portfolio-examples__slider-button-prev"
 );
-const porfolioRightArrow = porfolio.querySelector(
+const porfolioRightArrow = portfolio.querySelector(
   ".portfolio-examples__slider-button-next"
 );
 // porfolioExamples.addEventListener("scroll", function () {
@@ -644,7 +600,7 @@ window.onload = function () {
       moveSliderFood(foodExampleSliderInner, foodExampleSliderItem, direction);
     }
   });
-
+  console.log("React + Ang");
   sliderPopUpCross.addEventListener(
     "click",
     closeSliderPopup.bind(null, {
@@ -654,7 +610,7 @@ window.onload = function () {
       classSliderTrackPopUpTransition: "food-example-goods__slider",
     })
   );
-
+  document.addEventListener("click", smoothScroll);
   setPopUpForSliderPopUp({
     popup: sliderPopUp,
     popupSliderTrack: sliderPopUpContent,

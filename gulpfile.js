@@ -1,8 +1,21 @@
-import gulp from "gulp";
-import { src, dest, parallel, watch } from "gulp";
-import browserSync from "browser-sync";
+import gulp, { src, series, dest, parallel, watch } from "gulp";
+import { fileURLToPath } from "url"; // Для получения абсолютного пути к текущему файл
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import path from "path";
+import webpack from "webpack";
+import webpackStream from "webpack-stream";
+import config from "./webpack.config.js";
+import browserSync, { stream } from "browser-sync";
 const browserS = browserSync.create();
 
+gulp.task("scripts", function () {
+  return gulp
+    .src("./src/js/index.js") // Entry point(s) for webpack
+    .pipe(webpackStream(config, webpack)) // Pass webpack config and the webpack instance
+    .pipe(gulp.dest(__dirname + "/src/build/js/")); // Output directory for bundled files
+});
 gulp.task("server", function () {
   browserS.init({
     server: {
@@ -10,6 +23,6 @@ gulp.task("server", function () {
     },
   });
   watch("./src/**/*.css").on("change", browserS.reload);
-  watch("./src/**/*.js").on("change", browserS.reload);
+  watch("./src/js/**/*.js").on("change", series("scripts", browserS.reload));
   watch("./src/**/*.html").on("change", browserS.reload);
 });
