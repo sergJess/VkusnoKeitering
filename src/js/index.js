@@ -90,9 +90,10 @@ const portfolioSlides = portfolio.querySelectorAll(
 // porfolioPopUpCrossClose.addEventListener("click");
 for (let i = 0, length = portfolioSlides.length; i < length; i++) {
   portfolioSlides[i].setAttribute("data-slide-index", i);
-  portfolioSlides[i].onclick = () => {};
 }
+
 const porfolioExamples = portfolio.querySelector(".porfolio__examples");
+porfolioExamples.setAttribute("data-all-slides", `${portfolioSlides.length}`);
 const porfolioLeftArrow = portfolio.querySelector(
   ".portfolio-examples__slider-button-prev"
 );
@@ -105,6 +106,25 @@ porfolioLeftArrow.onclick = () => {
 porfolioRightArrow.onclick = () => {
   porfolioExamples.scrollBy({ top: 0, left: 350, behavior: "smooth" });
 };
+//portfolio popup
+const portfolioPopUpBlock = document.getElementById(
+  "porfolio__examples-slider__popup-id"
+);
+const portfolioSliderPopUpBlockContent = portfolioPopUpBlock.querySelector(
+  ".porfolio__examples-slider__popup-block-content"
+);
+const portfolioSliderPopUpContentInner = portfolioPopUpBlock.querySelector(
+  ".porfolio__examples-slider__popup-content-inner"
+);
+const portfolioPopUpArrowLeft = portfolioPopUpBlock.querySelector(
+  ".porfolio__examples__popup-slider-arrow-left"
+);
+const portfolioPopUpArrowRight = portfolioPopUpBlock.querySelector(
+  ".porfolio__examples__popup-slider-arrow-right"
+);
+const portfoliosSliderPopUpCross = portfolioPopUpBlock.querySelector(
+  ".porfolio__examples-popup__close-img"
+);
 // food-example slider
 const foodExampleBlock = document.getElementById("food-example-id");
 const foodExampleSlider = foodExampleBlock.querySelector(
@@ -122,7 +142,7 @@ const foodExampleArrowLeft = foodExampleBlock.querySelector(
 const foodExampleArrowRight = foodExampleBlock.querySelector(
   ".food-example__slider-button-next"
 );
-//slider popup
+//slider popup food example
 const sliderPopUp = document.getElementById("food-example-slider__popup-id");
 const sliderPopUpCross = sliderPopUp.querySelector(
   ".food-example-popup__close-img"
@@ -212,12 +232,50 @@ window.onload = function () {
     classPopUpSliderOpen: "food-example-slider__popup_opened",
     classSliderTrackPopUpTransition: "food-example-goods__slider",
   });
+  const porrfolioSliderPopUpCrossClick = closeSliderPopup.bind(null, {
+    popUpSliderContentBlock: portfolioSliderPopUpBlockContent,
+    popUpSlider: portfolioPopUpBlock,
+    classPopUpSliderOpen: "porfolio__examples-slider__popup_opened",
+    classSliderTrackPopUpTransition: "porfolio__examples__slider",
+  });
   sliderPopUpCross.addEventListener("click", sliderPopUpCrossClick);
+  portfoliosSliderPopUpCross.addEventListener(
+    "click",
+    porrfolioSliderPopUpCrossClick
+  );
   document.addEventListener("click", smoothScroll);
+  setPopUpForSliderPopUp({
+    popup: portfolioPopUpBlock,
+    sliderBlockContent: portfolioSliderPopUpBlockContent,
+    slider: portfolioSliderPopUpContentInner,
+    sliderTrack: porfolioExamples,
+    tryMaxSlidesPerView: 1,
+    slidesPopupClass: "porfolio__examples-item-slide",
+    popUpSliderTrackParentClass:
+      "porfolio__examples-slider__popup-content-inner",
+    popUpSliderTrackClass: "porfolio__examples-slider__popup-content",
+    classToSelectOriginSlides: "porfolio__examples-item-slide",
+    popupClassOpen: "porfolio__examples-slider__popup_opened",
+    contentItemClass: "porfolio__examples__item_popup",
+    sliderArrowsInnerClass: "porfolio__examples__popup-slider-arrow-block",
+    arrowLeft: portfolioPopUpArrowLeft,
+    arrowRight: portfolioPopUpArrowRight,
+    sliderArrowsInnerClassInactive:
+      "porfolio__examples__slider-arrow-inner_inactive",
+    dataAttributeForSearchSlidesWithoutClones: "data-slide-index",
+    dataAttributeAllSlidesWithoutClones: "data-all-slides",
+    popupSliderTrackClassTransition: "porfolio__examples__slider",
+    popupItemClassRemove: "food-example-goods__item_pointer",
+    popupItemsInfoArray: [
+      {
+        elementQuerySelector: ".porfolio__examples-item-img",
+        elementClassAdd: "porfolio__examples__item-img_popup",
+      },
+    ],
+  });
   setPopUpForSliderPopUp({
     popup: sliderPopUp,
     sliderBlockContent: sliderPopUpBlockContent,
-    popupClose: "",
     slider: sliderPopUpContentInner,
     sliderTrack: foodExampleSliderInner,
     tryMaxSlidesPerView: 1,

@@ -120,8 +120,8 @@ export function setPopUpForSliderPopUp(config) {
         sliderTrack: popupSliderTrack,
         arrowLeft: arrowLeft,
         arrowRight: arrowRight,
-        arrowClassInactive: "food-example__slider-arrow-inner_inactive",
-        sliderTrackClassTransition: "food-example-goods__slider",
+        arrowClassInactive: `${sliderArrowsInnerClassInactive}`,
+        sliderTrackClassTransition: `${popupSliderTrackClassTransition}`,
       });
       popupSliderTrack.addEventListener(
         "transitionend",
