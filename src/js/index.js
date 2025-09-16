@@ -87,9 +87,6 @@ const portfolio = document.getElementById("portfolio-id");
 const portfolioSlides = portfolio.querySelectorAll(
   ".porfolio__examples-item-slide"
 );
-const porfolioPopUpCrossClose = portfolio.querySelector(
-  ".porfolio__examples-popup__close-img"
-);
 // porfolioPopUpCrossClose.addEventListener("click");
 for (let i = 0, length = portfolioSlides.length; i < length; i++) {
   portfolioSlides[i].setAttribute("data-slide-index", i);
@@ -102,17 +99,6 @@ const porfolioLeftArrow = portfolio.querySelector(
 const porfolioRightArrow = portfolio.querySelector(
   ".portfolio-examples__slider-button-next"
 );
-// porfolioExamples.addEventListener("scroll", function () {
-//   const items = porfolioExamples.querySelectorAll(".porfolio__examples-item");
-//   let blockWidth = 0;
-//   for (let i = 0, length = items.length; i < length; i++) {
-//     blockWidth += items[i].offsetWidth;
-//   }
-
-//   const windowWidth = window.innerWidth;
-//   const scrollRightBorder = windowWidth - blockWidth;
-//   console.log(scrollRightBorder);
-// });
 porfolioLeftArrow.onclick = () => {
   porfolioExamples.scrollBy({ top: 0, left: -350, behavior: "smooth" });
 };
@@ -146,9 +132,6 @@ const sliderPopUpBlockContent = sliderPopUp.querySelector(
 );
 const sliderPopUpContentInner = sliderPopUp.querySelector(
   ".food-example-slider__popup-content-inner"
-);
-const sliderPopUpContent = sliderPopUp.querySelector(
-  ".food-example-slider__popup-content"
 );
 const sliderPopUpArrowLeft = sliderPopUp.querySelector(
   ".food-example__popup-slider-arrow-left"
