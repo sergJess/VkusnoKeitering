@@ -5,6 +5,10 @@ import {
   sliderTransitionStart,
   sliderTransitionEnd,
 } from "./utils/slider/slider-transition.js";
+import {
+  setPopUpForSliderPopUp,
+  closeSliderPopup,
+} from "./utils/slider/slider-popup.js";
 import { sliderFoodExampleInit } from "./utils/slider/food-slider-init.js";
 const header = document.getElementById("header-id");
 //menu
@@ -132,7 +136,6 @@ const foodExampleArrowLeft = foodExampleBlock.querySelector(
 const foodExampleArrowRight = foodExampleBlock.querySelector(
   ".food-example__slider-button-next"
 );
-
 //slider popup
 const sliderPopUp = document.getElementById("food-example-slider__popup-id");
 const sliderPopUpCross = sliderPopUp.querySelector(
@@ -153,198 +156,7 @@ const sliderPopUpArrowLeft = sliderPopUp.querySelector(
 const sliderPopUpArrowRight = sliderPopUp.querySelector(
   ".food-example__popup-slider-arrow-right"
 );
-function setPopUpForSliderPopUp(config) {
-  const popup = config.popup;
-  const sliderBlockContent = config.sliderBlockContent;
-  // const popupSliderTrack = config.popupSliderTrack;
-  const sliderTrack = config.sliderTrack;
-  const classToSelectOriginSlides = config.classToSelectOriginSlides;
-  const popupClassOpen = config.popupClassOpen;
-  const contentItemClass = config.contentItemClass;
-  const arrowLeft = config.arrowLeft;
-  const arrowRight = config.arrowRight;
-  const tryMaxSlidesPerView = config.tryMaxSlidesPerView;
-  const sliderArrowsInnerClass = config.sliderArrowsInnerClass;
-  const slidesPopupClass = config.slidesPopupClass;
-  const dataAttributeForSearchSlidesWithoutClones =
-    config.dataAttributeForSearchSlidesWithoutClones;
-  const dataAttributeAllSlidesWithoutClones =
-    config.dataAttributeAllSlidesWithoutClones;
-  const sliderArrowsInnerClassInactive = config.sliderArrowsInnerClassInactive;
-  const popupSliderTrackClassTransition =
-    config.popupSliderTrackClassTransition;
-  const slides = sliderTrack.querySelectorAll(`.${classToSelectOriginSlides}`);
-  const popupItemsInfoArray = config.popupItemsInfoArray;
-  for (let i = 0, length = slides.length; i < length; i++) {
-    // click on slider item
-    slides[i].onclick = () => {
-      const slidesWithoutClones = parseInt(
-        sliderTrack.getAttribute(`${dataAttributeAllSlidesWithoutClones}`),
-        10
-      );
-      const popUpSliderTrackParent = document.createElement("div");
-      popUpSliderTrackParent.classList.add(
-        "food-example-slider__popup-content-inner"
-      );
-      const popupSliderTrack = document.createElement("div");
-      for (let j = 0; j < slidesWithoutClones; j++) {
-        const cloneNode = sliderTrack
-          .querySelector(
-            `[${dataAttributeForSearchSlidesWithoutClones}="${j}"]`
-          )
-          .cloneNode(true);
-        popupSliderTrack.classList.add("food-example-slider__popup-content");
-        cloneNode.classList.add(contentItemClass);
-        popupSliderTrack.appendChild(cloneNode);
-        popUpSliderTrackParent.appendChild(popupSliderTrack);
-        sliderBlockContent.appendChild(popUpSliderTrackParent);
-      }
-      popup.classList.add(popupClassOpen);
-      requestAnimationFrame(() => {
-        sliderFoodExampleInit({
-          sliderTrack: popupSliderTrack,
-          sliderItemClass: contentItemClass,
-          tryMaxSlidesPerView: tryMaxSlidesPerView,
-          sliderArrowsInnerClass: `${sliderArrowsInnerClass}`,
-          sliderArrowsInnerClassInactive: `${sliderArrowsInnerClassInactive}`,
-          leftArrow: arrowLeft,
-          mobileGridWindowWidth: 0,
-        });
-        setSliderToCorrectPositionInPopUp({
-          sliderItemClass: contentItemClass,
-          sliderTrack: popupSliderTrack,
-          clickedSlide: slides[i],
-        });
-        const slidesOfPopUpSliderTrack = popupSliderTrack.querySelectorAll(
-          `.${slidesPopupClass}`
-        );
-        for (let i = 0; i < slidesOfPopUpSliderTrack.length; i++) {
-          for (let j = 0; j < popupItemsInfoArray.length; j++) {
-            const element = slidesOfPopUpSliderTrack[i].querySelector(
-              `${popupItemsInfoArray[j].elementQuerySelector}`
-            );
-            if (element) {
-              if (popupItemsInfoArray[j].hasOwnProperty("elementClassRemove"))
-                element.classList.remove(
-                  `${popupItemsInfoArray[j].elementClassRemove}`
-                );
-              if (popupItemsInfoArray[j].hasOwnProperty("elementClassAdd"))
-                element.classList.add(
-                  `${popupItemsInfoArray[j].elementClassAdd}`
-                );
-            }
-          }
-          if (config.hasOwnProperty("popupItemClassRemove"))
-            slidesOfPopUpSliderTrack[i].classList.remove(
-              `${config.popupItemClassRemove}`
-            );
-        }
-        arrowLeft.addEventListener(
-          "click",
-          moveSliderFood.bind(
-            null,
-            popupSliderTrack,
-            popupSliderTrack.querySelector(`.${contentItemClass}`),
-            -1
-          )
-        );
-        arrowRight.addEventListener(
-          "click",
-          moveSliderFood.bind(
-            null,
-            popupSliderTrack,
-            popupSliderTrack.querySelector(`.${contentItemClass}`),
-            1
-          )
-        );
-      });
-      popupSliderTrack.addEventListener(
-        "transitionstart",
-        sliderTransitionStart.bind(null, popupSliderTrack)
-      );
-      popupSliderTrack.addEventListener(
-        "transitionend",
-        sliderTransitionEnd.bind(null, {
-          sliderItem: popupSliderTrack.querySelector(`.${contentItemClass}`),
-          sliderTrack: popupSliderTrack,
-          arrowLeft: arrowLeft,
-          arrowRight: arrowRight,
-          arrowClassInactive: "food-example__slider-arrow-inner_inactive",
-          sliderTrackClassTransition: "food-example-goods__slider",
-        })
-      );
-      popupSliderTrack.parentNode.addEventListener("touchstart", function (e) {
-        const node = this;
-        if (node) {
-          node.setAttribute(
-            "sliderPopUpSwipeClientX",
-            `${e.touches[0].clientX}`
-          );
-        }
-      });
-      popupSliderTrack.parentNode.addEventListener("touchend", function (e) {
-        const node = this;
-        if (node && node.hasAttribute("sliderPopUpSwipeClientX")) {
-          const endX = e.changedTouches[0].clientX;
-          const threshold = 10;
-          const deltaX =
-            endX - parseInt(node.getAttribute("sliderPopUpSwipeClientX"), 10);
-          if (Math.abs(deltaX) > threshold) {
-            const direction = deltaX > 0 ? -1 : 1;
-            moveSliderFood(
-              popupSliderTrack,
-              popupSliderTrack.firstChild,
-              direction
-            );
-          }
-        }
-      });
-      setTimeout(() => {
-        setSliderTransition(
-          popupSliderTrack,
-          `${popupSliderTrackClassTransition}`
-        );
-      }, 10);
-    };
-  }
-}
-// set slider to correct position
-function setSliderToCorrectPositionInPopUp(config) {
-  const sliderTrack = config.sliderTrack;
-  const clickedSlide = config.clickedSlide;
-  const sliderItem = sliderTrack.querySelector(`.${config.sliderItemClass}`);
-  const currentSlide = Math.abs(
-    parseInt(sliderTrack.getAttribute("data-current-slide"), 10)
-  );
-  const clickedSlideNumber = parseInt(
-    clickedSlide.getAttribute("data-slide-index"),
-    10
-  );
-  if (clickedSlideNumber == currentSlide) return;
-  if (clickedSlideNumber > currentSlide) {
-    for (let i = currentSlide; i < clickedSlideNumber; i++) {
-      moveSliderFood(sliderTrack, sliderItem, 1);
-    }
-    return;
-  }
-  if (clickedSlideNumber < currentSlide) {
-    for (let i = currentSlide; i > clickedSlideNumber; i--) {
-      moveSliderFood(sliderTrack, sliderItem, -1);
-    }
-    return;
-  }
-}
-// close slider popup
-function closeSliderPopup(config) {
-  const sliderTrackPopUp = config.sliderTrackPopUp;
-  const popUpSlider = config.popUpSlider;
-  const classPopUpSliderOpen = config.classPopUpSliderOpen;
-  const popUpSliderContentBlock = config.popUpSliderContentBlock;
-  // const classSliderTrackPopUpTransition =
-  //   config.classSliderTrackPopUpTransition;
-  popUpSlider.classList.remove(classPopUpSliderOpen);
-  popUpSliderContentBlock.innerHTML = "";
-}
+// onload event
 window.onload = function () {
   sliderFoodExampleInit({
     sliderTrack: foodExampleSliderInner,
@@ -367,43 +179,57 @@ window.onload = function () {
     "click",
     moveSliderFood.bind(null, foodExampleSliderInner, foodExampleSliderItem, 1)
   );
+  const foodExampleSliderInnerTransitionStart = sliderTransitionStart.bind(
+    null,
+    foodExampleSliderInner
+  );
   foodExampleSliderInner.addEventListener(
     "transitionstart",
-    sliderTransitionStart.bind(null, foodExampleSliderInner)
+    foodExampleSliderInnerTransitionStart
   );
+  const foodExampleSliderInnerTransitionEnd = sliderTransitionEnd.bind(null, {
+    sliderItem: foodExampleSliderItem,
+    sliderTrack: foodExampleSliderInner,
+    arrowLeft: foodExampleArrowLeft,
+    arrowRight: foodExampleArrowRight,
+    arrowClassInactive: "food-example__slider-arrow-inner_inactive",
+    sliderTrackClassTransition: "food-example-goods__slider",
+  });
   foodExampleSliderInner.addEventListener(
     "transitionend",
-    sliderTransitionEnd.bind(null, {
-      sliderItem: foodExampleSliderItem,
-      sliderTrack: foodExampleSliderInner,
-      arrowLeft: foodExampleArrowLeft,
-      arrowRight: foodExampleArrowRight,
-      arrowClassInactive: "food-example__slider-arrow-inner_inactive",
-      sliderTrackClassTransition: "food-example-goods__slider",
-    })
+    foodExampleSliderInnerTransitionEnd
   );
-  let startTouchX = 0;
   foodExampleSlider.addEventListener("touchstart", function (e) {
-    startTouchX = e.touches[0].clientX;
-  });
-  foodExampleSlider.addEventListener("touchend", function (e) {
-    const endX = e.changedTouches[0].clientX;
-    const threshold = 10;
-    const deltaX = endX - startTouchX;
-    if (Math.abs(deltaX) > threshold) {
-      const direction = deltaX > 0 ? -1 : 1;
-      moveSliderFood(foodExampleSliderInner, foodExampleSliderItem, direction);
+    const node = this;
+    if (node) {
+      node.setAttribute("sliderPopUpSwipeClientX", `${e.touches[0].clientX}`);
     }
   });
-  sliderPopUpCross.addEventListener(
-    "click",
-    closeSliderPopup.bind(null, {
-      popUpSliderContentBlock: sliderPopUpBlockContent,
-      popUpSlider: sliderPopUp,
-      classPopUpSliderOpen: "food-example-slider__popup_opened",
-      classSliderTrackPopUpTransition: "food-example-goods__slider",
-    })
-  );
+
+  foodExampleSlider.addEventListener("touchend", function (e) {
+    const node = this;
+    if (node && node.hasAttribute("sliderPopUpSwipeClientX")) {
+      const endX = e.changedTouches[0].clientX;
+      const threshold = 10;
+      const deltaX =
+        endX - parseInt(node.getAttribute("sliderPopUpSwipeClientX"), 10);
+      if (Math.abs(deltaX) > threshold) {
+        const direction = deltaX > 0 ? -1 : 1;
+        moveSliderFood(
+          foodExampleSliderInner,
+          foodExampleSliderItem,
+          direction
+        );
+      }
+    }
+  });
+  const sliderPopUpCrossClick = closeSliderPopup.bind(null, {
+    popUpSliderContentBlock: sliderPopUpBlockContent,
+    popUpSlider: sliderPopUp,
+    classPopUpSliderOpen: "food-example-slider__popup_opened",
+    classSliderTrackPopUpTransition: "food-example-goods__slider",
+  });
+  sliderPopUpCross.addEventListener("click", sliderPopUpCrossClick);
   document.addEventListener("click", smoothScroll);
   setPopUpForSliderPopUp({
     popup: sliderPopUp,
@@ -413,6 +239,8 @@ window.onload = function () {
     sliderTrack: foodExampleSliderInner,
     tryMaxSlidesPerView: 1,
     slidesPopupClass: "food-example-goods__item",
+    popUpSliderTrackParentClass: "food-example-slider__popup-content-inner",
+    popUpSliderTrackClass: "food-example-slider__popup-content",
     classToSelectOriginSlides: "food-example-goods__item",
     popupClassOpen: "food-example-slider__popup_opened",
     contentItemClass: "food-example-goods__item_popup",
