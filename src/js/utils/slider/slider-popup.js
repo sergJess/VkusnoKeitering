@@ -5,6 +5,10 @@ import {
   sliderTransitionStart,
   sliderTransitionEnd,
 } from "./slider-transition.js";
+import {
+  classListsRemove,
+  classListsAdd,
+} from "../class-lists-add-remove/class-lists-add-remove.js";
 export function setPopUpForSliderPopUp(config) {
   const popup = config.popup;
   const sliderBlockContent = config.sliderBlockContent;
@@ -53,6 +57,40 @@ export function setPopUpForSliderPopUp(config) {
       popup.classList.add(popupClassOpen);
       // wait when browser will render the nodes
       requestAnimationFrame(() => {
+        // set classes for nodes in slider popup item if nessesary
+        const slidesOfPopUpSliderTrack = popupSliderTrack.querySelectorAll(
+          `.${slidesPopupClass}`
+        );
+        for (let i = 0; i < slidesOfPopUpSliderTrack.length; i++) {
+          for (let j = 0; j < popupItemsInfoArray.length; j++) {
+            const element = slidesOfPopUpSliderTrack[i].querySelector(
+              `${popupItemsInfoArray[j].elementQuerySelector}`
+            );
+            if (element) {
+              if (popupItemsInfoArray[j].hasOwnProperty("elementClassRemove")) {
+                classListsRemove(
+                  element,
+                  popupItemsInfoArray[j].elementClassRemove
+                );
+              }
+              if (popupItemsInfoArray[j].hasOwnProperty("elementClassAdd")) {
+                classListsAdd(element, popupItemsInfoArray[j].elementClassAdd);
+              }
+            }
+          }
+          if (config.hasOwnProperty("popupItemClassRemove")) {
+            classListsRemove(
+              slidesOfPopUpSliderTrack[i],
+              config.popupItemClassRemove
+            );
+          }
+          if (config.hasOwnProperty("popupItemClassAdd")) {
+            classListsAdd(
+              slidesOfPopUpSliderTrack[i],
+              config.popupItemClassAdd
+            );
+          }
+        }
         sliderFoodExampleInit({
           sliderTrack: popupSliderTrack,
           sliderItemClass: contentItemClass,
@@ -67,31 +105,7 @@ export function setPopUpForSliderPopUp(config) {
           sliderTrack: popupSliderTrack,
           clickedSlide: slides[i],
         });
-        const slidesOfPopUpSliderTrack = popupSliderTrack.querySelectorAll(
-          `.${slidesPopupClass}`
-        );
-        // set classes for nodes in slider popup item if nessesary
-        for (let i = 0; i < slidesOfPopUpSliderTrack.length; i++) {
-          for (let j = 0; j < popupItemsInfoArray.length; j++) {
-            const element = slidesOfPopUpSliderTrack[i].querySelector(
-              `${popupItemsInfoArray[j].elementQuerySelector}`
-            );
-            if (element) {
-              if (popupItemsInfoArray[j].hasOwnProperty("elementClassRemove"))
-                element.classList.remove(
-                  `${popupItemsInfoArray[j].elementClassRemove}`
-                );
-              if (popupItemsInfoArray[j].hasOwnProperty("elementClassAdd"))
-                element.classList.add(
-                  `${popupItemsInfoArray[j].elementClassAdd}`
-                );
-            }
-          }
-          if (config.hasOwnProperty("popupItemClassRemove"))
-            slidesOfPopUpSliderTrack[i].classList.remove(
-              `${config.popupItemClassRemove}`
-            );
-        }
+
         const arrowLeftClick = moveSliderFood.bind(
           null,
           popupSliderTrack,

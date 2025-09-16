@@ -265,11 +265,25 @@ window.onload = function () {
     dataAttributeForSearchSlidesWithoutClones: "data-slide-index",
     dataAttributeAllSlidesWithoutClones: "data-all-slides",
     popupSliderTrackClassTransition: "porfolio__examples__slider",
-    popupItemClassRemove: "food-example-goods__item_pointer",
+    // string or array of strings
+    popupItemClassRemove: [
+      "porfolio__examples-item_up",
+      "porfolio__examples-item-1",
+      "porfolio__examples-item-2",
+      "porfolio__examples-item-3",
+      "porfolio__examples-item-4",
+      "porfolio__examples-item-5",
+      "porfolio__examples-item-6",
+      "porfolio__examples-item-7",
+      "porfolio__examples-item-8",
+      "porfolio__examples-item-9",
+    ],
     popupItemsInfoArray: [
       {
         elementQuerySelector: ".porfolio__examples-item-img",
+        // string or array of strings
         elementClassAdd: "porfolio__examples__item-img_popup",
+        elementClassRemove: "porfolio__examples-item-img",
       },
     ],
   });

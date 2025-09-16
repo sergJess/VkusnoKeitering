@@ -48,6 +48,7 @@
 .food-example-slider__popup-content {
   display: flex;
   gap: 0px;
+  align-items: center;
   transform: translateX(0);
 }
 

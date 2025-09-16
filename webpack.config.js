@@ -3,7 +3,7 @@ import { fileURLToPath } from "url"; // Для получения абсолют
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const config = {
-  mode: "development",
+  mode: "production",
   entry: {
     home: __dirname + "/src/js/index.js", // Entry point for the home page
     vacancy: __dirname + "/src/js/vacancy/vacancy.js", // Entry point for the about page
