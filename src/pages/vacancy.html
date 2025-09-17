@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Вакансии</title>
-    <link rel="stylesheet" href="../styles/pages/vacancy/index.css" />
+    <link rel="stylesheet" href="../build-css/vacancy/index.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -117,7 +117,11 @@
                   </ul>
                 </div>
               </li>
-              <li><a class="navigation-text" href="#">Портфолио</a></li>
+              <li>
+                <a class="navigation-text" href="../index.html#portfolio-id"
+                  >Портфолио</a
+                >
+              </li>
               <li class="navigation-show__submenu">
                 <p class="navigation-text navigation__list">
                   Услуги<span class="navigation__arrow"></span>
@@ -491,6 +495,7 @@
                   >
                 </label>
                 <input
+                  id="resume__form-upload-input"
                   class="resume-form__input resume-form__input_file"
                   type="file"
                 />
@@ -569,5 +574,5 @@
       </a>
     </div>
   </body>
-  <script src="../build/js/vacancy.bundle.js"></script>
+  <script src="../build-js/vacancy.bundle.js"></script>
 </html>

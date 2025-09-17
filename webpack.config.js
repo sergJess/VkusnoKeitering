@@ -2,6 +2,7 @@ import path from "path";
 import { fileURLToPath } from "url"; // Для получения абсолютного пути к текущему файл
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 const config = {
   mode: "production",
   entry: {
@@ -20,8 +21,19 @@ const config = {
     service: __dirname + "/src/js/service-keitering/service-keitering.js",
   },
   output: {
-    path: path.resolve(__dirname, "/src/build/js/"),
+    path: path.resolve(__dirname, "/src/build-js/"),
     filename: "[name].bundle.js", // Use [name] to create unique filenames for each bundle
   },
+
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: "babel-loader",
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  plugins: [],
 };
 export default config;
