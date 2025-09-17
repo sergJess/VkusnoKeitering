@@ -1,10 +1,11 @@
 import path from "path";
+import TerserPlugin from "terser-webpack-plugin";
 import { fileURLToPath } from "url"; // Для получения абсолютного пути к текущему файл
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const config = {
-  mode: "production",
+export const config = {
+  mode: "development",
   entry: {
     home: __dirname + "/src/js/index.js", // Entry point for the home page
     vacancy: __dirname + "/src/js/vacancy/vacancy.js", // Entry point for the about page
@@ -36,4 +37,11 @@ const config = {
   },
   plugins: [],
 };
-export default config;
+export const configProd = {
+  ...config,
+  mode: "production",
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()], // Explicitly use Terser
+  },
+};
