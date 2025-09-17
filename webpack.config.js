@@ -42,6 +42,6 @@ export const configProd = {
   mode: "production",
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin()], // Explicitly use Terser
+    minimizer: [new TerserPlugin()],
   },
 };
