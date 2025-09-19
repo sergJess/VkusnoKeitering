@@ -1,1 +1,49 @@
-(()=>{"use strict";var e=document.getElementById("header-id");e.querySelector(".navigation-burger").onclick=function(){e.querySelector(".header__block-nav").classList.add("header__block-nav_open")},e.querySelector(".navigation-cross__click").onclick=function(){e.querySelector(".header__block-nav").classList.remove("header__block-nav_open")};var t=e.querySelectorAll(".order-call-button_btn"),n=document.getElementById("order-call-form-cross-id"),o=document.getElementById("order-call-form-block-id");n.onclick=function(){o.classList.remove("order-call-form-block_show")};for(var a=0,c=t.length;a<c;a++)t[a].onclick=function(){o.classList.add("order-call-form-block_show")};for(var r=document.getElementById("navigation-id"),l=r.querySelectorAll(".navigation-show__submenu"),i=function(e){l[e].onclick=function(){for(var t=r.querySelectorAll(".navigation__submenu"),n=l[e].querySelector(".navigation__submenu"),o=n.classList.contains("navigation__submenu_show"),a=0;a<t.length;a++)t[a].classList.remove("navigation__submenu_show");o||n.classList.add("navigation__submenu_show")}},s=0,d=l.length;s<d;s++)i(s);var u,m,g,_,v,f=document.getElementById("ready-made-solutions-id").querySelector(".ready-made-solutions__content");m="#292E42",g=(u=f).clientHeight,_=u.querySelector(".ready-made-solutions__img-inner").clientHeight,v=u.querySelector(".ready-made-solutions__text-title-block").clientHeight,window.innerWidth>860?u.style.backgroundImage="linear-gradient(180deg, ".concat(m," ").concat(v-8,"px, #fff ").concat(g-v,"px)"):u.style.backgroundImage="linear-gradient(180deg, ".concat(m," ").concat(v+_-5,"px, #fff ").concat(g-v-_,"px)"),window.addEventListener("scroll",function(){var e=this.document.getElementById("up-button-id");this.window.scrollY>500?e.classList.add("up-button_show"):e.classList.remove("up-button_show")}),document.addEventListener("click",function(e){if(e.target.classList.contains("scroll-to")||e.target.parentNode.classList.contains("scroll-to")){var t=function(e){null===r&&(r=e);var a=e-r,l=c<0?Math.max(o-a/n,o+c):Math.min(o+a/n,o+c);window.scrollTo(0,l),l!=o+c&&requestAnimationFrame(t)};e.preventDefault();var n=.35,o=window.pageYOffset,a=(l=e.target,i=l,l.parentNode.classList.contains("scroll-to")?i=l.parentNode:i).getAttribute("href").replace("#",""),c=document.getElementById(a).getBoundingClientRect().top,r=null;requestAnimationFrame(t)}var l,i})})();
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/js/outdoor-bars-keitering/outdoor-bars-keitering.js":
+/*!*****************************************************************!*\
+  !*** ./src/js/outdoor-bars-keitering/outdoor-bars-keitering.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("{__webpack_require__.r(__webpack_exports__);\nvar header = document.getElementById(\"header-id\");\n//menu\nvar burger = header.querySelector(\".navigation-burger\");\nburger.onclick = function () {\n  var mobileMenu = header.querySelector(\".header__block-nav\");\n  mobileMenu.classList.add(\"header__block-nav_open\");\n};\nvar cross = header.querySelector(\".navigation-cross__click\");\ncross.onclick = function () {\n  var mobileMenu = header.querySelector(\".header__block-nav\");\n  mobileMenu.classList.remove(\"header__block-nav_open\");\n};\n//order-call-form\nvar orderCallButtons = header.querySelectorAll(\".order-call-button_btn\");\nvar crossOrderCallForm = document.getElementById(\"order-call-form-cross-id\");\nvar orderCallForm = document.getElementById(\"order-call-form-block-id\");\ncrossOrderCallForm.onclick = function () {\n  orderCallForm.classList.remove(\"order-call-form-block_show\");\n};\nfor (var i = 0, length = orderCallButtons.length; i < length; i++) {\n  orderCallButtons[i].onclick = function () {\n    orderCallForm.classList.add(\"order-call-form-block_show\");\n  };\n}\n// navigation show submenu\nvar navigation = document.getElementById(\"navigation-id\");\nvar navigationLists = navigation.querySelectorAll(\".navigation-show__submenu\");\nvar _loop = function _loop(_i) {\n  navigationLists[_i].onclick = function () {\n    var navigationSubmenu = navigation.querySelectorAll(\".navigation__submenu\");\n    var submenu = navigationLists[_i].querySelector(\".navigation__submenu\");\n    var isHaveActiveClass = submenu.classList.contains(\"navigation__submenu_show\");\n    for (var j = 0; j < navigationSubmenu.length; j++) {\n      navigationSubmenu[j].classList.remove(\"navigation__submenu_show\");\n    }\n    if (!isHaveActiveClass) submenu.classList.add(\"navigation__submenu_show\");\n  };\n};\nfor (var _i = 0, _length = navigationLists.length; _i < _length; _i++) {\n  _loop(_i);\n}\n//height in ready made solutions block linear-gradient\nvar readyMeadeSolutionsBlock = document.getElementById(\"ready-made-solutions-id\");\nfunction setReadyMadeSolutionsLinearGradient(contentInnerBlock, color) {\n  var contentBlockHeight = contentInnerBlock.clientHeight;\n  var imgInnerHeigh = contentInnerBlock.querySelector(\".ready-made-solutions__img-inner\").clientHeight;\n  var textInnerHeight = contentInnerBlock.querySelector(\".ready-made-solutions__text-title-block\").clientHeight;\n  if (window.innerWidth > 860) {\n    contentInnerBlock.style.backgroundImage = \"linear-gradient(180deg, \".concat(color, \" \").concat(textInnerHeight - 8, \"px, #fff \").concat(contentBlockHeight - textInnerHeight, \"px)\");\n  } else {\n    contentInnerBlock.style.backgroundImage = \"linear-gradient(180deg, \".concat(color, \" \").concat(textInnerHeight + imgInnerHeigh - 5, \"px, #fff \").concat(contentBlockHeight - textInnerHeight - imgInnerHeigh, \"px)\");\n  }\n}\nvar readyMadeSolutionsContent = readyMeadeSolutionsBlock.querySelector(\".ready-made-solutions__content\");\nsetReadyMadeSolutionsLinearGradient(readyMadeSolutionsContent, \"#292E42\");\n// scroll button up\nfunction showOrHideUpButton() {\n  var buttonUp = this.document.getElementById(\"up-button-id\");\n  if (this.window.scrollY > 500) {\n    buttonUp.classList.add(\"up-button_show\");\n  } else {\n    buttonUp.classList.remove(\"up-button_show\");\n  }\n}\nwindow.addEventListener(\"scroll\", showOrHideUpButton);\n// smooth scroll\nfunction isNodeOrParent(target) {\n  var anchor = target;\n  if (target.parentNode.classList.contains(\"scroll-to\")) {\n    anchor = target.parentNode;\n    return anchor;\n  }\n  return anchor;\n}\nfunction smoothScroll(e) {\n  if (e.target.classList.contains(\"scroll-to\") || e.target.parentNode.classList.contains(\"scroll-to\")) {\n    var _step = function step(time) {\n      if (start === null) start = time;\n      var progress = time - start;\n      var windowCoordsToScrollY = topCoordsOftoScrollElelement < 0 ? Math.max(windowOffSetY - progress / scrollSpeed, windowOffSetY + topCoordsOftoScrollElelement) : Math.min(windowOffSetY + progress / scrollSpeed, windowOffSetY + topCoordsOftoScrollElelement);\n      window.scrollTo(0, windowCoordsToScrollY);\n      if (windowCoordsToScrollY != windowOffSetY + topCoordsOftoScrollElelement) {\n        requestAnimationFrame(_step);\n      }\n    };\n    e.preventDefault();\n    var scrollSpeed = 0.35;\n    var windowOffSetY = window.pageYOffset;\n    var anchorElement = isNodeOrParent(e.target).getAttribute(\"href\").replace(\"#\", \"\");\n    var toScrollElelement = document.getElementById(anchorElement);\n    var topCoordsOftoScrollElelement = toScrollElelement.getBoundingClientRect().top;\n    var start = null;\n    requestAnimationFrame(_step);\n  }\n}\ndocument.addEventListener(\"click\", smoothScroll);\n\n//# sourceURL=webpack:///./src/js/outdoor-bars-keitering/outdoor-bars-keitering.js?\n}");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The require scope
+/******/ 	var __webpack_require__ = {};
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = {};
+/******/ 	__webpack_modules__["./src/js/outdoor-bars-keitering/outdoor-bars-keitering.js"](0, __webpack_exports__, __webpack_require__);
+/******/ 	
+/******/ })()
+;

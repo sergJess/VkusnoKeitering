@@ -9,7 +9,10 @@ import {
   setPopUpForSliderPopUp,
   closeSliderPopup,
 } from "./utils/slider/slider-popup.js";
-import { sliderFoodExampleInit } from "./utils/slider/food-slider-init.js";
+import {
+  sliderFoodExampleInit,
+  setDefaultAttributeSlideIndex,
+} from "./utils/slider/food-slider-init.js";
 const header = document.getElementById("header-id");
 //menu
 const burger = header.querySelector(".navigation-burger");
@@ -88,10 +91,7 @@ const portfolioSlides = portfolio.querySelectorAll(
   ".porfolio__examples-item-slide"
 );
 // porfolioPopUpCrossClose.addEventListener("click");
-for (let i = 0, length = portfolioSlides.length; i < length; i++) {
-  portfolioSlides[i].setAttribute("data-slide-index", i);
-}
-
+setDefaultAttributeSlideIndex(portfolioSlides);
 const porfolioExamples = portfolio.querySelector(".porfolio__examples");
 porfolioExamples.setAttribute("data-all-slides", `${portfolioSlides.length}`);
 const porfolioLeftArrow = portfolio.querySelector(
@@ -169,10 +169,8 @@ window.onload = function () {
     sliderArrowsInnerClassInactive: "food-example__slider-arrow-inner_inactive",
     leftArrow: foodExampleArrowLeft,
     mobileGridWindowWidth: 860,
+    sliderTransitionClass: "food-example-goods__slider",
   });
-  setTimeout(() => {
-    setSliderTransition(foodExampleSliderInner, "food-example-goods__slider");
-  }, 10);
 
   foodExampleArrowLeft.addEventListener(
     "click",

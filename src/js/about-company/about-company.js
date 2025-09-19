@@ -1,3 +1,15 @@
+import { smoothScroll } from "../utils/smooth-scroll/smooth-scroll.js";
+import { moveSliderFood } from "../utils/slider/move-slider.js";
+import {
+  setSliderTransition,
+  sliderTransitionStart,
+  sliderTransitionEnd,
+} from "../utils/slider/slider-transition.js";
+import {
+  setPopUpForSliderPopUp,
+  closeSliderPopup,
+} from "../utils/slider/slider-popup.js";
+import { sliderFoodExampleInit } from "../utils/slider/food-slider-init.js";
 const header = document.getElementById("header-id");
 //menu
 const burger = header.querySelector(".navigation-burger");
@@ -53,54 +65,7 @@ function showOrHideUpButton() {
   }
 }
 window.addEventListener("scroll", showOrHideUpButton);
-// smooth scroll
-function isNodeOrParent(target) {
-  let anchor = target;
-  if (target.parentNode.classList.contains("scroll-to")) {
-    anchor = target.parentNode;
-    return anchor;
-  }
-  return anchor;
-}
-function smoothScroll(e) {
-  if (
-    e.target.classList.contains("scroll-to") ||
-    e.target.parentNode.classList.contains("scroll-to")
-  ) {
-    e.preventDefault();
-    const scrollSpeed = 0.35;
-    let windowOffSetY = window.pageYOffset;
-    let anchorElement = isNodeOrParent(e.target)
-      .getAttribute("href")
-      .replace("#", "");
-    let toScrollElelement = document.getElementById(anchorElement);
-    let topCoordsOftoScrollElelement =
-      toScrollElelement.getBoundingClientRect().top;
-    let start = null;
-    requestAnimationFrame(step);
-    function step(time) {
-      if (start === null) start = time;
-      let progress = time - start;
-      let windowCoordsToScrollY =
-        topCoordsOftoScrollElelement < 0
-          ? Math.max(
-              windowOffSetY - progress / scrollSpeed,
-              windowOffSetY + topCoordsOftoScrollElelement
-            )
-          : Math.min(
-              windowOffSetY + progress / scrollSpeed,
-              windowOffSetY + topCoordsOftoScrollElelement
-            );
-      window.scrollTo(0, windowCoordsToScrollY);
-      if (
-        windowCoordsToScrollY !=
-        windowOffSetY + topCoordsOftoScrollElelement
-      ) {
-        requestAnimationFrame(step);
-      }
-    }
-  }
-}
+
 document.addEventListener("click", smoothScroll);
 // order-call-form-2
 const crossOrderCallForm2 = document.getElementById(
@@ -117,4 +82,49 @@ orderButton1.onclick = () => {
 };
 orderButton2.onclick = () => {
   orderCallForm2.classList.add("order-call-form-block_show");
+};
+// slider porfolio
+window.onload = function () {
+  setPopUpForSliderPopUp({
+    popup: sliderPopUp,
+    sliderBlockContent: sliderPopUpBlockContent,
+    slider: sliderPopUpContentInner,
+    sliderTrack: foodExampleSliderInner,
+    tryMaxSlidesPerView: 1,
+    slidesPopupClass: "food-example-goods__item",
+    popUpSliderTrackParentClass: "food-example-slider__popup-content-inner",
+    popUpSliderTrackClass: "food-example-slider__popup-content",
+    classToSelectOriginSlides: "food-example-goods__item",
+    popupClassOpen: "food-example-slider__popup_opened",
+    contentItemClass: "food-example-goods__item_popup",
+    sliderArrowsInnerClass: "food-example__popup-slider-arrow-block",
+    arrowLeft: sliderPopUpArrowLeft,
+    arrowRight: sliderPopUpArrowRight,
+    sliderArrowsInnerClassInactive: "food-example__slider-arrow-inner_inactive",
+    dataAttributeForSearchSlidesWithoutClones: "data-slide-index",
+    dataAttributeAllSlidesWithoutClones: "data-all-slides",
+    popupSliderTrackClassTransition: "food-example-goods__slider",
+    popupItemClassRemove: "food-example-goods__item_pointer",
+    popupItemsInfoArray: [
+      {
+        elementQuerySelector: ".food-example-goods__item-img",
+        elementClassAdd: "food-example-goods__item-img_popup",
+      },
+      {
+        elementQuerySelector: ".food-example__item-title",
+        elementClassRemove: "food-example__item-title",
+        elementClassAdd: "food-example__popup-slider-item-title",
+      },
+      {
+        elementQuerySelector: ".food-example__item-count",
+        elementClassRemove: "text-base",
+        elementClassAdd: "food-example__popup-slider-item-count",
+      },
+      {
+        elementQuerySelector: ".food-example__item-price",
+        elementClassRemove: "text-item-writing",
+        elementClassAdd: "food-example__popup-slider-item-count",
+      },
+    ],
+  });
 };

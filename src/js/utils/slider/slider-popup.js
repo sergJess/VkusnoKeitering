@@ -99,6 +99,7 @@ export function setPopUpForSliderPopUp(config) {
           sliderArrowsInnerClassInactive: `${sliderArrowsInnerClassInactive}`,
           leftArrow: arrowLeft,
           mobileGridWindowWidth: 0,
+          sliderTransitionClass: popupSliderTrackClassTransition,
         });
         setSliderToCorrectPositionInPopUp({
           sliderItemClass: contentItemClass,
@@ -167,12 +168,12 @@ export function setPopUpForSliderPopUp(config) {
           }
         }
       });
-      setTimeout(() => {
-        setSliderTransition(
-          popupSliderTrack,
-          `${popupSliderTrackClassTransition}`
-        );
-      }, 10);
+      // setTimeout(() => {
+      //   setSliderTransition(
+      //     popupSliderTrack,
+      //     `${popupSliderTrackClassTransition}`
+      //   );
+      // }, 10);
     };
   }
 }

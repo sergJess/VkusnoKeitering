@@ -1,39 +1,67 @@
-.company-portfolio{
-    padding: 4px 12px 0 12px;
+.company-portfolio {
+  padding: 4px 12px 0 12px;
 }
 
-.company-portfolio h2{
-    text-align: center;
+.company-portfolio h2 {
+  text-align: center;
 }
 
-.company-portfolio__tabs{
-    display: flex;
-    justify-content: center;
-    gap: 10px 25px;
-    flex-wrap: wrap;
-    margin: 35px 0 35px 0;
+.company-portfolio__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px 25px;
+  flex-wrap: wrap;
+  margin: 35px 0 35px 0;
 }
 
-.company-portfolio__tabs button{
-    background-color: transparent;
-    cursor: pointer;
+.company-portfolio__tabs button {
+  background-color: transparent;
+  cursor: pointer;
 }
 
-.company-portfolio__tab-area{
-    display: grid;
-    gap: 1px;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: 1fr 1fr;
-    justify-content: center;
+.company-portfolio__tab-area {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  /* justify-content: center; */
 }
 
-.company-portfolio__tab-area img{
-    width: 100%;
+.company-portfolio__tab-area img {
+  width: 100%;
+}
+
+.company-portfolio__slider-track {
+  display: flex;
+}
+.company-portfolio__slider {
+  margin: 0 5%;
+  overflow-x: hidden;
+}
+
+.company-portfolio__slider-item {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.company-portfolio-popup__close-img {
+  cursor: pointer;
+}
+
+.company-portfolio__slider-conrols {
+  margin: 30px 0 18px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px 13px;
+}
+
+.company-portfolio__slider-arrow-inner {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 780px) {
-   .company-portfolio__tabs{
+  .company-portfolio__tabs {
     margin: 13px 0 24px 0;
-}
-
+  }
 }

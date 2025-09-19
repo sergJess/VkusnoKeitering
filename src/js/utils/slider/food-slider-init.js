@@ -1,5 +1,11 @@
 import { moveSliderFood } from "./move-slider.js";
 import { getGapValues } from "../get-gap-value/get-gap-value.js";
+import { setSliderTransition } from "./slider-transition.js";
+export function setDefaultAttributeSlideIndex(slides) {
+  for (let i = 0, length = slides.length; i < length; i++) {
+    slides[i].setAttribute("data-slide-index", `${i}`);
+  }
+}
 export function sliderFoodExampleInit(sliderConfig) {
   const sliderTrack = sliderConfig.sliderTrack;
   const slides = sliderTrack.querySelectorAll(
@@ -37,6 +43,7 @@ export function sliderFoodExampleInit(sliderConfig) {
       "data-slides-per-view",
       `${awailableSlidesToShow}`
     );
+    setDefaultAttributeSlideIndex(slides);
     if (awailableSlidesToShow >= slidesCount) {
       //make slider arrows inactive
       const sliderParent = slider.parentNode;
@@ -60,23 +67,20 @@ export function sliderFoodExampleInit(sliderConfig) {
       sliderTrack.setAttribute("data-left-arrow-unactive", "true");
       const leftArrow = sliderConfig.leftArrow;
       leftArrow.classList.add(`${sliderConfig.sliderArrowsInnerClassInactive}`);
-      for (let i = 0; i < slidesCount; i++) {
-        slides[i].setAttribute("data-slide-index", `${i}`);
-      }
       const columnsGrid = Math.ceil(slidesCount / 2);
       const rowsGrid = 2;
       sliderTrack.setAttribute("data-rows-grid", rowsGrid);
       sliderTrack.style.display = "grid";
       sliderTrack.style.gridTemplateColumns = `repeat(${columnsGrid}, ${slideWidth}px)`;
       sliderTrack.style.gridTemplateRows = `${rowsGrid}`;
+      setTimeout(() => {
+        setSliderTransition(sliderTrack, sliderConfig.sliderTransitionClass);
+      }, 0);
       return;
     }
     if (awailableSlidesToShow < slidesCount) {
       sliderTrack.setAttribute("data-current-slide", "0");
       sliderTrack.setAttribute("data-is-active-arrows", "true");
-      for (let i = 0; i < slidesCount; i++) {
-        slides[i].setAttribute("data-slide-index", `${i}`);
-      }
       for (let i = 0; i < awailableSlidesToShow; i++) {
         const node = slides[i].cloneNode(true);
         node.setAttribute("data-slide-index", `${i}`);
@@ -99,6 +103,9 @@ export function sliderFoodExampleInit(sliderConfig) {
         sliderTrack.getAttribute("data-transform")
       );
       sliderTrack.setAttribute("data-current-slide", "0");
+      setTimeout(() => {
+        setSliderTransition(sliderTrack, sliderConfig.sliderTransitionClass);
+      }, 0);
       return;
     }
   }
