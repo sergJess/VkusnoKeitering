@@ -169,17 +169,22 @@ window.onload = function () {
     sliderArrowsInnerClassInactive: "food-example__slider-arrow-inner_inactive",
     leftArrow: foodExampleArrowLeft,
     mobileGridWindowWidth: 860,
-    sliderTransitionClass: "food-example-goods__slider",
+    sliderTransitionClass: "food-example-goods__slider-transition",
   });
-
-  foodExampleArrowLeft.addEventListener(
-    "click",
-    moveSliderFood.bind(null, foodExampleSliderInner, foodExampleSliderItem, -1)
+  const foodExampleArrowLeftClick = moveSliderFood.bind(
+    null,
+    foodExampleSliderInner,
+    foodExampleSliderItem,
+    -1
   );
-  foodExampleArrowRight.addEventListener(
-    "click",
-    moveSliderFood.bind(null, foodExampleSliderInner, foodExampleSliderItem, 1)
+  foodExampleArrowLeft.addEventListener("click", foodExampleArrowLeftClick);
+  const foodExampleArrowRightClick = moveSliderFood.bind(
+    null,
+    foodExampleSliderInner,
+    foodExampleSliderItem,
+    1
   );
+  foodExampleArrowRight.addEventListener("click", foodExampleArrowRightClick);
   const foodExampleSliderInnerTransitionStart = sliderTransitionStart.bind(
     null,
     foodExampleSliderInner
@@ -194,7 +199,7 @@ window.onload = function () {
     arrowLeft: foodExampleArrowLeft,
     arrowRight: foodExampleArrowRight,
     arrowClassInactive: "food-example__slider-arrow-inner_inactive",
-    sliderTrackClassTransition: "food-example-goods__slider",
+    sliderTrackClassTransition: "food-example-goods__slider-transition",
   });
   foodExampleSliderInner.addEventListener(
     "transitionend",
@@ -228,9 +233,9 @@ window.onload = function () {
     popUpSliderContentBlock: sliderPopUpBlockContent,
     popUpSlider: sliderPopUp,
     classPopUpSliderOpen: "food-example-slider__popup_opened",
-    classSliderTrackPopUpTransition: "food-example-goods__slider",
+    classSliderTrackPopUpTransition: "food-example-goods__slider-transition",
   });
-  const porrfolioSliderPopUpCrossClick = closeSliderPopup.bind(null, {
+  const portfolioSliderPopUpCrossClick = closeSliderPopup.bind(null, {
     popUpSliderContentBlock: portfolioSliderPopUpBlockContent,
     popUpSlider: portfolioPopUpBlock,
     classPopUpSliderOpen: "porfolio__examples-slider__popup_opened",
@@ -239,7 +244,7 @@ window.onload = function () {
   sliderPopUpCross.addEventListener("click", sliderPopUpCrossClick);
   portfoliosSliderPopUpCross.addEventListener(
     "click",
-    porrfolioSliderPopUpCrossClick
+    portfolioSliderPopUpCrossClick
   );
   document.addEventListener("click", smoothScroll);
   setPopUpForSliderPopUp({
@@ -303,7 +308,7 @@ window.onload = function () {
     sliderArrowsInnerClassInactive: "food-example__slider-arrow-inner_inactive",
     dataAttributeForSearchSlidesWithoutClones: "data-slide-index",
     dataAttributeAllSlidesWithoutClones: "data-all-slides",
-    popupSliderTrackClassTransition: "food-example-goods__slider",
+    popupSliderTrackClassTransition: "food-example-goods__slider-transition",
     popupItemClassRemove: "food-example-goods__item_pointer",
     popupItemsInfoArray: [
       {

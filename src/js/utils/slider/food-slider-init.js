@@ -44,7 +44,17 @@ export function sliderFoodExampleInit(sliderConfig) {
       `${awailableSlidesToShow}`
     );
     setDefaultAttributeSlideIndex(slides);
-    if (awailableSlidesToShow >= slidesCount) {
+    const rowsGrid = 2;
+    const isMobileGrid =
+      window.outerWidth <= sliderConfig.mobileGridWindowWidth;
+    if (isMobileGrid) {
+      sliderTrack.setAttribute("data-is-mobile-grid", "true");
+    }
+    if (
+      awailableSlidesToShow >= slidesCount ||
+      (awailableSlidesToShow >= Math.ceil(slidesCount / rowsGrid) &&
+        isMobileGrid)
+    ) {
       //make slider arrows inactive
       const sliderParent = slider.parentNode;
       const sliderArrowsInner = sliderParent.querySelectorAll(
@@ -57,18 +67,13 @@ export function sliderFoodExampleInit(sliderConfig) {
       }
       return;
     }
-    if (
-      awailableSlidesToShow < slidesCount &&
-      window.outerWidth <= sliderConfig.mobileGridWindowWidth
-    ) {
+    if (awailableSlidesToShow < slidesCount && isMobileGrid) {
       sliderTrack.setAttribute("data-current-slide", "0");
       sliderTrack.setAttribute("data-is-active-arrows", "true");
-      sliderTrack.setAttribute("data-is-mobile-grid", "true");
       sliderTrack.setAttribute("data-left-arrow-unactive", "true");
       const leftArrow = sliderConfig.leftArrow;
       leftArrow.classList.add(`${sliderConfig.sliderArrowsInnerClassInactive}`);
-      const columnsGrid = Math.ceil(slidesCount / 2);
-      const rowsGrid = 2;
+      const columnsGrid = Math.ceil(slidesCount / rowsGrid);
       sliderTrack.setAttribute("data-rows-grid", rowsGrid);
       sliderTrack.style.display = "grid";
       sliderTrack.style.gridTemplateColumns = `repeat(${columnsGrid}, ${slideWidth}px)`;

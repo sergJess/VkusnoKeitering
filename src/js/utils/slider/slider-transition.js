@@ -28,7 +28,14 @@ export function sliderTransitionEnd(sliderConfig) {
   );
   if (isGridMobile) {
     const gridRows = parseInt(sliderTrack.getAttribute("data-rows-grid"), 10);
-    const rightBorderToSlide = Math.floor(slidesWithoutClones / gridRows);
+
+    const rightBorderToSlide =
+      slidesWithoutClones % 2 == 0
+        ? Math.floor((slidesWithoutClones - slidesAwailableToView) / gridRows) -
+          1
+        : Math.ceil(
+            (slidesWithoutClones - slidesAwailableToView * gridRows) / gridRows
+          );
     if (currentSlide == 0) {
       arrowLeft.classList.add(sliderConfig.arrowClassInactive);
       sliderTrack.setAttribute("data-left-arrow-unactive", "true");

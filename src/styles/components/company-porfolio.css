@@ -31,17 +31,23 @@
   width: 100%;
 }
 
-.company-portfolio__slider-track {
-  display: flex;
-}
 .company-portfolio__slider {
-  margin: 0 5%;
   overflow-x: hidden;
+  margin: 0 auto;
+}
+
+.company-portfolio__slider-track {
+  transform: translateX(0);
+}
+
+.company-portfolio__slider-transition {
+  transition: transform 0.4s ease;
 }
 
 .company-portfolio__slider-item {
-  flex-grow: 1;
-  flex-shrink: 0;
+  cursor: pointer;
+  /* flex-grow: 1;
+  flex-shrink: 0; */
 }
 
 .company-portfolio-popup__close-img {
@@ -58,6 +64,10 @@
 
 .company-portfolio__slider-arrow-inner {
   cursor: pointer;
+}
+
+.company-portfolio__slider-arrow-inner_inactive {
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 780px) {

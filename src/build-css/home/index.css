@@ -1168,7 +1168,7 @@ li {
   transform: translateX(0);
 }
 
-.food-example-goods__slider {
+.food-example-goods__slider-transition {
   transition: transform 0.4s ease;
 }
 
