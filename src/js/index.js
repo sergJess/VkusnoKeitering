@@ -161,6 +161,7 @@ const sliderPopUpArrowRight = sliderPopUp.querySelector(
 );
 // onload event
 window.onload = function () {
+  // set up slider food example
   sliderFoodExampleInit({
     sliderTrack: foodExampleSliderInner,
     sliderItemClass: "food-example-goods__item",
@@ -211,7 +212,7 @@ window.onload = function () {
       node.setAttribute("sliderPopUpSwipeClientX", `${e.touches[0].clientX}`);
     }
   });
-
+  // food example slider swipe
   foodExampleSlider.addEventListener("touchend", function (e) {
     const node = this;
     if (node && node.hasAttribute("sliderPopUpSwipeClientX")) {
@@ -229,12 +230,14 @@ window.onload = function () {
       }
     }
   });
+  // click on cross slider food example slider popup to close
   const sliderPopUpCrossClick = closeSliderPopup.bind(null, {
     popUpSliderContentBlock: sliderPopUpBlockContent,
     popUpSlider: sliderPopUp,
     classPopUpSliderOpen: "food-example-slider__popup_opened",
     classSliderTrackPopUpTransition: "food-example-goods__slider-transition",
   });
+  // click on cross slider porfolio slider popup to close
   const portfolioSliderPopUpCrossClick = closeSliderPopup.bind(null, {
     popUpSliderContentBlock: portfolioSliderPopUpBlockContent,
     popUpSlider: portfolioPopUpBlock,
@@ -246,7 +249,9 @@ window.onload = function () {
     "click",
     portfolioSliderPopUpCrossClick
   );
+  // smooth scroll
   document.addEventListener("click", smoothScroll);
+  // set up slidr popup portfolio
   setPopUpForSliderPopUp({
     popup: portfolioPopUpBlock,
     sliderBlockContent: portfolioSliderPopUpBlockContent,
@@ -290,6 +295,7 @@ window.onload = function () {
       },
     ],
   });
+  // set up slider popup for food example
   setPopUpForSliderPopUp({
     popup: sliderPopUp,
     sliderBlockContent: sliderPopUpBlockContent,

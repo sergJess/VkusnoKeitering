@@ -1157,7 +1157,10 @@
           </div>
         </div>
       </div>
-      <div class="menu-galery service-keitering__page-menu-galery">
+      <div
+        class="menu-galery service-keitering__page-menu-galery"
+        id="menu-galery-id"
+      >
         <h2 class="porfolio__title text-block-title text_colored4">
           Галерея меню
         </h2>
@@ -1196,90 +1199,153 @@
             <button class="text-base menu-galery__tabs-button">Напитки</button>
           </div>
         </div>
-        <div class="menu-galery__tab-area">
-          <div class="">
-            <picture
-              ><source
-                type="image/jpeg"
-                media="(max-width: 860px)"
-                srcset="../assets/img/mobile/menu-galery/1.jpg"
-              />
-              <img
-                class="main-info__img"
-                src="../assets/img/menu-galery/1.jpg"
-                alt=""
-              />
-            </picture>
+        <div class="menu-galery__slider">
+          <div class="menu-galery__tab-area menu-galery__slider-track">
+            <div
+              class="menu-galery__slider-item menu-galery__slider-item_pointer"
+            >
+              <picture
+                ><source
+                  type="image/jpeg"
+                  media="(max-width: 860px)"
+                  srcset="../assets/img/mobile/menu-galery/1.jpg"
+                />
+                <img
+                  class="menu-galery__item-img"
+                  src="../assets/img/menu-galery/1.jpg"
+                  alt=""
+                />
+              </picture>
+            </div>
+            <div
+              class="menu-galery__slider-item menu-galery__slider-item_pointer"
+            >
+              <picture
+                ><source
+                  type="image/jpeg"
+                  media="(max-width: 860px)"
+                  srcset="../assets/img/mobile/menu-galery/2.jpg"
+                />
+                <img
+                  class="menu-galery__item-img"
+                  src="../assets/img/menu-galery/2.jpg"
+                  alt=""
+                />
+              </picture>
+            </div>
+            <div
+              class="menu-galery__slider-item menu-galery__slider-item_pointer"
+            >
+              <picture
+                ><source
+                  type="image/jpeg"
+                  media="(max-width: 860px)"
+                  srcset="../assets/img/mobile/menu-galery/3.jpg"
+                />
+                <img
+                  class="menu-galery__item-img"
+                  src="../assets/img/menu-galery/3.jpg"
+                  alt=""
+                />
+              </picture>
+            </div>
+            <div
+              class="menu-galery__slider-item menu-galery__slider-item_pointer"
+            >
+              <picture
+                ><source
+                  type="image/jpeg"
+                  media="(max-width: 860px)"
+                  srcset="../assets/img/mobile/menu-galery/4.jpg"
+                />
+                <img
+                  class="menu-galery__item-img"
+                  src="../assets/img/menu-galery/4.jpg"
+                  alt=""
+                />
+              </picture>
+            </div>
+            <div
+              class="menu-galery__slider-item menu-galery__slider-item_pointer"
+            >
+              <picture
+                ><source
+                  type="image/jpeg"
+                  media="(max-width: 860px)"
+                  srcset="../assets/img/mobile/menu-galery/5.jpg"
+                />
+                <img
+                  class="menu-galery__item-img"
+                  src="../assets/img/menu-galery/5.jpg"
+                  alt=""
+                />
+              </picture>
+            </div>
+            <div
+              class="menu-galery__slider-item menu-galery__slider-item_pointer"
+            >
+              <picture
+                ><source
+                  type="image/jpeg"
+                  media="(max-width: 860px)"
+                  srcset="../assets/img/mobile/menu-galery/6.jpg"
+                />
+                <img
+                  class="menu-galery__item-img"
+                  src="../assets/img/menu-galery/6.jpg"
+                  alt=""
+                />
+              </picture>
+            </div>
           </div>
-          <div class="">
-            <picture
-              ><source
-                type="image/jpeg"
-                media="(max-width: 860px)"
-                srcset="../assets/img/mobile/menu-galery/2.jpg"
-              />
-              <img
-                class="main-info__img"
-                src="../assets/img/menu-galery/2.jpg"
-                alt=""
-              />
-            </picture>
+        </div>
+        <div class="menu-galery__slider-conrols">
+          <div
+            class="menu-galery__slider-arrow-inner menu-galery__slider-button-prev"
+            role="button"
+          >
+            <img src="../assets/img/slider/arrow-left-2.svg" alt="" />
           </div>
-          <div class="">
-            <picture
-              ><source
-                type="image/jpeg"
-                media="(max-width: 860px)"
-                srcset="../assets/img/mobile/menu-galery/3.jpg"
-              />
-              <img
-                class="main-info__img"
-                src="../assets/img/menu-galery/3.jpg"
-                alt=""
-              />
-            </picture>
+          <p class="uppercase text-base text_spacing3">листать</p>
+          <div
+            class="menu-galery__slider-arrow-inner menu-galery__slider-button-next"
+            role="button"
+          >
+            <img src="../assets/img/slider/arrow-right-2.svg" alt="" />
           </div>
-          <div class="">
-            <picture
-              ><source
-                type="image/jpeg"
-                media="(max-width: 860px)"
-                srcset="../assets/img/mobile/menu-galery/4.jpg"
-              />
+        </div>
+        <div class="menu-galery__popup" id="menu-galery__popup-id">
+          <div class="menu-galery-popup__close-inner">
+            <div class="menu-galery-popup__close">
               <img
-                class="main-info__img"
-                src="../assets/img/menu-galery/4.jpg"
+                role="button"
+                src="../assets/img/icons/form/order-cross.svg"
                 alt=""
+                class="menu-galery-popup__close-img"
               />
-            </picture>
+            </div>
           </div>
-          <div class="">
-            <picture
-              ><source
-                type="image/jpeg"
-                media="(max-width: 860px)"
-                srcset="../assets/img/mobile/menu-galery/5.jpg"
-              />
+
+          <div class="menu-galery-popup__slider-block">
+            <div class="menu-galery-popup__slider-arrow-block">
               <img
-                class="main-info__img"
-                src="../assets/img/menu-galery/5.jpg"
+                class="menu-galery-popup__slider-arrow-left"
+                src="../assets/img/icons/arrows/Arrow-left-popup-2.svg"
                 alt=""
               />
-            </picture>
-          </div>
-          <div class="">
-            <picture
-              ><source
-                type="image/jpeg"
-                media="(max-width: 860px)"
-                srcset="../assets/img/mobile/menu-galery/6.jpg"
-              />
+            </div>
+            <div class="menu-galery-popup__slider-block-content">
+              <div class="menu-galery-popup__content-inner">
+                <div class="menu-galery-popup__content"></div>
+              </div>
+            </div>
+            <div class="menu-galery-popup__slider-arrow-block">
               <img
-                class="main-info__img"
-                src="../assets/img/menu-galery/6.jpg"
+                class="menu-galery-popup__slider-arrow-right"
+                src="../assets/img/icons/arrows/Arrow-right-popup-2.svg"
                 alt=""
               />
-            </picture>
+            </div>
           </div>
         </div>
       </div>

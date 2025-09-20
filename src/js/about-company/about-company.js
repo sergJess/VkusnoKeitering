@@ -1,7 +1,6 @@
 import { smoothScroll } from "../utils/smooth-scroll/smooth-scroll.js";
 import { moveSliderFood } from "../utils/slider/move-slider.js";
 import {
-  setSliderTransition,
   sliderTransitionStart,
   sliderTransitionEnd,
 } from "../utils/slider/slider-transition.js";
@@ -9,10 +8,7 @@ import {
   setPopUpForSliderPopUp,
   closeSliderPopup,
 } from "../utils/slider/slider-popup.js";
-import {
-  sliderFoodExampleInit,
-  setDefaultAttributeSlideIndex,
-} from "../utils/slider/food-slider-init.js";
+import { sliderFoodExampleInit } from "../utils/slider/food-slider-init.js";
 const header = document.getElementById("header-id");
 //menu
 const burger = header.querySelector(".navigation-burger");
@@ -133,6 +129,8 @@ const sliderPopUpArrowRight = sliderPortfolioPopUp.querySelector(
 );
 
 window.onload = function () {
+  // set slider portfolio not slider popup
+  // click to arrows
   const portfolioSliderArrowLeftClick = moveSliderFood.bind(
     null,
     portfolioSliderTrack,
@@ -164,6 +162,7 @@ window.onload = function () {
     "click",
     portfolioSliderArrowRightClick
   );
+  //transition
   const portfolioSliderTrackTransitionStart = sliderTransitionStart.bind(
     null,
     portfolioSliderTrack
@@ -204,6 +203,7 @@ window.onload = function () {
       }
     }
   });
+  // click to cross to close popup slider portfoilo block
   const sliderPopUpCrossClick = closeSliderPopup.bind(null, {
     popUpSliderContentBlock: sliderPopUpBlockContent,
     popUpSlider: sliderPortfolioPopUp,
@@ -211,6 +211,7 @@ window.onload = function () {
     classSliderTrackPopUpTransition: "company-portfolio__slider-transition",
   });
   sliderPopUpCross.addEventListener("click", sliderPopUpCrossClick);
+  // set up slider popup portfolio
   setPopUpForSliderPopUp({
     popup: sliderPortfolioPopUp,
     sliderBlockContent: sliderPopUpBlockContent,
