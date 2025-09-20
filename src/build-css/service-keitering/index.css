@@ -1135,6 +1135,9 @@ padding: 33px 0 20px 0;
   .menu-galery h2 {
     margin: 0 0 20px 0;
   }
+  .menu-galery__slider-item-img_popup {
+    width: 85%;
+  }
 }
 
 .keitering-history{

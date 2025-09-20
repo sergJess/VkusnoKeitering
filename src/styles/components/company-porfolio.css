@@ -136,4 +136,7 @@
   .company-portfolio__tabs {
     margin: 13px 0 24px 0;
   }
+  .company-portfolio__slider-item-img_popup {
+    width: 85%;
+  }
 }

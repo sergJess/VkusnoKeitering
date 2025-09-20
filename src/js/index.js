@@ -1,7 +1,6 @@
 import { smoothScroll } from "./utils/smooth-scroll/smooth-scroll.js";
 import { moveSliderFood } from "./utils/slider/move-slider.js";
 import {
-  setSliderTransition,
   sliderTransitionStart,
   sliderTransitionEnd,
 } from "./utils/slider/slider-transition.js";
@@ -13,6 +12,7 @@ import {
   sliderFoodExampleInit,
   setDefaultAttributeSlideIndex,
 } from "./utils/slider/food-slider-init.js";
+import { showOrHideUpButton } from "./utils/show-or-hide-up-button/show-or-hide-up-button.js";
 const header = document.getElementById("header-id");
 //menu
 const burger = header.querySelector(".navigation-burger");
@@ -56,15 +56,6 @@ for (let i = 0, length = navigationLists.length; i < length; i++) {
     }
     if (!isHaveActiveClass) submenu.classList.add("navigation__submenu_show");
   };
-}
-// scroll button up
-function showOrHideUpButton() {
-  const buttonUp = this.document.getElementById("up-button-id");
-  if (this.window.scrollY > 500) {
-    buttonUp.classList.add("up-button_show");
-  } else {
-    buttonUp.classList.remove("up-button_show");
-  }
 }
 //food-example tabs
 const foodExampleTabsSliderInner = document.getElementById(

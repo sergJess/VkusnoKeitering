@@ -127,6 +127,23 @@ const sliderPopUpArrowRight = sliderGalaryMenuPopUp.querySelector(
 window.addEventListener("scroll", showOrHideUpButton);
 // smooth scroll
 document.addEventListener("click", smoothScroll);
+//food-example tabs
+const menuGalaryTabs = document.getElementById("menu-galery__tabs-id");
+const menuGalaryTab = menuGalaryTabs.querySelectorAll(
+  ".menu-galery__tabs-button"
+);
+for (let i = 0, length = menuGalaryTab.length; i < length; i++) {
+  menuGalaryTab[i].onclick = () => {
+    if (menuGalaryTab[i].classList.contains("menu-galery__tabs-button_active"))
+      return;
+    else {
+      for (let j = 0, length = menuGalaryTab.length; j < length; j++) {
+        menuGalaryTab[j].classList.remove("menu-galery__tabs-button_active");
+      }
+      menuGalaryTab[i].classList.add("menu-galery__tabs-button_active");
+    }
+  };
+}
 // onload
 window.onload = function () {
   setReadyMadeSolutionsLinearGradient(readyMadeSolutionsContent, "#423329");
