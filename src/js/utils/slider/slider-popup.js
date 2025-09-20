@@ -168,12 +168,6 @@ export function setPopUpForSliderPopUp(config) {
           }
         }
       });
-      // setTimeout(() => {
-      //   setSliderTransition(
-      //     popupSliderTrack,
-      //     `${popupSliderTrackClassTransition}`
-      //   );
-      // }, 10);
     };
   }
 }

@@ -111,6 +111,27 @@ const portfolioSliderArrowLeft = companyPorfolio.querySelector(
 const portfolioSliderArrowRight = companyPorfolio.querySelector(
   ".portfolio-examples__slider-button-next"
 );
+// slider porfolio popup
+const sliderPortfolioPopUp = document.getElementById(
+  "company-portfolio__popup-id"
+);
+const sliderPopUpCross = sliderPortfolioPopUp.querySelector(
+  ".company-portfolio-popup__close-img"
+);
+
+const sliderPopUpBlockContent = sliderPortfolioPopUp.querySelector(
+  ".company-portfolio-popup__slider-block-content"
+);
+const sliderPopUpContentInner = sliderPortfolioPopUp.querySelector(
+  ".company-portfolio-popup__content-inner"
+);
+const sliderPopUpArrowLeft = sliderPortfolioPopUp.querySelector(
+  ".company-portfolio-popup__slider-arrow-left"
+);
+const sliderPopUpArrowRight = sliderPortfolioPopUp.querySelector(
+  ".company-portfolio-popup__slider-arrow-right"
+);
+
 window.onload = function () {
   const portfolioSliderArrowLeftClick = moveSliderFood.bind(
     null,
@@ -163,6 +184,7 @@ window.onload = function () {
     "transitionend",
     portfolioSliderTrackTransitionEnd
   );
+  // swipe poerfolio slider popup
   portfolioSlider.addEventListener("touchstart", function (e) {
     const node = this;
     if (node) {
@@ -182,46 +204,40 @@ window.onload = function () {
       }
     }
   });
-  // setPopUpForSliderPopUp({
-  //   popup: sliderPopUp,
-  //   sliderBlockContent: sliderPopUpBlockContent,
-  //   slider: sliderPopUpContentInner,
-  //   sliderTrack: foodExampleSliderInner,
-  //   tryMaxSlidesPerView: 1,
-  //   slidesPopupClass: "food-example-goods__item",
-  //   popUpSliderTrackParentClass: "food-example-slider__popup-content-inner",
-  //   popUpSliderTrackClass: "food-example-slider__popup-content",
-  //   classToSelectOriginSlides: "food-example-goods__item",
-  //   popupClassOpen: "food-example-slider__popup_opened",
-  //   contentItemClass: "food-example-goods__item_popup",
-  //   sliderArrowsInnerClass: "food-example__popup-slider-arrow-block",
-  //   arrowLeft: sliderPopUpArrowLeft,
-  //   arrowRight: sliderPopUpArrowRight,
-  //   sliderArrowsInnerClassInactive: "food-example__slider-arrow-inner_inactive",
-  //   dataAttributeForSearchSlidesWithoutClones: "data-slide-index",
-  //   dataAttributeAllSlidesWithoutClones: "data-all-slides",
-  //   popupSliderTrackClassTransition: "food-example-goods__slider",
-  //   popupItemClassRemove: "food-example-goods__item_pointer",
-  //   popupItemsInfoArray: [
-  //     {
-  //       elementQuerySelector: ".food-example-goods__item-img",
-  //       elementClassAdd: "food-example-goods__item-img_popup",
-  //     },
-  //     {
-  //       elementQuerySelector: ".food-example__item-title",
-  //       elementClassRemove: "food-example__item-title",
-  //       elementClassAdd: "food-example__popup-slider-item-title",
-  //     },
-  //     {
-  //       elementQuerySelector: ".food-example__item-count",
-  //       elementClassRemove: "text-base",
-  //       elementClassAdd: "food-example__popup-slider-item-count",
-  //     },
-  //     {
-  //       elementQuerySelector: ".food-example__item-price",
-  //       elementClassRemove: "text-item-writing",
-  //       elementClassAdd: "food-example__popup-slider-item-count",
-  //     },
-  //   ],
-  // });
+  const sliderPopUpCrossClick = closeSliderPopup.bind(null, {
+    popUpSliderContentBlock: sliderPopUpBlockContent,
+    popUpSlider: sliderPortfolioPopUp,
+    classPopUpSliderOpen: "company-portfolio__popup_opened",
+    classSliderTrackPopUpTransition: "company-portfolio__slider-transition",
+  });
+  sliderPopUpCross.addEventListener("click", sliderPopUpCrossClick);
+  setPopUpForSliderPopUp({
+    popup: sliderPortfolioPopUp,
+    sliderBlockContent: sliderPopUpBlockContent,
+    slider: sliderPopUpContentInner,
+    sliderTrack: portfolioSliderTrack,
+    tryMaxSlidesPerView: 1,
+    slidesPopupClass: "company-portfolio__slider-item",
+    popUpSliderTrackParentClass: "company-portfolio-popup__content-inner",
+    popUpSliderTrackClass: "company-portfolio-popup__content",
+    classToSelectOriginSlides: "company-portfolio__slider-item",
+    popupClassOpen: "company-portfolio__popup_opened",
+    contentItemClass: "company-portfolio-item_popup",
+    sliderArrowsInnerClass: "company-portfolio-popup__slider-arrow-block",
+    arrowLeft: sliderPopUpArrowLeft,
+    arrowRight: sliderPopUpArrowRight,
+    sliderArrowsInnerClassInactive:
+      "company-portfolio__slider-arrow-inner_inactive",
+    dataAttributeForSearchSlidesWithoutClones: "data-slide-index",
+    dataAttributeAllSlidesWithoutClones: "data-all-slides",
+    popupSliderTrackClassTransition: "company-portfolio__slider-transition",
+    popupItemClassRemove: "company-portfolio__slider-item_pointer",
+    popupItemsInfoArray: [
+      {
+        elementQuerySelector: ".company-portfolio__item-img",
+        elementClassAdd: "company-portfolio__slider-item-img_popup",
+        elementClassRemove: "company-portfolio__item-img",
+      },
+    ],
+  });
 };
