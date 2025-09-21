@@ -267,6 +267,7 @@ window.onload = function () {
     // string or array of strings
     popupItemClassRemove: [
       "porfolio__examples-item_up",
+      "porfolio__examples-item_pointer",
       "porfolio__examples-item-1",
       "porfolio__examples-item-2",
       "porfolio__examples-item-3",

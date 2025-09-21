@@ -122,6 +122,10 @@
   cursor: pointer;
 }
 
+.porfolio__examples-item_pointer {
+  cursor: pointer;
+}
+
 .porfolio__examples__popup-slider {
   display: flex;
   align-items: center;
