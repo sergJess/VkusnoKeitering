@@ -882,10 +882,9 @@ li {
 
 .service-feature__slider-track {
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
   gap: 1px;
-  justify-content: center;
 }
 
 .service-feature__item-img {
