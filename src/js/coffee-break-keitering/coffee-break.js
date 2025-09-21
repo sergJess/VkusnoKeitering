@@ -58,7 +58,7 @@ const foodAndCostArrowLeft = foodAndCostBlock.querySelector(
 const foodAndCostArrowRight = foodAndCostBlock.querySelector(
   ".food-and-cost__slider-button-next"
 );
-//slider popup food example
+//slider popup food-and-cost
 const foodAndCostSliderPopUp = document.getElementById(
   "food-and-cost-slider__popup-id"
 );
@@ -298,7 +298,7 @@ window.onload = function () {
     "transitionend",
     serviceFeatureSliderTrackTransitionEnd
   );
-  // swipe galary menu slider popup
+  // swipe service featurer slider popup
   serviceFeatureSlider.addEventListener("touchstart", function (e) {
     const node = this;
     if (node) {
