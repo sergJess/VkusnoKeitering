@@ -150,6 +150,8 @@ const sliderPopUpArrowLeft = sliderPopUp.querySelector(
 const sliderPopUpArrowRight = sliderPopUp.querySelector(
   ".food-example__popup-slider-arrow-right"
 );
+// smooth scroll
+document.addEventListener("click", smoothScroll);
 // onload event
 window.onload = function () {
   // set up slider food example
@@ -240,8 +242,6 @@ window.onload = function () {
     "click",
     portfolioSliderPopUpCrossClick
   );
-  // smooth scroll
-  document.addEventListener("click", smoothScroll);
   // set up slidr popup portfolio
   setPopUpForSliderPopUp({
     popup: portfolioPopUpBlock,

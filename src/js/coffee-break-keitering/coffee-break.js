@@ -107,4 +107,124 @@ const foodAndCostSliderPopUpArrowRight = foodAndCostSliderPopUp.querySelector(
 );
 window.onload = function () {
   setReadyMadeSolutionsLinearGradient(readyMadeSolutionsContent, "#423329");
+  sliderFoodExampleInit({
+    sliderTrack: foodAndCostSliderInner,
+    sliderItemClass: "food-and-cost-goods__item",
+    tryMaxSlidesPerView: 5,
+    sliderArrowsInnerClass: "food-and-cost__slider-arrow-inner",
+    sliderArrowsInnerClassInactive:
+      "food-and-cost__slider-arrow-inner_inactive",
+    leftArrow: foodAndCostArrowLeft,
+    mobileGridWindowWidth: 860,
+    sliderTransitionClass: "food-and-cost-goods__slider-transition",
+  });
+  const foodAndCostArrowLeftClick = moveSliderFood.bind(
+    null,
+    foodAndCostSliderInner,
+    foodAndCostSliderItem,
+    -1
+  );
+  foodAndCostArrowLeft.addEventListener("click", foodAndCostArrowLeftClick);
+  const foodAndCostArrowRightClick = moveSliderFood.bind(
+    null,
+    foodAndCostSliderInner,
+    foodAndCostSliderItem,
+    1
+  );
+  foodAndCostArrowRight.addEventListener("click", foodAndCostArrowRightClick);
+  const foodAndCostSliderInnerTransitionStart = sliderTransitionStart.bind(
+    null,
+    foodAndCostSliderInner
+  );
+  foodAndCostSliderInner.addEventListener(
+    "transitionstart",
+    foodAndCostSliderInnerTransitionStart
+  );
+  const foodAndCostSliderInnerTransitionEnd = sliderTransitionEnd.bind(null, {
+    sliderItem: foodAndCostSliderItem,
+    sliderTrack: foodAndCostSliderInner,
+    arrowLeft: foodAndCostArrowLeft,
+    arrowRight: foodAndCostArrowRight,
+    arrowClassInactive: "food-and-cost__slider-arrow-inner_inactive",
+    sliderTrackClassTransition: "food-and-cost-goods__slider-transition",
+  });
+  foodAndCostSliderInner.addEventListener(
+    "transitionend",
+    foodAndCostSliderInnerTransitionEnd
+  );
+  foodAndCostSlider.addEventListener("touchstart", function (e) {
+    const node = this;
+    if (node) {
+      node.setAttribute("sliderPopUpSwipeClientX", `${e.touches[0].clientX}`);
+    }
+  });
+  // food example slider swipe
+  foodAndCostSlider.addEventListener("touchend", function (e) {
+    const node = this;
+    if (node && node.hasAttribute("sliderPopUpSwipeClientX")) {
+      const endX = e.changedTouches[0].clientX;
+      const threshold = 10;
+      const deltaX =
+        endX - parseInt(node.getAttribute("sliderPopUpSwipeClientX"), 10);
+      if (Math.abs(deltaX) > threshold) {
+        const direction = deltaX > 0 ? -1 : 1;
+        moveSliderFood(
+          foodAndCostSliderInner,
+          foodAndCostSliderItem,
+          direction
+        );
+      }
+    }
+  });
+  // click on cross slider food and cost slider popup to close
+  const sliderPopUpCrossClick = closeSliderPopup.bind(null, {
+    popUpSliderContentBlock: foodAndCostSliderPopUpBlockContent,
+    popUpSlider: foodAndCostSliderPopUp,
+    classPopUpSliderOpen: "food-and-cost-slider__popup_opened",
+    classSliderTrackPopUpTransition: "food-and-cost-goods__slider-transition",
+  });
+  foodAndCostSliderPopUpCross.addEventListener("click", sliderPopUpCrossClick);
+  // set up slider popup for food and cost
+  setPopUpForSliderPopUp({
+    popup: foodAndCostSliderPopUp,
+    sliderBlockContent: foodAndCostSliderPopUpBlockContent,
+    slider: foodAndCostSliderPopUpContentInner,
+    sliderTrack: foodAndCostSliderInner,
+    tryMaxSlidesPerView: 1,
+    slidesPopupClass: "food-and-cost-goods__item",
+    popUpSliderTrackParentClass: "food-and-cost-slider__popup-content-inner",
+    popUpSliderTrackClass: "food-and-cost-slider__popup-content",
+    classToSelectOriginSlides: "food-and-cost-goods__item",
+    popupClassOpen: "food-and-cost-slider__popup_opened",
+    contentItemClass: "food-and-cost-goods__item_popup",
+    sliderArrowsInnerClass: "food-and-cost-slider-arrow-block",
+    arrowLeft: foodAndCostSliderPopUpArrowLeft,
+    arrowRight: foodAndCostSliderPopUpArrowRight,
+    sliderArrowsInnerClassInactive: "food-and-cost-arrow-inner_inactive",
+    dataAttributeForSearchSlidesWithoutClones: "data-slide-index",
+    dataAttributeAllSlidesWithoutClones: "data-all-slides",
+    popupSliderTrackClassTransition: "food-and-cost-goods__slider-transition",
+    popupItemClassRemove: "food-and-cost-goods__item_pointer",
+    popupItemsInfoArray: [
+      {
+        elementQuerySelector: ".food-and-cost-goods__item-img",
+        elementClassAdd: "food-and-cost-goods__item-img_popup",
+      },
+      {
+        elementQuerySelector: ".food-and-cost__item-title",
+        elementClassRemove: "food-and-cost__item-title",
+        elementClassAdd: "food-and-cost__popup-slider-item-title",
+      },
+      {
+        elementQuerySelector: ".food-and-cost__item-count",
+        elementClassRemove: "text-base",
+        elementClassAdd: "food-and-cost__popup-slider-item-count",
+      },
+      {
+        elementQuerySelector: ".food-and-cost__item-price",
+        elementClassRemove: "text-item-writing",
+        elementClassAdd: "food-and-cost__popup-slider-item-count",
+      },
+    ],
+  });
 };
