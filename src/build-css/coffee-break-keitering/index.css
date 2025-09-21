@@ -876,44 +876,150 @@ li {
   }
 }
 
-.service-feature{
-    padding: 0 12px;
+.service-feature {
+  padding: 0 12px;
 }
 
-.service-feature__galery{
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-template-rows: 1fr 1fr;
-    gap: 1px;
-    justify-content: center;
+.service-feature__slider-track {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: 1fr 1fr;
+  gap: 1px;
+  justify-content: center;
 }
 
-.service-feature__galery img{
-   width: 100%;
+.service-feature__item-img {
+  width: 100%;
 }
 
-.service-feature__text{
-    max-width: 911px;
-    text-align: center;
-    margin: 0 auto;
+.service-feature__slider {
+  overflow-x: hidden;
+  margin: 0 auto;
 }
 
-.service-feature__text_up-paragraph{
-    margin: 20px auto 60px auto;
+.service-feature__slider-track {
+  transform: translateX(0);
 }
 
-.service-feature__text_down-paragraph{
-    margin: 63px auto 19px auto;
+.service-feature__slider-transition {
+  transition: transform 0.4s ease;
+}
+
+.service-feature__slider-item_pointer {
+  cursor: pointer;
+}
+
+.service-feature-popup__close-img {
+  cursor: pointer;
+}
+
+.service-feature__slider-conrols {
+  margin: 30px 0 18px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px 13px;
+}
+
+.service-feature__slider-arrow-inner {
+  cursor: pointer;
+}
+
+.service-feature__slider-arrow-inner_inactive {
+  opacity: 0.5;
+}
+
+.service-feature__popup {
+  position: fixed;
+  display: none;
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  padding: 35px 10px;
+  z-index: 15;
+}
+
+.service-feature__popup_opened {
+  display: block;
+}
+
+.service-feature-popup__close-inner {
+  display: flex;
+  justify-content: end;
+}
+
+.service-feature-popup__close-img {
+  cursor: pointer;
+}
+
+.service-feature-popup__slider-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 15px 10px;
+}
+
+.service-feature-popup__slider-arrow-right,
+.service-feature-popup__slider-arrow-left {
+  cursor: pointer;
+}
+
+.service-feature__slider-item-img_popup {
+  width: 26.5%;
+  margin: 0 auto;
+}
+
+.service-feature-popup__slider-block-content {
+  overflow-x: hidden;
+}
+
+.service-feature-popup__content-inner {
+  overflow-x: hidden;
+  margin: 0 auto;
+}
+
+.service-feature-popup__content {
+  display: flex;
+  gap: 0px;
+  align-items: center;
+  transform: translateX(0);
+}
+
+.service-feature-item_popup {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.service-feature__text {
+  max-width: 911px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.service-feature__text_up-paragraph {
+  margin: 20px auto 60px auto;
+}
+
+.service-feature__text_down-paragraph {
+  margin: 63px auto 19px auto;
 }
 
 @media screen and (max-width: 780px) {
-    .service-feature__text_up-paragraph{
+  .service-feature__text_up-paragraph {
     margin: 19px auto 52px auto;
-}
+  }
 
-.service-feature__text_down-paragraph{
+  .service-feature__text_down-paragraph {
     margin: 48px auto 19px auto;
-}
+  }
+  .service-feature__slider-item-img_popup {
+    width: 85%;
+  }
 }
 
 .service-info{
@@ -1116,69 +1222,6 @@ padding: 0 12px;
   font-weight: 600;
   font-family: "Raleway", sans-serif;
   padding: 12px 0;
-}
-
-/* .food-and-cost__slider {
-  display: flex;
-  gap: 45px;
-  max-width: 1500px;
-  justify-content: center;
-  overflow-x: hidden;
-  margin: 0 auto;
-}
-
-.food-and-cost__slider-conrols {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  align-items: center;
-  margin: 28px 0 0 0;
-}
-
-.food-and-cost__slider-arrow-inner {
-  cursor: pointer;
-}
-
-.food-and-cost__item-title {
-  margin: 26px 0 10px 0;
-}
-
-.food-and-cost__item-cost-text {
-  margin: 5px 0 0 0;
-} */
-
-@media screen and (max-width: 780px) {
-  /* .food-and-cost__slider{
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-template-rows: auto auto;
-    justify-content: start;
-    gap: 42px 15px;
-}
-
-.food-and-cost__slider-item-1{
-    order: 1;
-}
-
-.food-and-cost__slider-item-2{
-    order: 2;
-}
-
-.food-and-cost__slider-item-3{
-    order: 4;
-}
-
-.food-and-cost__slider-item-4{
-    order: 5;
-}
-
-.food-and-cost__slider-item-5{
-    order: 3;
-}
-
-.food-and-cost h2{
-    margin-bottom: 25px;
-} */
 }
 
 @media screen and (max-width: 1400px) {

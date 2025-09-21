@@ -272,7 +272,7 @@ window.onload = function () {
     "transitionend",
     galaryMenuSliderTrackTransitionEnd
   );
-  // swipe poerfolio slider popup
+  // swipe galary menu slider popup
   galaryMenuSlider.addEventListener("touchstart", function (e) {
     const node = this;
     if (node) {
@@ -292,7 +292,7 @@ window.onload = function () {
       }
     }
   });
-  // click to cross to close popup slider portfoilo block
+  // click to cross to close popup slider galary menu block
   const sliderPopUpCrossClick = closeSliderPopup.bind(null, {
     popUpSliderContentBlock: sliderPopUpBlockContent,
     popUpSlider: sliderGalaryMenuPopUp,
@@ -300,7 +300,7 @@ window.onload = function () {
     classSliderTrackPopUpTransition: "menu-galery__slider-transition",
   });
   sliderPopUpCross.addEventListener("click", sliderPopUpCrossClick);
-  // set up slider popup portfolio
+  // set up slider popup galary menu
   setPopUpForSliderPopUp({
     popup: sliderGalaryMenuPopUp,
     sliderBlockContent: sliderPopUpBlockContent,

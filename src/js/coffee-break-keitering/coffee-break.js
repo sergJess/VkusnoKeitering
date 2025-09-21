@@ -10,10 +10,7 @@ import {
   setPopUpForSliderPopUp,
   closeSliderPopup,
 } from "../utils/slider/slider-popup.js";
-import {
-  sliderFoodExampleInit,
-  setDefaultAttributeSlideIndex,
-} from "../utils/slider/food-slider-init.js";
+import { sliderFoodExampleInit } from "../utils/slider/food-slider-init.js";
 const header = document.getElementById("header-id");
 //menu
 const burger = header.querySelector(".navigation-burger");
@@ -105,6 +102,46 @@ const foodAndCostSliderPopUpArrowLeft = foodAndCostSliderPopUp.querySelector(
 const foodAndCostSliderPopUpArrowRight = foodAndCostSliderPopUp.querySelector(
   ".food-and-cost__popup-slider-arrow-right"
 );
+// slider service feature
+const serviceFeature = document.getElementById("service-feature-id");
+const serviceFeatureSlider = serviceFeature.querySelector(
+  ".service-feature__slider"
+);
+const serviceFeatureSliderTrack = serviceFeature.querySelector(
+  ".service-feature__slider-track"
+);
+const serviceFeatureSliderItem = serviceFeature.querySelector(
+  ".service-feature__slider-item"
+);
+const serviceFeatureSliderArrowLeft = serviceFeature.querySelector(
+  ".service-feature__slider-button-prev"
+);
+const serviceFeatureSliderArrowRight = serviceFeature.querySelector(
+  ".service-feature__slider-button-next"
+);
+// pop up slider service feature
+const sliderServiceFeaturePopUp = document.getElementById(
+  "service-feature__popup-id"
+);
+const serviceFeatureSliderPopUpCross = sliderServiceFeaturePopUp.querySelector(
+  ".service-feature-popup__close-img"
+);
+const serviceFeatureSliderPopUpBlockContent =
+  sliderServiceFeaturePopUp.querySelector(
+    ".service-feature-popup__slider-block-content"
+  );
+const serviceFeatureSliderPopUpContentInner =
+  sliderServiceFeaturePopUp.querySelector(
+    ".service-feature-popup__content-inner"
+  );
+const serviceFeatureSliderPopUpArrowLeft =
+  sliderServiceFeaturePopUp.querySelector(
+    ".service-feature-popup__slider-arrow-left"
+  );
+const serviceFeatureSliderPopUpArrowRight =
+  sliderServiceFeaturePopUp.querySelector(
+    ".service-feature-popup__slider-arrow-right"
+  );
 window.onload = function () {
   setReadyMadeSolutionsLinearGradient(readyMadeSolutionsContent, "#423329");
   sliderFoodExampleInit({
@@ -177,13 +214,16 @@ window.onload = function () {
     }
   });
   // click on cross slider food and cost slider popup to close
-  const sliderPopUpCrossClick = closeSliderPopup.bind(null, {
+  const foodAndCostSliderPopUpCrossClick = closeSliderPopup.bind(null, {
     popUpSliderContentBlock: foodAndCostSliderPopUpBlockContent,
     popUpSlider: foodAndCostSliderPopUp,
     classPopUpSliderOpen: "food-and-cost-slider__popup_opened",
     classSliderTrackPopUpTransition: "food-and-cost-goods__slider-transition",
   });
-  foodAndCostSliderPopUpCross.addEventListener("click", sliderPopUpCrossClick);
+  foodAndCostSliderPopUpCross.addEventListener(
+    "click",
+    foodAndCostSliderPopUpCrossClick
+  );
   // set up slider popup for food and cost
   setPopUpForSliderPopUp({
     popup: foodAndCostSliderPopUp,
@@ -224,6 +264,127 @@ window.onload = function () {
         elementQuerySelector: ".food-and-cost__item-price",
         elementClassRemove: "text-item-writing",
         elementClassAdd: "food-and-cost__popup-slider-item-count",
+      },
+    ],
+  });
+  //slider service feature
+  const serviceFeatureSliderArrowLeftClick = moveSliderFood.bind(
+    null,
+    serviceFeatureSliderTrack,
+    serviceFeatureSliderItem,
+    -1
+  );
+  const serviceFeatureSliderArrowRightClick = moveSliderFood.bind(
+    null,
+    serviceFeatureSliderTrack,
+    serviceFeatureSliderItem,
+    1
+  );
+  sliderFoodExampleInit({
+    sliderTrack: serviceFeatureSliderTrack,
+    sliderItemClass: "service-feature__slider-item",
+    tryMaxSlidesPerView: 3,
+    sliderArrowsInnerClass: "service-feature__slider-arrow-inner",
+    sliderArrowsInnerClassInactive:
+      "service-feature__slider-arrow-inner_inactive",
+    leftArrow: serviceFeatureSliderArrowLeft,
+    mobileGridWindowWidth: 999999,
+    sliderTransitionClass: "service-feature__slider-transition",
+  });
+  serviceFeatureSliderArrowLeft.addEventListener(
+    "click",
+    serviceFeatureSliderArrowLeftClick
+  );
+  serviceFeatureSliderArrowRight.addEventListener(
+    "click",
+    serviceFeatureSliderArrowRightClick
+  );
+  //transition
+  const serviceFeatureSliderTrackTransitionStart = sliderTransitionStart.bind(
+    null,
+    serviceFeatureSliderTrack
+  );
+  serviceFeatureSliderTrack.addEventListener(
+    "transitionstart",
+    serviceFeatureSliderTrackTransitionStart
+  );
+  const serviceFeatureSliderTrackTransitionEnd = sliderTransitionEnd.bind(
+    null,
+    {
+      sliderItem: serviceFeatureSliderItem,
+      sliderTrack: serviceFeatureSliderTrack,
+      arrowLeft: serviceFeatureSliderArrowLeft,
+      arrowRight: serviceFeatureSliderArrowRight,
+      arrowClassInactive: "service-feature__slider-arrow-inner_inactive",
+      sliderTrackClassTransition: "service-feature__slider-transition",
+    }
+  );
+  serviceFeatureSliderTrack.addEventListener(
+    "transitionend",
+    serviceFeatureSliderTrackTransitionEnd
+  );
+  // swipe galary menu slider popup
+  serviceFeatureSlider.addEventListener("touchstart", function (e) {
+    const node = this;
+    if (node) {
+      node.setAttribute("sliderPopUpSwipeClientX", `${e.touches[0].clientX}`);
+    }
+  });
+  serviceFeatureSlider.addEventListener("touchend", function (e) {
+    const node = this;
+    if (node && node.hasAttribute("sliderPopUpSwipeClientX")) {
+      const endX = e.changedTouches[0].clientX;
+      const threshold = 10;
+      const deltaX =
+        endX - parseInt(node.getAttribute("sliderPopUpSwipeClientX"), 10);
+      if (Math.abs(deltaX) > threshold) {
+        const direction = deltaX > 0 ? -1 : 1;
+        moveSliderFood(
+          serviceFeatureSliderTrack,
+          serviceFeatureSliderItem,
+          direction
+        );
+      }
+    }
+  });
+  // click to cross to close popup slider service feature block
+  const sliderServiceFeaturePopUpCrossClick = closeSliderPopup.bind(null, {
+    popUpSliderContentBlock: serviceFeatureSliderPopUpBlockContent,
+    popUpSlider: sliderServiceFeaturePopUp,
+    classPopUpSliderOpen: "service-feature__popup_opened",
+    classSliderTrackPopUpTransition: "service-feature__slider-transition",
+  });
+  serviceFeatureSliderPopUpCross.addEventListener(
+    "click",
+    sliderServiceFeaturePopUpCrossClick
+  );
+  // set up slider popup service feature
+  setPopUpForSliderPopUp({
+    popup: sliderServiceFeaturePopUp,
+    sliderBlockContent: serviceFeatureSliderPopUpBlockContent,
+    slider: serviceFeatureSliderPopUpContentInner,
+    sliderTrack: serviceFeatureSliderTrack,
+    tryMaxSlidesPerView: 1,
+    slidesPopupClass: "service-feature__slider-item",
+    popUpSliderTrackParentClass: "service-feature-popup__content-inner",
+    popUpSliderTrackClass: "service-feature-popup__content",
+    classToSelectOriginSlides: "service-feature__slider-item",
+    popupClassOpen: "service-feature__popup_opened",
+    contentItemClass: "service-feature-item_popup",
+    sliderArrowsInnerClass: "service-feature-popup__slider-arrow-block",
+    arrowLeft: serviceFeatureSliderPopUpArrowLeft,
+    arrowRight: serviceFeatureSliderPopUpArrowRight,
+    sliderArrowsInnerClassInactive:
+      "service-feature__slider-arrow-inner_inactive",
+    dataAttributeForSearchSlidesWithoutClones: "data-slide-index",
+    dataAttributeAllSlidesWithoutClones: "data-all-slides",
+    popupSliderTrackClassTransition: "service-feature__slider-transition",
+    popupItemClassRemove: "service-feature__slider-item_pointer",
+    popupItemsInfoArray: [
+      {
+        elementQuerySelector: ".service-feature__item-img",
+        elementClassAdd: "service-feature__slider-item-img_popup",
+        elementClassRemove: "service-feature__item-img",
       },
     ],
   });

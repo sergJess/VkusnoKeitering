@@ -139,68 +139,6 @@
   padding: 12px 0;
 }
 
-/* .food-and-cost__slider {
-  display: flex;
-  gap: 45px;
-  max-width: 1500px;
-  justify-content: center;
-  overflow-x: hidden;
-  margin: 0 auto;
-}
-
-.food-and-cost__slider-conrols {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  align-items: center;
-  margin: 28px 0 0 0;
-}
-
-.food-and-cost__slider-arrow-inner {
-  cursor: pointer;
-}
-
-.food-and-cost__item-title {
-  margin: 26px 0 10px 0;
-}
-
-.food-and-cost__item-cost-text {
-  margin: 5px 0 0 0;
-} */
-
-@media screen and (max-width: 780px) {
-  /* .food-and-cost__slider{
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-template-rows: auto auto;
-    justify-content: start;
-    gap: 42px 15px;
-}
-
-.food-and-cost__slider-item-1{
-    order: 1;
-}
-
-.food-and-cost__slider-item-2{
-    order: 2;
-}
-
-.food-and-cost__slider-item-3{
-    order: 4;
-}
-
-.food-and-cost__slider-item-4{
-    order: 5;
-}
-
-.food-and-cost__slider-item-5{
-    order: 3;
-}
-
-.food-and-cost h2{
-    margin-bottom: 25px;
-} */
-}
 @media screen and (max-width: 1400px) {
   .food-and-cost-goods {
     gap: 36px 15px;
