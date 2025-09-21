@@ -1,3 +1,19 @@
+import { setReadyMadeSolutionsLinearGradient } from "../utils/set-ready-made-solutions-linear-gradient/set-ready-made-solutions-linear-gradient.js";
+import { showOrHideUpButton } from "../utils/show-or-hide-up-button/show-or-hide-up-button.js";
+import { smoothScroll } from "../utils/smooth-scroll/smooth-scroll.js";
+import { moveSliderFood } from "../utils/slider/move-slider.js";
+import {
+  sliderTransitionStart,
+  sliderTransitionEnd,
+} from "../utils/slider/slider-transition.js";
+import {
+  setPopUpForSliderPopUp,
+  closeSliderPopup,
+} from "../utils/slider/slider-popup.js";
+import {
+  sliderFoodExampleInit,
+  setDefaultAttributeSlideIndex,
+} from "../utils/slider/food-slider-init.js";
 const header = document.getElementById("header-id");
 //menu
 const burger = header.querySelector(".navigation-burger");
@@ -46,84 +62,49 @@ for (let i = 0, length = navigationLists.length; i < length; i++) {
 const readyMeadeSolutionsBlock = document.getElementById(
   "ready-made-solutions-id"
 );
-function setReadyMadeSolutionsLinearGradient(contentInnerBlock, color) {
-  const contentBlockHeight = contentInnerBlock.clientHeight;
-  const imgInnerHeigh = contentInnerBlock.querySelector(
-    ".ready-made-solutions__img-inner"
-  ).clientHeight;
-  const textInnerHeight = contentInnerBlock.querySelector(
-    ".ready-made-solutions__text-title-block"
-  ).clientHeight;
-  if (window.innerWidth > 860) {
-    contentInnerBlock.style.backgroundImage = `linear-gradient(180deg, ${color} ${
-      textInnerHeight - 8
-    }px, #fff ${contentBlockHeight - textInnerHeight}px)`;
-  } else {
-    contentInnerBlock.style.backgroundImage = `linear-gradient(180deg, ${color} ${
-      textInnerHeight + imgInnerHeigh - 5
-    }px, #fff ${contentBlockHeight - textInnerHeight - imgInnerHeigh}px)`;
-  }
-}
 const readyMadeSolutionsContent = readyMeadeSolutionsBlock.querySelector(
   ".ready-made-solutions__content"
 );
-setReadyMadeSolutionsLinearGradient(readyMadeSolutionsContent, "#423329");
 // scroll button up
-function showOrHideUpButton() {
-  const buttonUp = this.document.getElementById("up-button-id");
-  if (this.window.scrollY > 500) {
-    buttonUp.classList.add("up-button_show");
-  } else {
-    buttonUp.classList.remove("up-button_show");
-  }
-}
 window.addEventListener("scroll", showOrHideUpButton);
 // smooth scroll
-function isNodeOrParent(target) {
-  let anchor = target;
-  if (target.parentNode.classList.contains("scroll-to")) {
-    anchor = target.parentNode;
-    return anchor;
-  }
-  return anchor;
-}
-function smoothScroll(e) {
-  if (
-    e.target.classList.contains("scroll-to") ||
-    e.target.parentNode.classList.contains("scroll-to")
-  ) {
-    e.preventDefault();
-    const scrollSpeed = 0.35;
-    let windowOffSetY = window.pageYOffset;
-    let anchorElement = isNodeOrParent(e.target)
-      .getAttribute("href")
-      .replace("#", "");
-    let toScrollElelement = document.getElementById(anchorElement);
-    let topCoordsOftoScrollElelement =
-      toScrollElelement.getBoundingClientRect().top;
-    let start = null;
-    requestAnimationFrame(step);
-    function step(time) {
-      if (start === null) start = time;
-      let progress = time - start;
-      let windowCoordsToScrollY =
-        topCoordsOftoScrollElelement < 0
-          ? Math.max(
-              windowOffSetY - progress / scrollSpeed,
-              windowOffSetY + topCoordsOftoScrollElelement
-            )
-          : Math.min(
-              windowOffSetY + progress / scrollSpeed,
-              windowOffSetY + topCoordsOftoScrollElelement
-            );
-      window.scrollTo(0, windowCoordsToScrollY);
-      if (
-        windowCoordsToScrollY !=
-        windowOffSetY + topCoordsOftoScrollElelement
-      ) {
-        requestAnimationFrame(step);
-      }
-    }
-  }
-}
 document.addEventListener("click", smoothScroll);
+// food-and-cost slider
+const foodAndCostBlock = document.getElementById("food-and-cost-id");
+const foodAndCostSlider = foodAndCostBlock.querySelector(
+  ".food-and-cost__slider"
+);
+const foodAndCostSliderInner = foodAndCostBlock.querySelector(
+  ".food-and-cost-goods"
+);
+const foodAndCostSliderItem = foodAndCostSliderInner.querySelector(
+  ".food-and-cost-goods__item"
+);
+const foodAndCostArrowLeft = foodAndCostBlock.querySelector(
+  ".food-and-cost__slider-button-prev"
+);
+const foodAndCostArrowRight = foodAndCostBlock.querySelector(
+  ".food-and-cost__slider-button-next"
+);
+//slider popup food example
+const foodAndCostSliderPopUp = document.getElementById(
+  "food-and-cost-slider__popup-id"
+);
+const foodAndCostSliderPopUpCross = foodAndCostSliderPopUp.querySelector(
+  ".food-and-cost-popup__close-img"
+);
+const foodAndCostSliderPopUpBlockContent = foodAndCostSliderPopUp.querySelector(
+  ".food-and-cost-slider__popup-block-content"
+);
+const foodAndCostSliderPopUpContentInner = foodAndCostSliderPopUp.querySelector(
+  ".food-and-cost-slider__popup-content-inner"
+);
+const foodAndCostSliderPopUpArrowLeft = foodAndCostSliderPopUp.querySelector(
+  ".food-and-cost__popup-slider-arrow-left"
+);
+const foodAndCostSliderPopUpArrowRight = foodAndCostSliderPopUp.querySelector(
+  ".food-and-cost__popup-slider-arrow-right"
+);
+window.onload = function () {
+  setReadyMadeSolutionsLinearGradient(readyMadeSolutionsContent, "#423329");
+};
